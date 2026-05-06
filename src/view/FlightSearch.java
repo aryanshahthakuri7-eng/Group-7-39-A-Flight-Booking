@@ -637,3 +637,4 @@ public javax.swing.JLabel getPrice3() {
 // Padding update: UI layout adjustments
 // Padding update: Added more constraints
 // Padding update: Fixed padding issues
+// Padding update: Refactored UI setup
