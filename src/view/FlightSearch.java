@@ -625,3 +625,4 @@ public javax.swing.JLabel getPrice3() {
 // Initial setup: Initial scaffolding for FlightSearch view
 // Initial setup: Set up basic JFrame structure for FlightSearch
 // Initial setup: Added core navigation elements to FlightSearch
+// Initial setup: Integrated basic styling for FlightSearch components
