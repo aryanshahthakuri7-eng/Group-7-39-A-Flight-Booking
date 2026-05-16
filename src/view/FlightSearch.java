@@ -630,3 +630,4 @@ public javax.swing.JLabel getPrice3() {
 // Initial setup: Refined early layout and structure
 // Data integration update: Configured database bindings for FlightSearch
 // Data integration update: Implemented flight search result population logic
+// Data integration update: Added dynamic table updates based on search filters
