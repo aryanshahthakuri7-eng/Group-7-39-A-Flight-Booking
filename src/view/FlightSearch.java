@@ -623,3 +623,4 @@ public javax.swing.JLabel getPrice3() {
 // Final adjustment: Optimized memory usage for FlightSearch table data
 // Final adjustment: Final review and lock of FlightSearch UI
 // Initial setup: Initial scaffolding for FlightSearch view
+// Initial setup: Set up basic JFrame structure for FlightSearch
