@@ -1367,3 +1367,5 @@ public class dashboard extends javax.swing.JFrame {
 }
 
 // Commit 1: Documented dashboard header logo dimension specifications
+
+// Commit 2: Documented sidebar loyalty points metric container layout
