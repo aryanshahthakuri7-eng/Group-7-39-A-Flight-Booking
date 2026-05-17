@@ -1,0 +1,81 @@
+package controller;
+
+import model.Flight;
+import view.seatselection;
+import javax.swing.JOptionPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+/**
+ * Controller linking Seat Selection view with booking data flow.
+ * Calculates upgrade fees and manages navigation routes.
+ */
+public class SeatSelectionController {
+
+    private final seatselection view;
+    private final Flight flight;
+    private final String passengerName;
+    private final BookingController bookingController;
+
+    public SeatSelectionController(seatselection view, Flight flight, String passengerName) {
+        this.view = view;
+        this.flight = flight;
+        this.passengerName = passengerName;
+        this.bookingController = new BookingController();
+        initController();
+    }
+
+    private void initController() {
+        // Sidebar Navigation
+        view.getLblDashboard().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToDashboard(view); }
+        });
+        view.getLblSearchFlight().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToSearchFlight(view); }
+        });
+        view.getLblMyBookings().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToMyBookings(view); }
+        });
+        view.getLblProfile().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToProfile(view); }
+        });
+        view.getLblCustomerSupport().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToCustomerSupport(view); }
+        });
+        view.getLblLogout().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.logout(view); }
+        });
+        view.getBtnBookNewFlight().addActionListener(e -> NavigationController.goToSearchFlight(view));
+
+        // Header and back links
+        view.getLblBackToHome().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToDashboard(view); }
+        });
+        view.getLblBackToPassenger().addMouseListener(new MouseAdapter() {
+            @Override public void mouseClicked(MouseEvent e) { NavigationController.goToFlightDetails(view, flight); }
+        });
+
+        // Action Buttons
+        view.getBtnConfirmSeat().addActionListener(e -> handleConfirmSeat());
+        view.getBtnBackResults().addActionListener(e -> NavigationController.goToSearchFlight(view));
+    }
+
+    private void handleConfirmSeat() {
+        String seat = view.getSelectedSeatCode();
+        if (seat == null || seat.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Please select a seat to proceed.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Complete the MVC flow by booking the seat in the database
+        // Payment will be resolved on the next screen (PaymentFrame)
+        boolean success = bookingController.bookFlight(flight, passengerName, seat, "CREDIT_CARD");
+
+        if (success) {
+            JOptionPane.showMessageDialog(view, "Seat " + seat + " selected successfully! Redirecting to Payment...", "Seat Selection Confirmed", JOptionPane.INFORMATION_MESSAGE);
+            NavigationController.goToPayment(view);
+        } else {
+            JOptionPane.showMessageDialog(view, "Seat selection failed. Seat might have been occupied. Please choose another seat.", "Seat Selection Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
