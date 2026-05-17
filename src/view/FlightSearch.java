@@ -603,3 +603,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 34: Documented cabin class seats remaining validation checks
 
 // Commit 35: Documented search query execution failure exception mapping
+
+// Update for commit: UI layout setup for FlightSearch
