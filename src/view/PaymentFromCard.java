@@ -971,3 +971,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 8: Explained card expiry date parsing logic
 
 // Commit 10: Final annotations for NetBeans UI builder elements
+
+// Commit 1: Initial design specifications for card checkout
