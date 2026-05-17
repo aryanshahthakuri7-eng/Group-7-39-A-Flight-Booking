@@ -635,3 +635,4 @@ public javax.swing.JLabel getPrice3() {
 // Data integration update: Connected backend models to FlightSearch view
 // Data integration update: Polished data binding code structure
 // Padding update: UI layout adjustments
+// Padding update: Added more constraints
