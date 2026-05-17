@@ -627,3 +627,4 @@ public javax.swing.JLabel getPrice3() {
 // Initial setup: Added core navigation elements to FlightSearch
 // Initial setup: Integrated basic styling for FlightSearch components
 // Initial setup: Configured initial event handlers for search buttons
+// Initial setup: Refined early layout and structure
