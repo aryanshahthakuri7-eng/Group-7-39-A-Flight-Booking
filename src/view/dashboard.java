@@ -1365,3 +1365,5 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtDepartDate;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 1: Documented dashboard header logo dimension specifications
