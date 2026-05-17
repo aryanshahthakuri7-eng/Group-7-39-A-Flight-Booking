@@ -609,3 +609,5 @@ public class profie extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 1: Documented user profile photo avatar size bounds
