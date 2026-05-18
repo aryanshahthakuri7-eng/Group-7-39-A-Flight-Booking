@@ -1221,3 +1221,5 @@ public class seatselection extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTopHeader;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 2: Documented seat selection layout and dynamic seat grid generation
