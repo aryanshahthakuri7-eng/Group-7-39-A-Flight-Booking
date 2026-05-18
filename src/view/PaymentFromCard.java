@@ -973,3 +973,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 10: Final annotations for NetBeans UI builder elements
 
 // Commit 1: Initial design specifications for card checkout
+
+// Commit 3: Explained card number regex verification constraints
