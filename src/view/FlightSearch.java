@@ -605,3 +605,4 @@ public javax.swing.JLabel getPrice3() {
 // Commit 35: Documented search query execution failure exception mapping
 
 // Update for commit: UI layout setup for FlightSearch
+// Update for commit: Added labels and placeholders for flight results
