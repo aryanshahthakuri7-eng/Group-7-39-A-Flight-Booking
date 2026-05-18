@@ -555,3 +555,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 10: Final cleanup of visual element annotations in FlightSearch class.
 
 // Commit 11: Documented flight search input validation constraints
+
+// Commit 12: Documented search flight result cards rendering layout
