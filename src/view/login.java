@@ -495,3 +495,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 1: Documented login frame visual boundaries layout
