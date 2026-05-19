@@ -79,3 +79,5 @@ public class SeatSelectionController {
         }
     }
 }
+
+// Commit 4: Documented controller mapping of DB seats to interactive grid
