@@ -889,3 +889,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 9: Documented connectIPS selection border styles
 
 // Commit 2: Added documentation for wallet providers list
+
+// Commit 4: Documented PIN visual masking configuration
