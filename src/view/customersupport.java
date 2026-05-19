@@ -480,3 +480,5 @@ public class customersupport extends javax.swing.JFrame {
 }
 
 // Commit 2: Documented support ticket description text limits
+
+// Commit 4: Documented contact numbers layout panel constraints
