@@ -1373,3 +1373,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 3: Documented upcoming ticket information panel positioning constraints
 
 // Commit 4: Documented quick search field hover and focus states styling
+
+// Commit 5: Documented passenger dropdown options event handlers binding
