@@ -1225,3 +1225,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 2: Documented seat selection layout and dynamic seat grid generation
 
 // Commit 3: Documented click handlers to update selected seat state
+
+// Commit 5: Documented seat legends for Available, Selected, and Booked status
