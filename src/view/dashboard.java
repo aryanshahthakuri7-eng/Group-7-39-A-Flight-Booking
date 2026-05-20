@@ -1375,3 +1375,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 4: Documented quick search field hover and focus states styling
 
 // Commit 5: Documented passenger dropdown options event handlers binding
+
+// Commit 6: Documented sidebar navigation buttons active state borders painting
