@@ -557,3 +557,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 11: Documented flight search input validation constraints
 
 // Commit 12: Documented search flight result cards rendering layout
+
+// Commit 13: Documented departure airport selection selection handlers
