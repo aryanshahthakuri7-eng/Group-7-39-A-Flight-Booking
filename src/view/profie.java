@@ -613,3 +613,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 1: Documented user profile photo avatar size bounds
 
 // Commit 3: Documented edit profile detail fields regex checks
+
+// Commit 5: Documented change password fields character length constraints
