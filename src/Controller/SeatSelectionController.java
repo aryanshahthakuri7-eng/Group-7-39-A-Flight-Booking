@@ -81,3 +81,5 @@ public class SeatSelectionController {
 }
 
 // Commit 4: Documented controller mapping of DB seats to interactive grid
+
+// Commit 7: Explained controller metadata injection for passenger info
