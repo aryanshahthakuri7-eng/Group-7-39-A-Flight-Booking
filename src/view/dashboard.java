@@ -1377,3 +1377,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 5: Documented passenger dropdown options event handlers binding
 
 // Commit 6: Documented sidebar navigation buttons active state borders painting
+
+// Commit 7: Documented dashboard status indicator operation labels mapping
