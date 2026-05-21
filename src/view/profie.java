@@ -615,3 +615,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 3: Documented edit profile detail fields regex checks
 
 // Commit 5: Documented change password fields character length constraints
+
+// Commit 7: Documented user profile status indicator active colors
