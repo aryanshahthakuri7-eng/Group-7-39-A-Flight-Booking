@@ -609,3 +609,4 @@ public javax.swing.JLabel getPrice3() {
 // Update for commit: Implemented scroll panes and text areas
 // Update for commit: Configured layout constraints and grouping
 // Update for commit: Refined colors and borders for UI elements
+// Update for commit: Finalized FlightSearch view design
