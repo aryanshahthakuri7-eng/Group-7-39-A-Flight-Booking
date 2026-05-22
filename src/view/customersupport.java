@@ -484,3 +484,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 4: Documented contact numbers layout panel constraints
 
 // Commit 6: Documented support ticket submission callback handler routing
+
+// Commit 8: Documented support chat overlay visibility state rules
