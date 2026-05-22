@@ -1229,3 +1229,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 5: Documented seat legends for Available, Selected, and Booked status
 
 // Commit 6: Documented checkout redirection and seat validation trigger
+
+// Commit 8: Explained grid placement math for standard airliner seat configurations
