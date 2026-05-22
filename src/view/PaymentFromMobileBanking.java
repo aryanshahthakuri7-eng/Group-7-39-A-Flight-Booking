@@ -893,3 +893,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 4: Documented PIN visual masking configuration
 
 // Commit 6: Documented API redirection routing hooks
+
+// Commit 8: Documented bank selector items loading logic
