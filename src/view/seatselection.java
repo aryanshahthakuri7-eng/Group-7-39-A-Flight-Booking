@@ -1231,3 +1231,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 6: Documented checkout redirection and seat validation trigger
 
 // Commit 8: Explained grid placement math for standard airliner seat configurations
+
+// Commit 10: Final notes for NetBeans UI builder properties on seat panels
