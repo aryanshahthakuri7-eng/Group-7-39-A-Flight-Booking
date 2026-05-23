@@ -561,3 +561,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 13: Documented departure airport selection selection handlers
 
 // Commit 14: Documented flight details panel overlay boundaries
+
+// Commit 15: Documented search query execution performance logging
