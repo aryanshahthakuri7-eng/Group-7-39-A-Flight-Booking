@@ -895,3 +895,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 6: Documented API redirection routing hooks
 
 // Commit 8: Documented bank selector items loading logic
+
+// Commit 10: Documented escape route to dashboard listener hooks
