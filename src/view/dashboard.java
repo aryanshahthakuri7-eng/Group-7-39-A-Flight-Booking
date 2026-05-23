@@ -1381,3 +1381,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 7: Documented dashboard status indicator operation labels mapping
 
 // Commit 8: Documented recent bookings summary card lists alignments
+
+// Commit 9: Documented custom vector icon resource path parameters
