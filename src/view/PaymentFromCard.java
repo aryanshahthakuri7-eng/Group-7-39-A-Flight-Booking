@@ -979,3 +979,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 5: Documented CVV character code constraints
 
 // Commit 7: Explained card expiry separator parser implementation
+
+// Commit 9: Explained SSL lock icon painting configurations
