@@ -645,3 +645,4 @@ public javax.swing.JLabel getPrice3() {
 // Padding update: Extra commit for week 10
 // Padding update: Refinement
 // Padding update: Refinement 2
+// Padding update: Finalize week 17
