@@ -1233,3 +1233,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 8: Explained grid placement math for standard airliner seat configurations
 
 // Commit 10: Final notes for NetBeans UI builder properties on seat panels
+
+// Commit 11: Documented row bounds check inside grid mouse handler
