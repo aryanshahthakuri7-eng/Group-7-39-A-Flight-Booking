@@ -85,3 +85,5 @@ public class SeatSelectionController {
 // Commit 7: Explained controller metadata injection for passenger info
 
 // Commit 9: Documented SQL filters used to query booked seats for flight
+
+// Commit 12: Explained local occupied states caching optimization
