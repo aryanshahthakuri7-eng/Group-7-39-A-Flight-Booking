@@ -499,3 +499,5 @@ public class login extends javax.swing.JFrame {
 // Commit 1: Documented login frame visual boundaries layout
 
 // Commit 4: Documented login email input validation regex checks
+
+// Commit 7: Documented login panel custom background coloring
