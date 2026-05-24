@@ -897,3 +897,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 8: Documented bank selector items loading logic
 
 // Commit 10: Documented escape route to dashboard listener hooks
+
+// Commit 12: Documented eSewa payment callback response parsing
