@@ -1385,3 +1385,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 9: Documented custom vector icon resource path parameters
 
 // Commit 10: Documented ticket box mouse listener callback routing hooks
+
+// Commit 11: Documented dashboard content area switching logic
