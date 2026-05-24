@@ -488,3 +488,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 8: Documented support chat overlay visibility state rules
 
 // Commit 10: Documented customer support navigation back to dashboard link
+
+// Commit 12: Documented support ticket category options dropdown
