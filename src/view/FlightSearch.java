@@ -563,3 +563,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 14: Documented flight details panel overlay boundaries
 
 // Commit 15: Documented search query execution performance logging
+
+// Commit 16: Documented select destination airport combobox properties
