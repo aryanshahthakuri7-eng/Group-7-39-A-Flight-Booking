@@ -611,3 +611,4 @@ public javax.swing.JLabel getPrice3() {
 // Update for commit: Refined colors and borders for UI elements
 // Update for commit: Finalized FlightSearch view design
 // Follow-up update: Refactored FlightSearch UI logic for better readability
+// Follow-up update: Added JavaDoc comments to FlightSearch methods
