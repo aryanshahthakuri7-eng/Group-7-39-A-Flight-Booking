@@ -621,3 +621,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 9: Documented edit profile cancel button redirect hooks
 
 // Commit 11: Documented user profile settings layout dimensions
+
+// Commit 13: Documented edit user profile save button action events
