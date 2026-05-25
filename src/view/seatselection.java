@@ -1235,3 +1235,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 10: Final notes for NetBeans UI builder properties on seat panels
 
 // Commit 11: Documented row bounds check inside grid mouse handler
+
+// Commit 13: Added documentation for repainting selected seats on hover
