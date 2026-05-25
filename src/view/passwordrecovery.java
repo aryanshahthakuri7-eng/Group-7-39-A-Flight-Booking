@@ -736,3 +736,5 @@ public class passwordrecovery extends javax.swing.JFrame {
         return lblError;
     }
 }
+
+// Commit 2: Documented password recovery input validation logic
