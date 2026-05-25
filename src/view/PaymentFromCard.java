@@ -983,3 +983,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 9: Explained SSL lock icon painting configurations
 
 // Commit 11: Documented card security indicators validation logic
+
+// Commit 13: Documented credit card logo auto-switching logic
