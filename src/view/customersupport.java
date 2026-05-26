@@ -490,3 +490,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 10: Documented customer support navigation back to dashboard link
 
 // Commit 12: Documented support ticket category options dropdown
+
+// Commit 14: Documented support contact email input constraints
