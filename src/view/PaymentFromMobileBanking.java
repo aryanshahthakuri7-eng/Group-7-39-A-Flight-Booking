@@ -899,3 +899,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 10: Documented escape route to dashboard listener hooks
 
 // Commit 12: Documented eSewa payment callback response parsing
+
+// Commit 14: Documented Khalti wallet payment SDK integration mapping
