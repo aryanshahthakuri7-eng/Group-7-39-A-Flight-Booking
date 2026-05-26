@@ -30,13 +30,6 @@ public class FlightDetails extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -89,13 +82,13 @@ public class FlightDetails extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextPane6 = new javax.swing.JTextPane();
         jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane7 = new javax.swing.JTextPane();
-        jLabel50 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextPane8 = new javax.swing.JTextPane();
-        jPanel2 = new javax.swing.JPanel();
+        Dashboard = new javax.swing.JButton();
+        SearchFlights = new javax.swing.JButton();
+        MyBookings = new javax.swing.JButton();
+        Profile = new javax.swing.JButton();
+        CustomerSupport = new javax.swing.JButton();
+        BookNewFlight = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 51));
@@ -109,36 +102,6 @@ public class FlightDetails extends javax.swing.JFrame {
         jLabel5.setText("YATRAAIR");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(70, 50, 69, 20);
-
-        jLabel1.setText("    Dashboard");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(80, 90, 90, 30);
-
-        jLabel2.setText("  Search Flights");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(80, 130, 90, 30);
-
-        jLabel3.setText("   My Bookings");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(80, 170, 90, 30);
-
-        jLabel4.setText("     Profile");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(80, 210, 90, 30);
-
-        jLabel6.setText("  Customer Support");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(70, 250, 110, 40);
-
-        jScrollPane1.setViewportView(jTextPane1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 80, 130, 230);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText(": Back to Search Results");
@@ -365,31 +328,34 @@ public class FlightDetails extends javax.swing.JFrame {
         getContentPane().add(jLabel48);
         jLabel48.setBounds(620, 560, 230, 20);
 
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel49.setText("Book New Flight");
-        getContentPane().add(jLabel49);
-        jLabel49.setBounds(100, 540, 140, 30);
+        Dashboard.setText("    Dashboard");
+        getContentPane().add(Dashboard);
+        Dashboard.setBounds(70, 90, 110, 40);
 
-        jTextPane7.setBackground(new java.awt.Color(0, 51, 204));
-        jScrollPane7.setViewportView(jTextPane7);
+        SearchFlights.setText("  Search Flights");
+        getContentPane().add(SearchFlights);
+        SearchFlights.setBounds(70, 140, 110, 40);
 
-        getContentPane().add(jScrollPane7);
-        jScrollPane7.setBounds(90, 540, 130, 30);
+        MyBookings.setText("   My Bookings");
+        getContentPane().add(MyBookings);
+        MyBookings.setBounds(70, 190, 110, 40);
 
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel50.setText("Logout");
-        getContentPane().add(jLabel50);
-        jLabel50.setBounds(90, 580, 90, 30);
+        Profile.setText("     Profile");
+        getContentPane().add(Profile);
+        Profile.setBounds(70, 240, 110, 40);
 
-        jScrollPane8.setViewportView(jTextPane8);
+        CustomerSupport.setText("  Customer Support");
+        getContentPane().add(CustomerSupport);
+        CustomerSupport.setBounds(50, 290, 160, 50);
 
-        getContentPane().add(jScrollPane8);
-        jScrollPane8.setBounds(30, 30, 840, 600);
+        BookNewFlight.setText("Book New Flight");
+        getContentPane().add(BookNewFlight);
+        BookNewFlight.setBounds(60, 520, 150, 40);
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 900, 660);
+        Logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Logout.setText("Logout");
+        getContentPane().add(Logout);
+        Logout.setBounds(80, 570, 90, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -420,7 +386,13 @@ public class FlightDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton BookNewFlight;
+    private javax.swing.JButton CustomerSupport;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton MyBookings;
+    private javax.swing.JButton Profile;
+    private javax.swing.JButton SearchFlights;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -431,7 +403,6 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -442,7 +413,6 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -453,7 +423,6 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -463,30 +432,20 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane7;
-    private javax.swing.JTextPane jTextPane8;
     // End of variables declaration//GEN-END:variables
 }
