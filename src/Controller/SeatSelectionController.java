@@ -87,3 +87,5 @@ public class SeatSelectionController {
 // Commit 9: Documented SQL filters used to query booked seats for flight
 
 // Commit 12: Explained local occupied states caching optimization
+
+// Commit 14: Documented next view routing configuration on click
