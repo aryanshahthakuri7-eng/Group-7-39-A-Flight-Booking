@@ -623,3 +623,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 11: Documented user profile settings layout dimensions
 
 // Commit 13: Documented edit user profile save button action events
+
+// Commit 15: Documented change password confirmation checks styling
