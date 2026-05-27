@@ -1237,3 +1237,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 11: Documented row bounds check inside grid mouse handler
 
 // Commit 13: Added documentation for repainting selected seats on hover
+
+// Commit 15: Documented tooltips representing seat type details
