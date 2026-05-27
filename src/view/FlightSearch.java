@@ -567,3 +567,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 16: Documented select destination airport combobox properties
 
 // Commit 17: Documented departure date calendar selection formatting
+
+// Commit 18: Documented passenger count spinners limits validation
