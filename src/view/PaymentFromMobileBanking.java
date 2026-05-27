@@ -901,3 +901,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 12: Documented eSewa payment callback response parsing
 
 // Commit 14: Documented Khalti wallet payment SDK integration mapping
+
+// Commit 16: Documented IME Pay wallet selection highlight borders
