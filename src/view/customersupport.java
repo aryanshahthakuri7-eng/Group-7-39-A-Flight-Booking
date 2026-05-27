@@ -492,3 +492,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 12: Documented support ticket category options dropdown
 
 // Commit 14: Documented support contact email input constraints
+
+// Commit 16: Documented live chat button hover states rendering
