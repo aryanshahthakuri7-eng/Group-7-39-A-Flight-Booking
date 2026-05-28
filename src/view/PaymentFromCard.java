@@ -987,3 +987,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 13: Documented credit card logo auto-switching logic
 
 // Commit 15: Documented cardholder name input character limitations
+
+// Commit 17: Documented card input focus transition event handlers
