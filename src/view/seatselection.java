@@ -1239,3 +1239,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 13: Added documentation for repainting selected seats on hover
 
 // Commit 15: Documented tooltips representing seat type details
+
+// Commit 17: Documented accessibility guidelines and keyboard arrow navigation
