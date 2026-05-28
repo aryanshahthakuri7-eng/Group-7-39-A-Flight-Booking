@@ -89,3 +89,5 @@ public class SeatSelectionController {
 // Commit 12: Explained local occupied states caching optimization
 
 // Commit 14: Documented next view routing configuration on click
+
+// Commit 16: Explained seat reservation locking query logic
