@@ -625,3 +625,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 13: Documented edit user profile save button action events
 
 // Commit 15: Documented change password confirmation checks styling
+
+// Commit 17: Documented user profile database model mapping constraints
