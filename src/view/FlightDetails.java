@@ -78,10 +78,6 @@ public class FlightDetails extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextPane5 = new javax.swing.JTextPane();
-        jLabel47 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
-        jLabel48 = new javax.swing.JLabel();
         Dashboard = new javax.swing.JButton();
         SearchFlights = new javax.swing.JButton();
         MyBookings = new javax.swing.JButton();
@@ -89,6 +85,8 @@ public class FlightDetails extends javax.swing.JFrame {
         CustomerSupport = new javax.swing.JButton();
         BookNewFlight = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
+        SaveForLater = new javax.swing.JButton();
+        Proceed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 51));
@@ -310,24 +308,6 @@ public class FlightDetails extends javax.swing.JFrame {
         getContentPane().add(jScrollPane5);
         jScrollPane5.setBounds(630, 410, 220, 110);
 
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel47.setText("Proceed to passenger details >");
-        getContentPane().add(jLabel47);
-        jLabel47.setBounds(630, 530, 210, 20);
-
-        jTextPane6.setBackground(new java.awt.Color(0, 102, 255));
-        jScrollPane6.setViewportView(jTextPane6);
-
-        getContentPane().add(jScrollPane6);
-        jScrollPane6.setBounds(620, 530, 230, 22);
-
-        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel48.setText("Save For Later                             >");
-        jLabel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel48);
-        jLabel48.setBounds(620, 560, 230, 20);
-
         Dashboard.setText("    Dashboard");
         getContentPane().add(Dashboard);
         Dashboard.setBounds(70, 90, 110, 40);
@@ -357,8 +337,23 @@ public class FlightDetails extends javax.swing.JFrame {
         getContentPane().add(Logout);
         Logout.setBounds(80, 570, 90, 30);
 
+        SaveForLater.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SaveForLater.setText("Save For Later                >");
+        SaveForLater.addActionListener(this::SaveForLaterActionPerformed);
+        getContentPane().add(SaveForLater);
+        SaveForLater.setBounds(620, 570, 230, 30);
+
+        Proceed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Proceed.setText("Proceed to passenger details >");
+        getContentPane().add(Proceed);
+        Proceed.setBounds(620, 530, 230, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SaveForLaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveForLaterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveForLaterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,7 +386,9 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JButton Dashboard;
     private javax.swing.JButton Logout;
     private javax.swing.JButton MyBookings;
+    private javax.swing.JButton Proceed;
     private javax.swing.JButton Profile;
+    private javax.swing.JButton SaveForLater;
     private javax.swing.JButton SearchFlights;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -430,8 +427,6 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -441,11 +436,9 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
     // End of variables declaration//GEN-END:variables
 }
