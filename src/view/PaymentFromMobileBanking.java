@@ -903,3 +903,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 14: Documented Khalti wallet payment SDK integration mapping
 
 // Commit 16: Documented IME Pay wallet selection highlight borders
+
+// Commit 18: Documented OTP timer counting intervals details
