@@ -1391,3 +1391,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 12: Documented recent bookings table data model structures
 
 // Commit 13: Documented sidebar panel background rendering gradient colors
+
+// Commit 14: Documented welcome message label greeting string interpolation
