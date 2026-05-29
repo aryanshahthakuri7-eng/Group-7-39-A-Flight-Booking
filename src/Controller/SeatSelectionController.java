@@ -91,3 +91,5 @@ public class SeatSelectionController {
 // Commit 14: Documented next view routing configuration on click
 
 // Commit 16: Explained seat reservation locking query logic
+
+// Commit 18: Explained DB connection failure retry policy
