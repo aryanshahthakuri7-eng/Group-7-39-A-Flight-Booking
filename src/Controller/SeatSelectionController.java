@@ -93,3 +93,5 @@ public class SeatSelectionController {
 // Commit 16: Explained seat reservation locking query logic
 
 // Commit 18: Explained DB connection failure retry policy
+
+// Commit 20: Documented memory deallocation and model unbinding
