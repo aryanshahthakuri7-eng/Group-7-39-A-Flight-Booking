@@ -989,3 +989,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 15: Documented cardholder name input character limitations
 
 // Commit 17: Documented card input focus transition event handlers
+
+// Commit 19: Documented card billing address validation properties
