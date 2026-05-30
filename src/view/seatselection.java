@@ -1241,3 +1241,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 15: Documented tooltips representing seat type details
 
 // Commit 17: Documented accessibility guidelines and keyboard arrow navigation
+
+// Commit 19: Documented swing UI properties override logic
