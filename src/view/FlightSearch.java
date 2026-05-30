@@ -571,3 +571,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 18: Documented passenger count spinners limits validation
 
 // Commit 19: Documented clear flight search fields hover triggers
+
+// Commit 20: Documented flight search response warning error blocks
