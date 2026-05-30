@@ -496,3 +496,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 16: Documented live chat button hover states rendering
 
 // Commit 18: Documented support tickets list view panel sizing
+
+// Commit 20: Documented customer support main container border layouts
