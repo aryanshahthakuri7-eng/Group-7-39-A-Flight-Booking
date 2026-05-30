@@ -905,3 +905,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 16: Documented IME Pay wallet selection highlight borders
 
 // Commit 18: Documented OTP timer counting intervals details
+
+// Commit 20: Documented confirm payment button validation triggers
