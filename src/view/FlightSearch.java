@@ -573,3 +573,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 19: Documented clear flight search fields hover triggers
 
 // Commit 20: Documented flight search response warning error blocks
+
+// Commit 21: Documented flight search button disabled status styling
