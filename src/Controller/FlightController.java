@@ -4,6 +4,9 @@
  */
 package controller;
 
+/**
+ * Controller class managing the flight search data binding and loading.
+ */
 import dao.FlightDAO;
 import java.util.ArrayList;
 import model.SearchFlight;
@@ -23,6 +26,10 @@ public final class FlightController {
 
     }
 
+    /**
+     * Loads flight data from the DAO database and populates the view search flight cards.
+     * It binds flight details like name, departure time, arrival time, class, and price.
+     */
     public void loadFlights(){
 
         ArrayList<SearchFlight> list=
