@@ -1243,3 +1243,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 17: Documented accessibility guidelines and keyboard arrow navigation
 
 // Commit 19: Documented swing UI properties override logic
+
+// Commit 21: Documented seat row standard alphabetical layout conversion
