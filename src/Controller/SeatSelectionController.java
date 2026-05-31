@@ -95,3 +95,5 @@ public class SeatSelectionController {
 // Commit 18: Explained DB connection failure retry policy
 
 // Commit 20: Documented memory deallocation and model unbinding
+
+// Commit 22: Explained model flight pricing references mapping
