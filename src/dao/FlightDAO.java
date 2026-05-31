@@ -4,6 +4,9 @@
  */
 package dao;
 
+/**
+ * Data Access Object class for executing flight-related database queries.
+ */
 import model.SearchFlight;
 import java.sql.*;
 import java.util.ArrayList;

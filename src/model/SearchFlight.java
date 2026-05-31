@@ -4,6 +4,9 @@
  */
 package model;
 
+/**
+ * Model class representing a Flight Search result entity.
+ */
 public class SearchFlight {
 
     private final String flightName;
