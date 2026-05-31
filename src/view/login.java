@@ -503,3 +503,5 @@ public class login extends javax.swing.JFrame {
 // Commit 7: Documented login panel custom background coloring
 
 // Commit 10: Documented login submit button key press activation
+
+// Commit 13: Documented login panel custom border rendering attributes
