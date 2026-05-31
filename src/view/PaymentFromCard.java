@@ -991,3 +991,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 17: Documented card input focus transition event handlers
 
 // Commit 19: Documented card billing address validation properties
+
+// Commit 21: Documented card UI form border layouts styling
