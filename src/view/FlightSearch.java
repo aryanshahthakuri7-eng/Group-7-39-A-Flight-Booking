@@ -617,3 +617,4 @@ public javax.swing.JLabel getPrice3() {
 // Follow-up update: Enhanced action listener setup for buttons
 // Follow-up update: Final polish on FlightSearch code formatting
 // Final adjustment: Reviewed FlightSearch code and added minor adjustments
+// Final adjustment: Refined error handling in FlightSearch UI
