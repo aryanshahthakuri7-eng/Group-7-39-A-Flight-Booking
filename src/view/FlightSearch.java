@@ -32,19 +32,12 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -56,13 +49,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -74,9 +60,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
@@ -88,19 +71,22 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
-        jLabel53 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextPane8 = new javax.swing.JTextPane();
+        dashboard = new javax.swing.JButton();
+        SearchFlights = new javax.swing.JButton();
+        mybookings = new javax.swing.JButton();
+        checkin = new javax.swing.JButton();
+        profile = new javax.swing.JButton();
+        customersupport = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
+        filterres = new javax.swing.JButton();
+        viewdetails = new javax.swing.JButton();
+        viewresults1 = new javax.swing.JButton();
+        viewresults2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 102, 255));
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -111,48 +97,12 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Search Flight Results");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(310, 16, 175, 34);
+        jLabel2.setBounds(350, 20, 175, 34);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Showing available flights based on your search criteria");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(190, 54, 483, 25);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("  Dashboard");
-        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(60, 70, 96, 36);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("  Search Flights");
-        jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 110, 96, 35);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("  My Bookings");
-        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(60, 150, 96, 35);
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("  Check-In");
-        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(60, 190, 96, 39);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("   Profile");
-        jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(60, 240, 96, 40);
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Customer Support");
-        jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(50, 290, 117, 41);
+        jLabel3.setBounds(240, 60, 483, 25);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Route");
@@ -181,11 +131,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel15);
         jLabel15.setBounds(420, 190, 72, 18);
-
-        jLabel16.setText(" ---          FILTER RESULTS");
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel16);
-        jLabel16.setBounds(580, 160, 176, 49);
 
         jLabel17.setText("YatraAir 101");
         jPanel1.add(jLabel17);
@@ -233,26 +178,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jPanel1.add(jLabel27);
         jLabel27.setBounds(600, 300, 70, 20);
 
-        jLabel28.setText(": VIEW DETAILS");
-        jLabel28.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 255), null));
-        jPanel1.add(jLabel28);
-        jLabel28.setBounds(680, 290, 90, 20);
-
-        jScrollPane1.setViewportView(jTextPane1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(200, 250, 590, 100);
-
-        jScrollPane2.setViewportView(jTextPane2);
-
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(200, 150, 590, 80);
-
-        jScrollPane3.setViewportView(jTextPane3);
-
-        jPanel1.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 50, 140, 290);
-
         jLabel29.setText("YatraAir 202");
         jPanel1.add(jLabel29);
         jLabel29.setBounds(230, 390, 70, 20);
@@ -298,16 +223,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel39.setText("NPR 4,500");
         jPanel1.add(jLabel39);
         jLabel39.setBounds(600, 410, 70, 20);
-
-        jLabel40.setText(": VIEW DETAILS");
-        jLabel40.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 102, 255), null));
-        jPanel1.add(jLabel40);
-        jLabel40.setBounds(680, 400, 90, 20);
-
-        jScrollPane4.setViewportView(jTextPane4);
-
-        jPanel1.add(jScrollPane4);
-        jScrollPane4.setBounds(200, 370, 590, 90);
 
         jLabel41.setText("YatraAir 303");
         jPanel1.add(jLabel41);
@@ -355,31 +270,51 @@ public class FlightSearch extends javax.swing.JFrame {
         jPanel1.add(jLabel51);
         jLabel51.setBounds(590, 530, 60, 20);
 
-        jLabel52.setText(": VIEW DETAILS");
-        jLabel52.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 102, 255), null));
-        jPanel1.add(jLabel52);
-        jLabel52.setBounds(680, 520, 90, 20);
+        dashboard.setText("Dashboard");
+        jPanel1.add(dashboard);
+        dashboard.setBounds(50, 70, 120, 40);
 
-        jScrollPane5.setViewportView(jTextPane5);
+        SearchFlights.setText("  Search Flights");
+        SearchFlights.addActionListener(this::SearchFlightsActionPerformed);
+        jPanel1.add(SearchFlights);
+        SearchFlights.setBounds(50, 120, 120, 40);
 
-        jPanel1.add(jScrollPane5);
-        jScrollPane5.setBounds(200, 490, 590, 90);
+        mybookings.setText("  My Bookings");
+        mybookings.addActionListener(this::mybookingsActionPerformed);
+        jPanel1.add(mybookings);
+        mybookings.setBounds(50, 170, 120, 40);
 
-        jLabel53.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel53.setText("    Logout");
-        jLabel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel53);
-        jLabel53.setBounds(100, 530, 70, 20);
+        checkin.setText("  Check-In");
+        jPanel1.add(checkin);
+        checkin.setBounds(50, 220, 120, 40);
 
-        jScrollPane6.setViewportView(jTextPane6);
+        profile.setText("   Profile");
+        jPanel1.add(profile);
+        profile.setBounds(50, 270, 120, 40);
 
-        jPanel1.add(jScrollPane6);
-        jScrollPane6.setBounds(100, 530, 70, 22);
+        customersupport.setText("Customer Support");
+        jPanel1.add(customersupport);
+        customersupport.setBounds(40, 320, 150, 40);
 
-        jScrollPane8.setViewportView(jTextPane8);
+        logout.setText("    Logout");
+        jPanel1.add(logout);
+        logout.setBounds(70, 510, 90, 30);
 
-        jPanel1.add(jScrollPane8);
-        jScrollPane8.setBounds(30, 20, 800, 580);
+        filterres.setText(" ---          FILTER RESULTS");
+        jPanel1.add(filterres);
+        filterres.setBounds(600, 170, 170, 50);
+
+        viewdetails.setText(": VIEW DETAILS");
+        jPanel1.add(viewdetails);
+        viewdetails.setBounds(680, 290, 120, 30);
+
+        viewresults1.setText(": VIEW DETAILS");
+        jPanel1.add(viewresults1);
+        viewresults1.setBounds(680, 400, 120, 30);
+
+        viewresults2.setText(": VIEW DETAILS");
+        jPanel1.add(viewresults2);
+        viewresults2.setBounds(680, 520, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -399,6 +334,14 @@ public class FlightSearch extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SearchFlightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchFlightsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchFlightsActionPerformed
+
+    private void mybookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybookingsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mybookingsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,6 +369,11 @@ public class FlightSearch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SearchFlights;
+    private javax.swing.JButton checkin;
+    private javax.swing.JButton customersupport;
+    private javax.swing.JButton dashboard;
+    private javax.swing.JButton filterres;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -433,7 +381,6 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -446,7 +393,6 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -459,8 +405,6 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -470,29 +414,123 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane8;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton mybookings;
+    private javax.swing.JButton profile;
+    private javax.swing.JButton viewdetails;
+    private javax.swing.JButton viewresults1;
+    private javax.swing.JButton viewresults2;
     // End of variables declaration//GEN-END:variables
+
+/**
+ * @return flightName1
+ */
+public javax.swing.JLabel getFlightName1() {
+    return jLabel17;
+}
+
+/**
+ * @return departureTime1
+ */
+public javax.swing.JLabel getDepartureTime1() {
+    return jLabel19;
+}
+
+/**
+ * @return arrivalTime1
+ */
+public javax.swing.JLabel getArrivalTime1() {
+    return jLabel24;
+}
+
+/**
+ * @return class1
+ */
+public javax.swing.JLabel getClass1() {
+    return jLabel18;
+}
+
+/**
+ * @return price1
+ */
+public javax.swing.JLabel getPrice1() {
+    return jLabel27;
+}
+
+
+
+/**
+ * @return flightName2
+ */
+public javax.swing.JLabel getFlightName2() {
+    return jLabel29;
+}
+
+/**
+ * @return departureTime2
+ */
+public javax.swing.JLabel getDepartureTime2() {
+    return jLabel31;
+}
+
+/**
+ * @return arrivalTime2
+ */
+public javax.swing.JLabel getArrivalTime2() {
+    return jLabel36;
+}
+
+/**
+ * @return class2
+ */
+public javax.swing.JLabel getClass2() {
+    return jLabel30;
+}
+
+/**
+ * @return price2
+ */
+public javax.swing.JLabel getPrice2() {
+    return jLabel39;
+}
+
+
+
+/**
+ * @return flightName3
+ */
+public javax.swing.JLabel getFlightName3() {
+    return jLabel41;
+}
+
+/**
+ * @return departureTime3
+ */
+public javax.swing.JLabel getDepartureTime3() {
+    return jLabel43;
+}
+
+/**
+ * @return arrivalTime3
+ */
+public javax.swing.JLabel getArrivalTime3() {
+    return jLabel48;
+}
+
+/**
+ * @return class3
+ */
+public javax.swing.JLabel getClass3() {
+    return jLabel42;
+}
+
+/**
+ * @return price3
+ */
+public javax.swing.JLabel getPrice3() {
+    return jLabel51;
+}
 }
