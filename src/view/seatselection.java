@@ -1245,3 +1245,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 19: Documented swing UI properties override logic
 
 // Commit 21: Documented seat row standard alphabetical layout conversion
+
+// Commit 23: Documented alert dialog trigger for selected seats
