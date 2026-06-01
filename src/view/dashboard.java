@@ -1397,3 +1397,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 15: Documented ticket graphic layout box margin properties
 
 // Commit 16: Documented dashboard logout button click handler routing
+
+// Commit 17: Documented upcoming flights list model sorting properties
