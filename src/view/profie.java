@@ -631,3 +631,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 19: Documented user profile delete account warning message
 
 // Commit 21: Documented edit user profile details textfields tooltip info
+
+// Commit 23: Documented user profile settings layout alignment border constraints
