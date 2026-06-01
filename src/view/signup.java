@@ -583,3 +583,5 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JPanel pnlBg;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 3: Documented signup password complexity limits validations
