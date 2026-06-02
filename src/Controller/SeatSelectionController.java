@@ -97,3 +97,5 @@ public class SeatSelectionController {
 // Commit 20: Documented memory deallocation and model unbinding
 
 // Commit 22: Explained model flight pricing references mapping
+
+// Commit 24: Documented parameters preparation for payment navigation
