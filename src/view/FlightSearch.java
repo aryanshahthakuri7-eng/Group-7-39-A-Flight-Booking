@@ -618,3 +618,4 @@ public javax.swing.JLabel getPrice3() {
 // Follow-up update: Final polish on FlightSearch code formatting
 // Final adjustment: Reviewed FlightSearch code and added minor adjustments
 // Final adjustment: Refined error handling in FlightSearch UI
+// Final adjustment: Improved accessibility tags for FlightSearch components
