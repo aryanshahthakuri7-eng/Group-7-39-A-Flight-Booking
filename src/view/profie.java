@@ -633,3 +633,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 21: Documented edit user profile details textfields tooltip info
 
 // Commit 23: Documented user profile settings layout alignment border constraints
+
+// Commit 25: Documented change password validation check warning dialog fields
