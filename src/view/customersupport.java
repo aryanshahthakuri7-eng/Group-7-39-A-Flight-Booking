@@ -35,6 +35,7 @@ public class customersupport extends javax.swing.JFrame {
             new javax.swing.border.LineBorder(new java.awt.Color(230, 244, 234), 1, true),
             javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8)
         ));
+        btnStartConv.addActionListener(e -> NavigationController.goToLiveChat());
     }
 
     private void styleSidebarButton(javax.swing.JButton btn) {
@@ -362,7 +363,7 @@ public class customersupport extends javax.swing.JFrame {
         getContentPane().add(pnlStatus);
         pnlStatus.setBounds(250, 740, 950, 60);
 
-        pnlMainBg.setBackground(new java.awt.Color(244, 246, 249));
+        pnlMainBg.setBackground(new java.awt.Color(250, 250, 251));
         getContentPane().add(pnlMainBg);
         pnlMainBg.setBounds(250, 60, 950, 740);
 

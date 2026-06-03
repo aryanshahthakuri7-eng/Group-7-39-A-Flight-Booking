@@ -6,6 +6,7 @@ import view.searchflight;
 import view.mybookings;
 import view.profie;
 import view.customersupport;
+import view.livechat;
 
 /**
  * Controller class to handle all navigation logic.
@@ -58,12 +59,20 @@ public class NavigationController {
         });
     }
 
+    /**
+     * Opens the Live Chat window without closing the current frame,
+     * so the user can return to Customer Support after chatting.
+     */
+    public static void goToLiveChat() {
+        java.awt.EventQueue.invokeLater(() -> {
+            new livechat().setVisible(true);
+        });
+    }
+
     public static void logout(JFrame currentFrame) {
         if (currentFrame != null) {
             currentFrame.dispose();
         }
-        // In a real application, this would go back to the login screen.
-        // Since no auth logic is requested, we will just terminate or print to console.
         System.out.println("User logged out successfully.");
         System.exit(0);
     }
