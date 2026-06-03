@@ -661,7 +661,7 @@
     <Component class="javax.swing.JPanel" name="pnlMainBg">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f9" green="f6" red="f4" type="rgb"/>
+          <Color blue="fb" green="fa" red="fa" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
