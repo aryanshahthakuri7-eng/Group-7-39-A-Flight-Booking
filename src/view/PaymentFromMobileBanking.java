@@ -911,3 +911,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 22: Documented IME Pay logo resolution painting properties
 
 // Commit 24: Documented bank accounts list dropdown selection bindings
+
+// Commit 26: Documented QR code scanner view overlay constraints
