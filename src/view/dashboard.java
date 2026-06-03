@@ -1399,3 +1399,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 16: Documented dashboard logout button click handler routing
 
 // Commit 17: Documented upcoming flights list model sorting properties
+
+// Commit 18: Documented sidebar logo border constraints definition
