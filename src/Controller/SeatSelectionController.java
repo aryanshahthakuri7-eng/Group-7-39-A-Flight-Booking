@@ -99,3 +99,5 @@ public class SeatSelectionController {
 // Commit 22: Explained model flight pricing references mapping
 
 // Commit 24: Documented parameters preparation for payment navigation
+
+// Commit 26: Explained controller routing dispatcher mapping
