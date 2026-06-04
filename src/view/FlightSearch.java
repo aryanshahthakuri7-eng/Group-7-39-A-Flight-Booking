@@ -39,7 +39,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -50,7 +49,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -82,6 +80,8 @@ public class FlightSearch extends javax.swing.JFrame {
         viewdetails = new javax.swing.JButton();
         viewresults1 = new javax.swing.JButton();
         viewresults2 = new javax.swing.JButton();
+        StandardClass = new javax.swing.JButton();
+        Economy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 102, 255));
@@ -97,12 +97,12 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Search Flight Results");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(350, 20, 175, 34);
+        jLabel2.setBounds(370, 40, 175, 34);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Showing available flights based on your search criteria");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(240, 60, 483, 25);
+        jLabel3.setBounds(260, 70, 483, 25);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Route");
@@ -135,11 +135,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel17.setText("YatraAir 101");
         jPanel1.add(jLabel17);
         jLabel17.setBounds(230, 270, 80, 30);
-
-        jLabel18.setText("  Standard Class");
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 255)));
-        jPanel1.add(jLabel18);
-        jLabel18.setBounds(220, 300, 90, 20);
 
         jLabel19.setText("10:00 AM");
         jPanel1.add(jLabel19);
@@ -181,11 +176,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel29.setText("YatraAir 202");
         jPanel1.add(jLabel29);
         jLabel29.setBounds(230, 390, 70, 20);
-
-        jLabel30.setText("     Economy");
-        jLabel30.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), null));
-        jPanel1.add(jLabel30);
-        jLabel30.setBounds(220, 410, 80, 20);
 
         jLabel31.setText("1:00 PM");
         jPanel1.add(jLabel31);
@@ -302,7 +292,7 @@ public class FlightSearch extends javax.swing.JFrame {
 
         filterres.setText(" ---          FILTER RESULTS");
         jPanel1.add(filterres);
-        filterres.setBounds(600, 170, 170, 50);
+        filterres.setBounds(620, 170, 170, 50);
 
         viewdetails.setText(": VIEW DETAILS");
         jPanel1.add(viewdetails);
@@ -315,6 +305,14 @@ public class FlightSearch extends javax.swing.JFrame {
         viewresults2.setText(": VIEW DETAILS");
         jPanel1.add(viewresults2);
         viewresults2.setBounds(680, 520, 120, 30);
+
+        StandardClass.setText("  Standard Class");
+        jPanel1.add(StandardClass);
+        StandardClass.setBounds(200, 300, 120, 20);
+
+        Economy.setText("     Economy");
+        jPanel1.add(Economy);
+        Economy.setBounds(210, 410, 100, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -369,7 +367,9 @@ public class FlightSearch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Economy;
     private javax.swing.JButton SearchFlights;
+    private javax.swing.JButton StandardClass;
     private javax.swing.JButton checkin;
     private javax.swing.JButton customersupport;
     private javax.swing.JButton dashboard;
@@ -382,7 +382,6 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -395,7 +394,6 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
