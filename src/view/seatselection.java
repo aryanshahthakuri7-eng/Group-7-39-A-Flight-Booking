@@ -1249,3 +1249,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 23: Documented alert dialog trigger for selected seats
 
 // Commit 25: Documented custom border color highlights mapping
+
+// Commit 27: Documented panel rendering performance hints properties
