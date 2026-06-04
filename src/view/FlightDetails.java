@@ -42,8 +42,6 @@ public class FlightDetails extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -58,8 +56,6 @@ public class FlightDetails extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -87,6 +83,8 @@ public class FlightDetails extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
         SaveForLater = new javax.swing.JButton();
         Proceed = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 51));
@@ -156,11 +154,6 @@ public class FlightDetails extends javax.swing.JFrame {
         getContentPane().add(jLabel18);
         jLabel18.setBounds(740, 130, 100, 30);
 
-        jScrollPane2.setViewportView(jTextPane2);
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(240, 90, 600, 90);
-
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 102, 255));
         jLabel19.setText("! Flight Information");
@@ -224,11 +217,6 @@ public class FlightDetails extends javax.swing.JFrame {
         jLabel32.setText("-----------------------------------------------------------------------");
         getContentPane().add(jLabel32);
         jLabel32.setBounds(270, 230, 360, 10);
-
-        jScrollPane3.setViewportView(jTextPane3);
-
-        getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(250, 200, 400, 190);
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
@@ -348,6 +336,14 @@ public class FlightDetails extends javax.swing.JFrame {
         getContentPane().add(Proceed);
         Proceed.setBounds(620, 530, 230, 30);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(250, 190, 380, 200);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(230, 90, 610, 80);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -432,12 +428,10 @@ public class FlightDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
     // End of variables declaration//GEN-END:variables
