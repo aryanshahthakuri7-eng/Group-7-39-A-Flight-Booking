@@ -505,3 +505,5 @@ public class login extends javax.swing.JFrame {
 // Commit 10: Documented login submit button key press activation
 
 // Commit 13: Documented login panel custom border rendering attributes
+
+// Commit 16: Documented login page show password check state listener
