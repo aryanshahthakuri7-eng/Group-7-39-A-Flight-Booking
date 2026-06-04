@@ -997,3 +997,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 23: Documented CVV input tooltips positioning parameters
 
 // Commit 25: Documented card expiry check invalid input indicators
+
+// Commit 27: Documented credit card background color gradients specs
