@@ -59,7 +59,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
@@ -82,6 +81,7 @@ public class FlightSearch extends javax.swing.JFrame {
         viewresults2 = new javax.swing.JButton();
         StandardClass = new javax.swing.JButton();
         Economy = new javax.swing.JButton();
+        PremiumPlus = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 102, 255));
@@ -218,11 +218,6 @@ public class FlightSearch extends javax.swing.JFrame {
         jPanel1.add(jLabel41);
         jLabel41.setBounds(230, 510, 70, 20);
 
-        jLabel42.setText(" PremiumPlus");
-        jLabel42.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), null));
-        jPanel1.add(jLabel42);
-        jLabel42.setBounds(220, 530, 90, 20);
-
         jLabel43.setText("4:00 PM");
         jPanel1.add(jLabel43);
         jLabel43.setBounds(320, 510, 43, 16);
@@ -314,6 +309,10 @@ public class FlightSearch extends javax.swing.JFrame {
         jPanel1.add(Economy);
         Economy.setBounds(210, 410, 100, 20);
 
+        PremiumPlus.setText(" PremiumPlus");
+        jPanel1.add(PremiumPlus);
+        PremiumPlus.setBounds(200, 540, 120, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -368,6 +367,7 @@ public class FlightSearch extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Economy;
+    private javax.swing.JButton PremiumPlus;
     private javax.swing.JButton SearchFlights;
     private javax.swing.JButton StandardClass;
     private javax.swing.JButton checkin;
@@ -404,7 +404,6 @@ public class FlightSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
