@@ -136,9 +136,9 @@ public class customersupport extends javax.swing.JFrame {
         getContentPane().add(lblLogo);
         lblLogo.setBounds(25, 30, 200, 40);
 
-        btnDashboard.setText("Dashboard");
         btnDashboard.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnDashboard.setForeground(new java.awt.Color(92, 100, 112));
+        btnDashboard.setText("Dashboard");
         btnDashboard.addActionListener(this::btnDashboardActionPerformed);
         getContentPane().add(btnDashboard);
         btnDashboard.setBounds(15, 120, 220, 40);
