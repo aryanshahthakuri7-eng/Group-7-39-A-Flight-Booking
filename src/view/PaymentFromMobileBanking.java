@@ -913,3 +913,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 24: Documented bank accounts list dropdown selection bindings
 
 // Commit 26: Documented QR code scanner view overlay constraints
+
+// Commit 28: Documented checkin component navigation redirect flows
