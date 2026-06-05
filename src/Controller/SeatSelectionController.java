@@ -101,3 +101,5 @@ public class SeatSelectionController {
 // Commit 24: Documented parameters preparation for payment navigation
 
 // Commit 26: Explained controller routing dispatcher mapping
+
+// Commit 28: Explained integrity checks inside action event listeners
