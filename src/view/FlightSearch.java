@@ -579,3 +579,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 22: Documented return date selection visibility state switches
 
 // Commit 23: Documented search flight results pagination button event bindings
+
+// Commit 24: Documented flight logo graphic icons dimensions parameters
