@@ -593,3 +593,5 @@ public class signup extends javax.swing.JFrame {
 // Commit 12: Documented signup view password reveal checkbox toggle
 
 // Commit 15: Documented signup first name character boundaries validation
+
+// Commit 18: Documented signup view database connection pool details
