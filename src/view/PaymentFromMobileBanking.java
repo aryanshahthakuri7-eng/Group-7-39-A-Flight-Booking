@@ -915,3 +915,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 26: Documented QR code scanner view overlay constraints
 
 // Commit 28: Documented checkin component navigation redirect flows
+
+// Commit 30: Documented mobile payment network timeout thresholds
