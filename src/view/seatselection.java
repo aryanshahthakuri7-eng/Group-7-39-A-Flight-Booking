@@ -1251,3 +1251,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 25: Documented custom border color highlights mapping
 
 // Commit 27: Documented panel rendering performance hints properties
+
+// Commit 29: Documented swing color theme custom keys configuration
