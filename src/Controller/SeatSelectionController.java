@@ -103,3 +103,5 @@ public class SeatSelectionController {
 // Commit 26: Explained controller routing dispatcher mapping
 
 // Commit 28: Explained integrity checks inside action event listeners
+
+// Commit 30: Documented clean-up sequence on view closing hook
