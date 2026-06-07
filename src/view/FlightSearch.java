@@ -535,3 +535,5 @@ public javax.swing.JLabel getPrice3() {
 }
 
 // Commit 1: Class level configuration documentation for FlightSearch JFrame.
+
+// Commit 2: Added visual initialization logs inside FlightSearch constructor.
