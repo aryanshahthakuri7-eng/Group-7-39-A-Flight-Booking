@@ -507,3 +507,5 @@ public class login extends javax.swing.JFrame {
 // Commit 13: Documented login panel custom border rendering attributes
 
 // Commit 16: Documented login page show password check state listener
+
+// Commit 19: Documented login panel custom logo icon bounds
