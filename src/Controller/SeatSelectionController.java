@@ -105,3 +105,5 @@ public class SeatSelectionController {
 // Commit 28: Explained integrity checks inside action event listeners
 
 // Commit 30: Documented clean-up sequence on view closing hook
+
+// Commit 32: Documented database query rows mapping loop variables
