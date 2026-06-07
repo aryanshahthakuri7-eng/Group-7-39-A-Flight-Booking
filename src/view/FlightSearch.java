@@ -533,3 +533,5 @@ public javax.swing.JLabel getPrice3() {
     return jLabel51;
 }
 }
+
+// Commit 1: Class level configuration documentation for FlightSearch JFrame.
