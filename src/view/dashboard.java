@@ -1405,3 +1405,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 19: Documented ticket box background panel border layout painting
 
 // Commit 20: Documented quick search destination city validations
+
+// Commit 21: Documented dashboard total spent metric calculations
