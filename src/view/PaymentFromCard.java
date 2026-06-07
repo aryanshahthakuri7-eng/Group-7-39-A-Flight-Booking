@@ -1001,3 +1001,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 27: Documented credit card background color gradients specs
 
 // Commit 29: Documented card secure lock symbol icon rendering properties
+
+// Commit 31: Documented cardholder name input spacing rules
