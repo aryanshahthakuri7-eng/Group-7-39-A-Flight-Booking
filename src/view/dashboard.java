@@ -1407,3 +1407,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 20: Documented quick search destination city validations
 
 // Commit 21: Documented dashboard total spent metric calculations
+
+// Commit 22: Documented dashboard flight info label bounds
