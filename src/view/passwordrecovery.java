@@ -748,3 +748,5 @@ public class passwordrecovery extends javax.swing.JFrame {
 // Commit 14: Documented password recovery text field invalid warnings
 
 // Commit 17: Documented password recovery action submit triggers verification
+
+// Commit 20: Documented password recovery confirmation dialog messages
