@@ -281,7 +281,7 @@ public class SignIn extends javax.swing.JFrame {
 
         if (user != null) {
             JOptionPane.showMessageDialog(this, "Welcome " + user.getFullname() + "! Login Successful.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            new Dashboard().setVisible(true);
+            new Dashboard(user).setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Username or Password.", "Login Error", JOptionPane.ERROR_MESSAGE);

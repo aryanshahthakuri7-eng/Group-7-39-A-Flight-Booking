@@ -19,9 +19,6 @@ private final String username = "root";
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection conn = DriverManager.getConnection(url, username, password);
                  Statement stmt = conn.createStatement()) {
-                // Drop old table to recreate with new schema
-                stmt.executeUpdate("DROP TABLE IF EXISTS users");
-                
                 String sql = "CREATE TABLE IF NOT EXISTS users (" +
                              "id INT AUTO_INCREMENT PRIMARY KEY, " +
                              "fullname VARCHAR(100) NOT NULL, " +

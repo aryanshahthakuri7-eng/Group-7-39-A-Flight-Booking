@@ -68,6 +68,28 @@ public class UserController {
     }
 
     /**
+     * Checks if email is registered and returns a generated 6-digit OTP code.
+     * Returns null if email is not found or invalid.
+     */
+    public String generateResetCode(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            return null;
+        }
+        if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            return null;
+        }
+        
+        User user = userDao.getUserByEmail(email.trim());
+        if (user == null) {
+            return null;
+        }
+        
+        // Generate 6-digit OTP
+        int otp = 100000 + (int)(Math.random() * 900000);
+        return String.valueOf(otp);
+    }
+
+    /**
      * Resets password if email exists.
      * Returns true if reset succeeded, false otherwise.
      */
@@ -85,5 +107,33 @@ public class UserController {
         }
 
         return userDao.updatePassword(email.trim(), newPassword);
+    }
+
+    /**
+     * Updates user profile info in the database.
+     * Returns a status string: "success" or error message.
+     */
+    public String updateProfile(User user) {
+        if (user == null) {
+            return "User session is invalid.";
+        }
+        if (user.getFullname() == null || user.getFullname().trim().isEmpty()) {
+            return "Full Name cannot be empty.";
+        }
+        if (user.getPhone() == null || user.getPhone().trim().isEmpty()) {
+            return "Phone Number cannot be empty.";
+        }
+        if (user.getPassword() == null || user.getPassword().trim().isEmpty()) {
+            return "Password cannot be empty.";
+        }
+        if (user.getPassword().length() < 6) {
+            return "Password must be at least 6 characters long.";
+        }
+        if (!user.getPhone().matches("^[0-9+() -]+$")) {
+            return "Invalid phone number format.";
+        }
+
+        boolean updated = userDao.updateUser(user);
+        return updated ? "success" : "Failed to update profile in database.";
     }
 }

@@ -73,5 +73,24 @@ public class UserDaoImpl implements UserDao {
             System.err.println("Error updating password: " + e.getMessage());
             return false;
         }
+     }
+
+    @Override
+    public boolean updateUser(User user) {
+        String sql = "UPDATE users SET fullname = ?, phone = ?, password = ? WHERE email = ?";
+        try (Connection conn = db.openConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, user.getFullname());
+            pstmt.setString(2, user.getPhone());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setString(4, user.getEmail());
+            
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            System.err.println("Error updating user: " + e.getMessage());
+            return false;
+        }
     }
 }

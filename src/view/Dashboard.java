@@ -1,7 +1,9 @@
 package view;
 
 import model.Booking;
+import model.User;
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -15,6 +17,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Dynamic list to store current bookings
     private final List<Booking> bookingsList = new ArrayList<>();
+
+    // Current logged-in user
+    private User currentUser;
 
     // String arrays to populate dropdown selections
     private final String[] regions = {
@@ -40,10 +45,18 @@ public class Dashboard extends javax.swing.JFrame {
         "4 Passengers"
     };
 
+    // Swapping panels state tracking
+    private javax.swing.JPanel activePanel = null;
+
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
+        this(new User("Guest User", "guest@yatrasewa.com", "9800000000", "123456"));
+    }
+
+    public Dashboard(User user) {
+        this.currentUser = user;
         initComponents();
         getContentPane().setPreferredSize(new java.awt.Dimension(1000, 700));
         pack();
@@ -53,6 +66,29 @@ public class Dashboard extends javax.swing.JFrame {
         setupCustomListeners();
         renderBookings();
         updateStats();
+        updateGreeting();
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
+
+    public List<Booking> getBookingsList() {
+        return bookingsList;
+    }
+
+    public void updateGreeting() {
+        if (currentUser != null) {
+            jLabelGreeting.setText("Welcome " + currentUser.getFullname() + ",");
+        }
+    }
+
+    public void renderBookingsList() {
+        renderBookings();
     }
 
     private void populateComboBoxes() {
@@ -76,6 +112,61 @@ public class Dashboard extends javax.swing.JFrame {
         ));
     }
 
+    private void setMainDashboardVisible(boolean visible) {
+        jLabelGreeting.setVisible(visible);
+        jLabelSubGreeting.setVisible(visible);
+        jPanelSearch.setVisible(visible);
+        jPanelStatUpcoming.setVisible(visible);
+        jPanelStatCancelled.setVisible(visible);
+        jPanelStatSpent.setVisible(visible);
+        jPanelStatLoyalty.setVisible(visible);
+        jPanelUpcomingBookings.setVisible(visible);
+        jPanelQuickActions.setVisible(visible);
+    }
+
+    public void switchPanel(javax.swing.JPanel newPanel) {
+        if (activePanel != null) {
+            jPanelContent.remove(activePanel);
+            activePanel = null;
+        }
+        
+        if (newPanel == null) {
+            setMainDashboardVisible(true);
+        } else {
+            setMainDashboardVisible(false);
+            activePanel = newPanel;
+            jPanelContent.add(activePanel);
+            activePanel.setBounds(0, 0, 780, 630);
+        }
+        
+        jPanelContent.revalidate();
+        jPanelContent.repaint();
+    }
+
+    private void searchFlights() {
+        String from = (String) jComboBoxFrom.getSelectedItem();
+        String to = (String) jComboBoxTo.getSelectedItem();
+        String date = jTextFieldDepartDate.getText();
+        int passengers = jComboBoxPassengers.getSelectedIndex() + 1; // 1 to 4
+
+        if (from.equals("Select Region") || to.equals("Select Destination")) {
+            JOptionPane.showMessageDialog(this, "Please select origin and destination.", "Search Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (from.equals(to)) {
+            JOptionPane.showMessageDialog(this, "Origin and destination cannot be the same.", "Search Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (date.trim().isEmpty() || date.equals("DD/MM/YYYY")) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid departure date.", "Search Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        switchPanel(new SearchResultsPanel(this, from, to, date, passengers));
+    }
+
     private void setupCustomListeners() {
         // Sidebar navigation hover and click listeners
         setHandCursorAndHover(jLabelNavSearch);
@@ -85,12 +176,98 @@ public class Dashboard extends javax.swing.JFrame {
         setHandCursorAndHover(jLabelNavSupport);
         setHandCursorAndHover(jLabelNavLogout);
         setHandCursorAndHover(jLabelViewAll);
+        setHandCursorAndHover(jLabelHeaderBackHome);
 
         // Quick Actions navigation
         setHandCursorAndHover(jLabelActionSearch);
         setHandCursorAndHover(jLabelActionBookings);
         setHandCursorAndHover(jLabelActionProfile);
         setHandCursorAndHover(jLabelActionLogout);
+
+        // Sidebar Logo / Title -> Back to Dashboard Home
+        jLabelNavTitle.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jLabelNavTitle.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(null);
+            }
+        });
+        
+        // Active Panel Dashboard text click
+        jLabelNavDashboardText.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jLabelNavDashboardText.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(null);
+            }
+        });
+
+        // Sidebar Navigation
+        jLabelNavSearch.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(null); // Go to main dashboard where search widget is located
+                jComboBoxFrom.requestFocus();
+            }
+        });
+
+        jLabelNavBookings.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(new BookingsPanel(Dashboard.this));
+            }
+        });
+
+        jLabelNavCheckIn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                JOptionPane.showMessageDialog(Dashboard.this, "Online Check-In is currently open only for flights departing within 24 hours.", "Check-In", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        jLabelNavProfile.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(new ProfilePanel(Dashboard.this));
+            }
+        });
+
+        jLabelNavSupport.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(new SupportPanel(Dashboard.this));
+            }
+        });
+
+        jLabelViewAll.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(new BookingsPanel(Dashboard.this));
+            }
+        });
+
+        // Quick Actions
+        jLabelActionSearch.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(null);
+                jComboBoxFrom.requestFocus();
+            }
+        });
+
+        jLabelActionBookings.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(new BookingsPanel(Dashboard.this));
+            }
+        });
+
+        jLabelActionProfile.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                switchPanel(new ProfilePanel(Dashboard.this));
+            }
+        });
 
         // Sidebar Logout Action
         jLabelNavLogout.addMouseListener(new MouseAdapter() {
@@ -108,37 +285,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        // Other Nav clicks
-        jLabelNavBookings.addMouseListener(new MouseAdapter() {
+        // Header Back to Home Action
+        jLabelHeaderBackHome.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent evt) {
-                JOptionPane.showMessageDialog(Dashboard.this, "Displaying all your bookings. Currently you have: " + bookingsList.size() + " active trip(s).", "My Bookings", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-        jLabelActionBookings.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                JOptionPane.showMessageDialog(Dashboard.this, "Displaying all your bookings. Currently you have: " + bookingsList.size() + " active trip(s).", "My Bookings", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-
-        jLabelNavProfile.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                JOptionPane.showMessageDialog(Dashboard.this, "Navigating to Profile Settings.", "Profile", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-        jLabelActionProfile.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                JOptionPane.showMessageDialog(Dashboard.this, "Navigating to Profile Settings.", "Profile", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-
-        jLabelNavSupport.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                JOptionPane.showMessageDialog(Dashboard.this, "Opening customer support chat channel.", "Customer Support", JOptionPane.INFORMATION_MESSAGE);
+                switchPanel(null);
             }
         });
 
@@ -166,15 +317,14 @@ public class Dashboard extends javax.swing.JFrame {
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                label.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+                label.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, label.getFont().getSize()));
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                // If it is logout, keep bold or regular, let's restore
                 if (label == jLabelNavLogout) {
                     label.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
                 } else {
-                    label.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+                    label.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, label.getFont().getSize()));
                 }
             }
         });
@@ -215,71 +365,80 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel createBookingCard(Booking b) {
         javax.swing.JPanel card = new javax.swing.JPanel();
         card.setBackground(new java.awt.Color(255, 255, 255));
-        card.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 240)));
+        card.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 232, 240)));
         card.setLayout(null);
 
-        // Icon Label (Triangle logo placeholder)
+        // Logo Container Panel on left
+        javax.swing.JPanel jPanelLogoBox = new javax.swing.JPanel();
+        jPanelLogoBox.setBackground(new java.awt.Color(248, 249, 255));
+        jPanelLogoBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 232, 240)));
+        jPanelLogoBox.setLayout(null);
+
         javax.swing.JLabel lblIcon = new javax.swing.JLabel("▼");
-        lblIcon.setFont(new java.awt.Font("Segoe UI", 1, 16));
+        lblIcon.setFont(new java.awt.Font("Segoe UI", 1, 14));
         lblIcon.setForeground(new java.awt.Color(15, 37, 55));
         lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        card.add(lblIcon);
-        lblIcon.setBounds(10, 12, 30, 30);
+        jPanelLogoBox.add(lblIcon);
+        lblIcon.setBounds(0, 0, 40, 40);
+
+        card.add(jPanelLogoBox);
+        jPanelLogoBox.setBounds(15, 15, 40, 40);
 
         // Routing
         javax.swing.JLabel lblRoute = new javax.swing.JLabel(b.getFromCode() + " → " + b.getToCode());
         lblRoute.setFont(new java.awt.Font("Segoe UI", 1, 14));
-        lblRoute.setForeground(new java.awt.Color(15, 37, 55));
+        lblRoute.setForeground(new java.awt.Color(8, 22, 42));
         card.add(lblRoute);
-        lblRoute.setBounds(50, 10, 150, 20);
+        lblRoute.setBounds(70, 15, 150, 20);
 
         // Flight details
         javax.swing.JLabel lblDetails = new javax.swing.JLabel(b.getFlightNo() + " • " + b.getDate() + " • " + b.getTime());
         lblDetails.setFont(new java.awt.Font("Segoe UI", 0, 10));
-        lblDetails.setForeground(new java.awt.Color(153, 153, 153));
+        lblDetails.setForeground(new java.awt.Color(113, 128, 150));
         card.add(lblDetails);
-        lblDetails.setBounds(50, 30, 280, 14);
+        lblDetails.setBounds(70, 35, 280, 15);
 
         // Status Badge
         javax.swing.JLabel lblStatus = new javax.swing.JLabel(b.getStatus());
-        lblStatus.setFont(new java.awt.Font("Segoe UI", 1, 8));
+        lblStatus.setFont(new java.awt.Font("Segoe UI", 1, 9));
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStatus.setOpaque(true);
         if (b.getStatus().equals("CONFIRMED")) {
-            lblStatus.setBackground(new java.awt.Color(220, 245, 225));
+            lblStatus.setBackground(new java.awt.Color(222, 245, 226));
             lblStatus.setForeground(new java.awt.Color(40, 160, 80));
         } else {
             lblStatus.setBackground(new java.awt.Color(255, 225, 225));
             lblStatus.setForeground(new java.awt.Color(220, 50, 50));
         }
         card.add(lblStatus);
-        lblStatus.setBounds(310, 12, 85, 18);
+        lblStatus.setBounds(310, 15, 85, 20);
 
-        // Seat
-        javax.swing.JLabel lblSeat = new javax.swing.JLabel("💺 SEAT: " + b.getSeat());
+        // Seat Info
+        javax.swing.JLabel lblSeat = new javax.swing.JLabel("🎟  SEAT: " + b.getSeat());
         lblSeat.setFont(new java.awt.Font("Segoe UI", 0, 10));
-        lblSeat.setForeground(new java.awt.Color(102, 102, 102));
+        lblSeat.setForeground(new java.awt.Color(113, 128, 150));
         card.add(lblSeat);
         lblSeat.setBounds(15, 75, 100, 15);
 
-        // Passenger
-        javax.swing.JLabel lblPassenger = new javax.swing.JLabel("👤 PASSENGER: " + b.getPassengerName());
+        // Passenger Info
+        javax.swing.JLabel lblPassenger = new javax.swing.JLabel("👤  PASSENGER: " + b.getPassengerName());
         lblPassenger.setFont(new java.awt.Font("Segoe UI", 0, 10));
-        lblPassenger.setForeground(new java.awt.Color(102, 102, 102));
+        lblPassenger.setForeground(new java.awt.Color(113, 128, 150));
         card.add(lblPassenger);
-        lblPassenger.setBounds(120, 75, 150, 15);
+        lblPassenger.setBounds(130, 75, 150, 15);
 
-        // Amount
-        javax.swing.JLabel lblAmount = new javax.swing.JLabel("💵 AMOUNT: NPR " + String.format("%,.0f", b.getAmount()));
+        // Amount Info
+        javax.swing.JLabel lblAmount = new javax.swing.JLabel("💵  AMOUNT: NPR " + String.format("%,.0f", b.getAmount()));
         lblAmount.setFont(new java.awt.Font("Segoe UI", 1, 10));
-        lblAmount.setForeground(new java.awt.Color(15, 37, 55));
+        lblAmount.setForeground(new java.awt.Color(8, 22, 42));
+        lblAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         card.add(lblAmount);
-        lblAmount.setBounds(280, 75, 125, 15);
+        lblAmount.setBounds(275, 75, 120, 15);
 
         return card;
     }
 
-    private void updateStats() {
+    public void updateStats() {
         int upcoming = bookingsList.size();
         int cancelled = 1; // Simulated statistic
         double totalSpent = 12500 + (upcoming - 1) * 5000;
@@ -292,8 +451,12 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        jPanelHeader = new javax.swing.JPanel();
+        jLabelHeaderBackHome = new javax.swing.JLabel();
+        jLabelHeaderTitle = new javax.swing.JLabel();
         jPanelSidebar = new javax.swing.JPanel();
         jLabelNavIcon = new javax.swing.JLabel();
         jLabelNavTitle = new javax.swing.JLabel();
@@ -305,7 +468,6 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelNavProfile = new javax.swing.JLabel();
         jLabelNavSupport = new javax.swing.JLabel();
         jLabelNavLogout = new javax.swing.JLabel();
-        jLabelStatusDot = new javax.swing.JLabel();
         jPanelContent = new javax.swing.JPanel();
         jLabelGreeting = new javax.swing.JLabel();
         jLabelSubGreeting = new javax.swing.JLabel();
@@ -349,10 +511,32 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelActionBookings = new javax.swing.JLabel();
         jLabelActionProfile = new javax.swing.JLabel();
         jLabelActionLogout = new javax.swing.JLabel();
+        jPanelFooter = new javax.swing.JPanel();
+        jLabelFooterStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YATRA AIR SEWA - Dashboard");
         getContentPane().setLayout(null);
+
+        // Header Pane
+        jPanelHeader.setBackground(new java.awt.Color(8, 22, 42));
+        jPanelHeader.setLayout(null);
+
+        jLabelHeaderBackHome.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabelHeaderBackHome.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelHeaderBackHome.setText("⌂ Back to Home");
+        jPanelHeader.add(jLabelHeaderBackHome);
+        jLabelHeaderBackHome.setBounds(15, 10, 150, 15);
+
+        jLabelHeaderTitle.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabelHeaderTitle.setForeground(new java.awt.Color(117, 140, 179));
+        jLabelHeaderTitle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelHeaderTitle.setText("YATRA AIR SEWA");
+        jPanelHeader.add(jLabelHeaderTitle);
+        jLabelHeaderTitle.setBounds(850, 10, 135, 15);
+
+        getContentPane().add(jPanelHeader);
+        jPanelHeader.setBounds(0, 0, 1000, 35);
 
         // Sidebar Pane
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -363,16 +547,16 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelNavIcon.setForeground(new java.awt.Color(15, 37, 55));
         jLabelNavIcon.setText("▼");
         jPanelSidebar.add(jLabelNavIcon);
-        jLabelNavIcon.setBounds(20, 30, 20, 30);
+        jLabelNavIcon.setBounds(20, 15, 20, 30);
 
         jLabelNavTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabelNavTitle.setForeground(new java.awt.Color(15, 37, 55));
         jLabelNavTitle.setText("YATRAAIR");
         jPanelSidebar.add(jLabelNavTitle);
-        jLabelNavTitle.setBounds(45, 30, 150, 30);
+        jLabelNavTitle.setBounds(45, 15, 150, 30);
 
         // Dashboard Navigation Item (Active Panel)
-        jPanelNavDashboard.setBackground(new java.awt.Color(15, 37, 55));
+        jPanelNavDashboard.setBackground(new java.awt.Color(8, 22, 42));
         jPanelNavDashboard.setLayout(null);
 
         jLabelNavDashboardText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -382,68 +566,62 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelNavDashboardText.setBounds(10, 5, 170, 26);
 
         jPanelSidebar.add(jPanelNavDashboard);
-        jPanelNavDashboard.setBounds(15, 90, 190, 36);
+        jPanelNavDashboard.setBounds(15, 60, 190, 36);
 
         jLabelNavSearch.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelNavSearch.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNavSearch.setText("  🔍   Search Flight");
         jPanelSidebar.add(jLabelNavSearch);
-        jLabelNavSearch.setBounds(25, 140, 170, 30);
+        jLabelNavSearch.setBounds(25, 110, 170, 30);
 
         jLabelNavBookings.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelNavBookings.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNavBookings.setText("  📋   My Bookings");
         jPanelSidebar.add(jLabelNavBookings);
-        jLabelNavBookings.setBounds(25, 180, 170, 30);
+        jLabelNavBookings.setBounds(25, 150, 170, 30);
 
         jLabelNavCheckIn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelNavCheckIn.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNavCheckIn.setText("  🎫   Check-in");
         jPanelSidebar.add(jLabelNavCheckIn);
-        jLabelNavCheckIn.setBounds(25, 220, 170, 30);
+        jLabelNavCheckIn.setBounds(25, 190, 170, 30);
 
         jLabelNavProfile.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelNavProfile.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNavProfile.setText("  👤   Profile");
         jPanelSidebar.add(jLabelNavProfile);
-        jLabelNavProfile.setBounds(25, 260, 170, 30);
+        jLabelNavProfile.setBounds(25, 230, 170, 30);
 
         jLabelNavSupport.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelNavSupport.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNavSupport.setText("  💬   Customer Support");
         jPanelSidebar.add(jLabelNavSupport);
-        jLabelNavSupport.setBounds(25, 300, 170, 30);
+        jLabelNavSupport.setBounds(25, 270, 170, 30);
 
         jLabelNavLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelNavLogout.setForeground(new java.awt.Color(204, 51, 51));
         jLabelNavLogout.setText("  ↳   Logout");
         jPanelSidebar.add(jLabelNavLogout);
-        jLabelNavLogout.setBounds(25, 610, 170, 30);
-
-        jLabelStatusDot.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabelStatusDot.setForeground(new java.awt.Color(51, 179, 51));
-        jLabelStatusDot.setText("  ●   SYSTEM STATUS: OPERATIONAL");
-        jPanelSidebar.add(jLabelStatusDot);
-        jLabelStatusDot.setBounds(15, 650, 190, 20);
+        jLabelNavLogout.setBounds(25, 580, 170, 30);
 
         getContentPane().add(jPanelSidebar);
-        jPanelSidebar.setBounds(0, 0, 220, 700);
+        jPanelSidebar.setBounds(0, 35, 220, 630);
 
         // Content Area Panel
-        jPanelContent.setBackground(new java.awt.Color(245, 247, 250));
+        jPanelContent.setBackground(new java.awt.Color(248, 249, 255));
         jPanelContent.setLayout(null);
 
         jLabelGreeting.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabelGreeting.setForeground(new java.awt.Color(15, 37, 55));
         jLabelGreeting.setText("Welcome User,");
         jPanelContent.add(jLabelGreeting);
-        jLabelGreeting.setBounds(30, 30, 400, 27);
+        jLabelGreeting.setBounds(30, 20, 400, 27);
 
         jLabelSubGreeting.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelSubGreeting.setForeground(new java.awt.Color(128, 128, 128));
         jLabelSubGreeting.setText("Review your flight schedules and upcoming travels.");
         jPanelContent.add(jLabelSubGreeting);
-        jLabelSubGreeting.setBounds(30, 55, 500, 16);
+        jLabelSubGreeting.setBounds(30, 45, 500, 16);
 
         // Flight Search Panel
         jPanelSearch.setBackground(new java.awt.Color(255, 255, 255));
@@ -495,7 +673,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButtonSearch.setBounds(605, 26, 105, 36);
 
         jPanelContent.add(jPanelSearch);
-        jPanelSearch.setBounds(30, 90, 720, 80);
+        jPanelSearch.setBounds(30, 80, 720, 80);
 
         // Upcoming trips Stat Card
         jPanelStatUpcoming.setBackground(new java.awt.Color(255, 255, 255));
@@ -527,7 +705,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelStatUpcomingDesc.setBounds(50, 60, 105, 11);
 
         jPanelContent.add(jPanelStatUpcoming);
-        jPanelStatUpcoming.setBounds(30, 185, 165, 100);
+        jPanelStatUpcoming.setBounds(30, 175, 165, 100);
 
         // Cancelled trips Stat Card
         jPanelStatCancelled.setBackground(new java.awt.Color(255, 255, 255));
@@ -559,7 +737,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelStatCancelledDesc.setBounds(50, 60, 105, 11);
 
         jPanelContent.add(jPanelStatCancelled);
-        jPanelStatCancelled.setBounds(215, 185, 165, 100);
+        jPanelStatCancelled.setBounds(215, 175, 165, 100);
 
         // Total Spent Stat Card
         jPanelStatSpent.setBackground(new java.awt.Color(255, 255, 255));
@@ -591,7 +769,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelStatSpentDesc.setBounds(50, 60, 105, 11);
 
         jPanelContent.add(jPanelStatSpent);
-        jPanelStatSpent.setBounds(400, 185, 165, 100);
+        jPanelStatSpent.setBounds(400, 175, 165, 100);
 
         // Loyalty Points Stat Card
         jPanelStatLoyalty.setBackground(new java.awt.Color(255, 255, 255));
@@ -623,7 +801,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelStatLoyaltyDesc.setBounds(50, 60, 105, 11);
 
         jPanelContent.add(jPanelStatLoyalty);
-        jPanelStatLoyalty.setBounds(585, 185, 165, 100);
+        jPanelStatLoyalty.setBounds(585, 175, 165, 100);
 
         // Upcoming Bookings Section Card
         jPanelUpcomingBookings.setBackground(new java.awt.Color(255, 255, 255));
@@ -646,10 +824,10 @@ public class Dashboard extends javax.swing.JFrame {
         jPanelBookingsList.setOpaque(false);
         jPanelBookingsList.setLayout(null);
         jPanelUpcomingBookings.add(jPanelBookingsList);
-        jPanelBookingsList.setBounds(20, 45, 410, 270);
+        jPanelBookingsList.setBounds(20, 40, 410, 250);
 
         jPanelContent.add(jPanelUpcomingBookings);
-        jPanelUpcomingBookings.setBounds(30, 305, 450, 340);
+        jPanelUpcomingBookings.setBounds(30, 290, 450, 310);
 
         // Quick Actions Section Card
         jPanelQuickActions.setBackground(new java.awt.Color(255, 255, 255));
@@ -666,85 +844,54 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelActionSearch.setForeground(new java.awt.Color(51, 51, 51));
         jLabelActionSearch.setText("  🔍   Search Flights                          >");
         jPanelQuickActions.add(jLabelActionSearch);
-        jLabelActionSearch.setBounds(20, 60, 210, 30);
+        jLabelActionSearch.setBounds(20, 55, 210, 30);
 
         jLabelActionBookings.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelActionBookings.setForeground(new java.awt.Color(51, 51, 51));
         jLabelActionBookings.setText("  📋   My Bookings                             >");
         jPanelQuickActions.add(jLabelActionBookings);
-        jLabelActionBookings.setBounds(20, 110, 210, 30);
+        jLabelActionBookings.setBounds(20, 105, 210, 30);
 
         jLabelActionProfile.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelActionProfile.setForeground(new java.awt.Color(51, 51, 51));
         jLabelActionProfile.setText("  ⚙   Profile Settings                            >");
         jPanelQuickActions.add(jLabelActionProfile);
-        jLabelActionProfile.setBounds(20, 160, 210, 30);
+        jLabelActionProfile.setBounds(20, 155, 210, 30);
 
         jLabelActionLogout.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabelActionLogout.setForeground(new java.awt.Color(204, 51, 51));
         jLabelActionLogout.setText("  ↳   Logout                                        >");
         jPanelQuickActions.add(jLabelActionLogout);
-        jLabelActionLogout.setBounds(20, 210, 210, 30);
+        jLabelActionLogout.setBounds(20, 205, 210, 30);
 
         jPanelContent.add(jPanelQuickActions);
-        jPanelQuickActions.setBounds(500, 305, 250, 340);
+        jPanelQuickActions.setBounds(500, 290, 250, 310);
 
         getContentPane().add(jPanelContent);
-        jPanelContent.setBounds(220, 0, 780, 700);
+        jPanelContent.setBounds(220, 35, 780, 630);
+
+        // Footer Pane
+        jPanelFooter.setBackground(new java.awt.Color(248, 249, 255));
+        jPanelFooter.setLayout(null);
+
+        jLabelFooterStatus.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabelFooterStatus.setForeground(new java.awt.Color(113, 128, 150));
+        jLabelFooterStatus.setText("  ●   SYSTEM STATUS: OPERATIONAL");
+        jPanelFooter.add(jLabelFooterStatus);
+        jLabelFooterStatus.setBounds(15, 10, 300, 15);
+
+        getContentPane().add(jPanelFooter);
+        jPanelFooter.setBounds(0, 665, 1000, 35);
 
         // Set dimensions & center
         getContentPane().setPreferredSize(new java.awt.Dimension(1000, 700));
         pack();
         setLocationRelativeTo(null);
-    }
-    // </editor-fold>
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {
-        String fromCode = (String) jComboBoxFrom.getSelectedItem();
-        String toCode = (String) jComboBoxTo.getSelectedItem();
-        String departDate = jTextFieldDepartDate.getText();
-        String passengers = (String) jComboBoxPassengers.getSelectedItem();
-
-        if (fromCode.equals("Select Region") || toCode.equals("Select Destination")) {
-            JOptionPane.showMessageDialog(this, "Please select both origin and destination.", "Search Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (fromCode.equals(toCode)) {
-            JOptionPane.showMessageDialog(this, "Origin and destination cannot be the same.", "Search Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (departDate.trim().isEmpty() || departDate.equals("DD/MM/YYYY")) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid departure date.", "Search Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Dynamically add a booking card to the ArrayList!
-        String fromCodeShort = fromCode.substring(0, 3);
-        String toCodeShort = toCode.substring(0, 3);
-
-        Booking newBooking = new Booking(
-            fromCodeShort,
-            toCodeShort,
-            "YS" + (100 + bookingsList.size() + 1),
-            departDate,
-            "10:00AM - 11:00AM",
-            "CONFIRMED",
-            "A" + (bookingsList.size() + 3),
-            "User Name",
-            5000.0
-        );
-
-        // Add to our list structure
-        bookingsList.add(newBooking);
-        
-        // Re-render and update UI stats cards dynamically
-        renderBookings();
-        updateStats();
-
-        JOptionPane.showMessageDialog(this, "Flight booked successfully!\n" + fromCodeShort + " to " + toCodeShort + " added to your upcoming bookings.", "Success", JOptionPane.INFORMATION_MESSAGE);
-    }
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        searchFlights();
+    }//GEN-LAST:event_jButtonSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -765,8 +912,7 @@ public class Dashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new Dashboard().setVisible(true));
     }
 
-    // Variables declaration
-    private javax.swing.JButton jButton1; // Required for compilation mapping if generated by code
+    // Variables declaration - do not modify//GEN-BEGIN:initComponents
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JComboBox<String> jComboBoxFrom;
     private javax.swing.JComboBox<String> jComboBoxPassengers;
@@ -776,14 +922,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelActionProfile;
     private javax.swing.JLabel jLabelActionSearch;
     private javax.swing.JLabel jLabelActionsHeader;
-    private javax.swing.JLabel jLabelBackHome; // Needed to map header mapping
     private javax.swing.JLabel jLabelBookingsHeader;
     private javax.swing.JLabel jLabelDepartDate;
     private javax.swing.JLabel jLabelFrom;
+    private javax.swing.JLabel jLabelFooterStatus;
     private javax.swing.JLabel jLabelGreeting;
-    private javax.swing.JLabel jLabelHeaderLogo; // Needed to map header mapping
-    private javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel jLabelMainTitle;
+    private javax.swing.JLabel jLabelHeaderBackHome;
+    private javax.swing.JLabel jLabelHeaderTitle;
     private javax.swing.JLabel jLabelNavBookings;
     private javax.swing.JLabel jLabelNavCheckIn;
     private javax.swing.JLabel jLabelNavDashboardText;
@@ -793,7 +938,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNavSearch;
     private javax.swing.JLabel jLabelNavSupport;
     private javax.swing.JLabel jLabelNavTitle;
-    private javax.swing.JLabel jLabelOr;
     private javax.swing.JLabel jLabelPassengers;
     private javax.swing.JLabel jLabelStatCancelledDesc;
     private javax.swing.JLabel jLabelStatCancelledIcon;
@@ -811,12 +955,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelStatUpcomingIcon;
     private javax.swing.JLabel jLabelStatUpcomingTitle;
     private javax.swing.JLabel jLabelStatUpcomingVal;
-    private javax.swing.JLabel jLabelStatusDot;
     private javax.swing.JLabel jLabelSubGreeting;
     private javax.swing.JLabel jLabelTo;
     private javax.swing.JLabel jLabelViewAll;
     private javax.swing.JPanel jPanelBookingsList;
     private javax.swing.JPanel jPanelContent;
+    private javax.swing.JPanel jPanelFooter;
+    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelNavDashboard;
     private javax.swing.JPanel jPanelQuickActions;
     private javax.swing.JPanel jPanelSearch;
@@ -827,5 +972,5 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelStatUpcoming;
     private javax.swing.JPanel jPanelUpcomingBookings;
     private javax.swing.JTextField jTextFieldDepartDate;
-    // End of variables declaration
+    // End of variables declaration//GEN-END:initComponents
 }
