@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Controller;
+package controller;
 
 import dao.BookingDAO;
 import dao.LocationDAO;
@@ -162,11 +158,19 @@ public class DashboardController {
     }
 
     public String getSystemStatus() {
-        return "● SYSTEM STATUS: ONLINE (DATABASE CONNECTED)";
+        if (isDatabaseConnected()) {
+            return "● SYSTEM STATUS: ONLINE (DATABASE CONNECTED)";
+        } else {
+            return "● SYSTEM STATUS: OFFLINE (DATABASE DISCONNECTED)";
+        }
     }
     
     public boolean isDatabaseConnected() {
-        return true; // Always database-driven now
+        try (java.sql.Connection conn = database.DatabaseConnection.getConnection()) {
+            return conn != null && !conn.isClosed();
+        } catch (Exception e) {
+            return false;
+        }
     }
     
     // Quick Actions collection compatibility (dummy list, since replaced by Recent Tickets in view)

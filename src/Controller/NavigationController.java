@@ -1,18 +1,30 @@
 package controller;
 
 import javax.swing.JFrame;
+import model.Booking;
+import model.SessionManager;
 import view.dashboard;
 import view.searchflight;
 import view.mybookings;
 import view.profie;
 import view.customersupport;
-import view.livechat;
+import view.login;
+import view.checkin;
+import view.ticketwindow;
 
 /**
- * Controller class to handle all navigation logic.
- * Decouples the business logic/navigation from the view layer.
+ * Controller to handle application navigation flow.
  */
 public class NavigationController {
+
+    public static void goToLogin(JFrame currentFrame) {
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
+        java.awt.EventQueue.invokeLater(() -> {
+            new login().setVisible(true);
+        });
+    }
 
     public static void goToDashboard(JFrame currentFrame) {
         if (currentFrame != null) {
@@ -59,21 +71,26 @@ public class NavigationController {
         });
     }
 
-    /**
-     * Opens the Live Chat window without closing the current frame,
-     * so the user can return to Customer Support after chatting.
-     */
-    public static void goToLiveChat() {
+    public static void goToCheckIn(JFrame currentFrame) {
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
         java.awt.EventQueue.invokeLater(() -> {
-            new livechat().setVisible(true);
+            new checkin().setVisible(true);
+        });
+    }
+
+    /**
+     * Opens the Ticket Receipt screen as a standalone popup window.
+     */
+    public static void openTicketWindow(Booking booking) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new ticketwindow(booking).setVisible(true);
         });
     }
 
     public static void logout(JFrame currentFrame) {
-        if (currentFrame != null) {
-            currentFrame.dispose();
-        }
-        System.out.println("User logged out successfully.");
-        System.exit(0);
+        SessionManager.clearSession();
+        goToLogin(currentFrame);
     }
 }

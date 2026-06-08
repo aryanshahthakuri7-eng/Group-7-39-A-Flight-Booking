@@ -174,7 +174,11 @@ public class dashboard extends javax.swing.JFrame {
         btnActionLogout.setForeground(new java.awt.Color(20, 28, 35));
         
         lblStatusText.setText(dashController.getSystemStatus());
-        lblStatusText.setForeground(new java.awt.Color(16, 185, 129)); // Green Online
+        if (dashController.isDatabaseConnected()) {
+            lblStatusText.setForeground(new java.awt.Color(16, 185, 129)); // Green Online
+        } else {
+            lblStatusText.setForeground(new java.awt.Color(239, 68, 68)); // Red Offline
+        }
     }
 
     private void styleSidebarButton(javax.swing.JButton btn) {
@@ -346,6 +350,7 @@ public class dashboard extends javax.swing.JFrame {
         btnCheckIn.setText("Check-in");
         btnCheckIn.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnCheckIn.setForeground(new java.awt.Color(92, 100, 112));
+        btnCheckIn.addActionListener(this::btnCheckInActionPerformed);
         getContentPane().add(btnCheckIn);
         btnCheckIn.setBounds(15, 270, 220, 40);
 
@@ -816,11 +821,7 @@ public class dashboard extends javax.swing.JFrame {
         NavigationController.goToMyBookings(this);
     }//GEN-LAST:event_btnActionLogoutActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new dashboard().setVisible(true);
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActionBookings;

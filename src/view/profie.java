@@ -1,11 +1,18 @@
 package view;
 
 import controller.NavigationController;
+import controller.ProfileController;
+import model.User;
+import javax.swing.JOptionPane;
 
 public class profie extends javax.swing.JFrame {
 
+    private final ProfileController profileController;
+
     public profie() {
         initComponents();
+        profileController = new ProfileController();
+        
         getContentPane().setBackground(new java.awt.Color(20, 28, 35)); // Dark Navy Blue
         
         // Custom stylings to make UI look extremely premium and flat!
@@ -43,7 +50,59 @@ public class profie extends javax.swing.JFrame {
         styleTextField(txtEmail);
         styleTextField(txtPhone);
         styleTextField(txtDob);
+        
+        // Load User Details
+        loadUserProfile();
+        
+        // Wire Save Changes Button
+        btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveChangesActionPerformed(evt);
+            }
+        });
+
+        // Unimplemented features popups
+        btnChangePassword.addActionListener(evt -> JOptionPane.showMessageDialog(this, "The Change Password feature is not implemented yet!", "Under Construction", JOptionPane.INFORMATION_MESSAGE));
+        btnTwoFactor.addActionListener(evt -> JOptionPane.showMessageDialog(this, "Two-Factor Authentication configuration is not implemented yet!", "Under Construction", JOptionPane.INFORMATION_MESSAGE));
+        btnDevices.addActionListener(evt -> JOptionPane.showMessageDialog(this, "Connected Device Management is not implemented yet!", "Under Construction", JOptionPane.INFORMATION_MESSAGE));
     }
+
+    private void loadUserProfile() {
+        User user = profileController.getLoggedInUserProfile();
+        if (user != null) {
+            txtFullName.setText(user.getFullName());
+            txtEmail.setText(user.getEmail());
+            txtPhone.setText(user.getPhone() != null ? user.getPhone() : "");
+            lblProfileName.setText(user.getFullName());
+            
+            if (user.getCreatedAt() != null) {
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MMM yyyy");
+                lblMemberSince.setText("Member since " + sdf.format(user.getCreatedAt()));
+            } else {
+                lblMemberSince.setText("Member since Dec 2024");
+            }
+        }
+    }
+
+    private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {
+        String name = txtFullName.getText().trim();
+        String email = txtEmail.getText().trim();
+        String phone = txtPhone.getText().trim();
+
+        if (name.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Full Name and Email Address are required fields.", "Input Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        boolean success = profileController.updateProfile(name, email, phone);
+        if (success) {
+            lblProfileName.setText(name);
+            JOptionPane.showMessageDialog(this, "Profile updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to update profile. Email might already be in use.", "Update Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     private void styleSidebarButton(javax.swing.JButton btn) {
         btn.setContentAreaFilled(false);
@@ -163,9 +222,9 @@ public class profie extends javax.swing.JFrame {
         getContentPane().add(lblLogo);
         lblLogo.setBounds(25, 30, 200, 40);
 
+        btnDashboard.setText("Dashboard");
         btnDashboard.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnDashboard.setForeground(new java.awt.Color(92, 100, 112));
-        btnDashboard.setText("Dashboard");
         btnDashboard.addActionListener(this::btnDashboardActionPerformed);
         getContentPane().add(btnDashboard);
         btnDashboard.setBounds(15, 120, 220, 40);
@@ -491,13 +550,7 @@ public class profie extends javax.swing.JFrame {
         NavigationController.logout(this);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new profie().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangePassword;
