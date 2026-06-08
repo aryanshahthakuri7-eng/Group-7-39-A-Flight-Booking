@@ -1,6 +1,7 @@
 package view;
 
 import controller.NavigationController;
+import javax.swing.JOptionPane;
 
 public class customersupport extends javax.swing.JFrame {
 
@@ -35,8 +36,45 @@ public class customersupport extends javax.swing.JFrame {
             new javax.swing.border.LineBorder(new java.awt.Color(230, 244, 234), 1, true),
             javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8)
         ));
-        btnStartConv.addActionListener(e -> NavigationController.goToLiveChat());
+
+        // Wire Action Listeners
+        btnOpenTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenTicketActionPerformed(evt);
+            }
+        });
+        
+        btnStartConv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartConvActionPerformed(evt);
+            }
+        });
+        
+        btnCallAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCallAgentActionPerformed(evt);
+            }
+        });
     }
+
+    private void btnOpenTicketActionPerformed(java.awt.event.ActionEvent evt) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new supporttickets().setVisible(true);
+        });
+    }
+
+    private void btnStartConvActionPerformed(java.awt.event.ActionEvent evt) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new livechat().setVisible(true);
+        });
+    }
+
+    private void btnCallAgentActionPerformed(java.awt.event.ActionEvent evt) {
+        JOptionPane.showMessageDialog(this, 
+            "Helpline: +1 (800) 555-YATRA (92872)\nHours: 24/7 Emergency Support Desk\n\nYour call request has been generated. Please dial the number above.", 
+            "Direct Helpline Info", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
     private void styleSidebarButton(javax.swing.JButton btn) {
         btn.setContentAreaFilled(false);
@@ -136,9 +174,9 @@ public class customersupport extends javax.swing.JFrame {
         getContentPane().add(lblLogo);
         lblLogo.setBounds(25, 30, 200, 40);
 
+        btnDashboard.setText("Dashboard");
         btnDashboard.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnDashboard.setForeground(new java.awt.Color(92, 100, 112));
-        btnDashboard.setText("Dashboard");
         btnDashboard.addActionListener(this::btnDashboardActionPerformed);
         getContentPane().add(btnDashboard);
         btnDashboard.setBounds(15, 120, 220, 40);
@@ -363,7 +401,7 @@ public class customersupport extends javax.swing.JFrame {
         getContentPane().add(pnlStatus);
         pnlStatus.setBounds(250, 740, 950, 60);
 
-        pnlMainBg.setBackground(new java.awt.Color(250, 250, 251));
+        pnlMainBg.setBackground(new java.awt.Color(244, 246, 249));
         getContentPane().add(pnlMainBg);
         pnlMainBg.setBounds(250, 60, 950, 740);
 
@@ -395,13 +433,7 @@ public class customersupport extends javax.swing.JFrame {
         NavigationController.logout(this);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new customersupport().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCallAgent;
