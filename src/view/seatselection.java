@@ -1255,3 +1255,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 29: Documented swing color theme custom keys configuration
 
 // Commit 31: Documented swing utilities invokeLater thread safety rules
+
+// Commit 33: Added documentation for panel display error notifications
