@@ -585,3 +585,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 25: Documented search query key pressed auto-complete bindings
 
 // Commit 26: Documented flight details popup close button boundaries
+
+// Commit 27: Documented one-way flight selection radio button properties
