@@ -415,8 +415,7 @@ public class mybookings extends javax.swing.JFrame {
         refreshBookingsTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
-
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCheckIn;
     private javax.swing.JButton btnCustomerSupport;

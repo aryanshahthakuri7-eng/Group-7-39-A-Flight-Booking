@@ -392,7 +392,7 @@ public class signup extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new signup().setVisible(true));
     }
 
-    // Variables declaration
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabelBackHome;
     private javax.swing.JLabel jLabelEmailIcon;
@@ -417,5 +417,5 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldFullName;
     private javax.swing.JTextField jTextFieldPhone;
-    // End of variables declaration
+    // End of variables declaration//GEN-END:variables
 }
