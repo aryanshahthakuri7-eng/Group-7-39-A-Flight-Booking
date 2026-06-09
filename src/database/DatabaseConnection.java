@@ -156,9 +156,9 @@ public class DatabaseConnection {
             // Check if seeding is needed (e.g. if users is empty)
             try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM users;")) {
                 if (rs.next() && rs.getInt(1) == 0) {
-                    // Seed users
+                    // Seed users (using 'User Name' to match mockup)
                     stmt.executeUpdate("INSERT INTO users (user_id, full_name, email, password, phone) VALUES " +
-                            "(1, 'Gaurav Chandra', 'gaurav.chandra@gmail.com', 'password123', '+977 9812345678')," +
+                            "(1, 'User Name', 'user@yatraair.com', 'password123', '+977 9812345678')," +
                             "(2, 'Aryan Shah', 'aryan.shah@gmail.com', 'password123', '+977 9876543210');");
 
                     // Seed locations
@@ -178,18 +178,28 @@ public class DatabaseConnection {
                             "(4, 'YS420', 'Kathmandu (KTM)', 'Lukla (LUA)', '20 JUN 2026', '06:00AM', 5, 8000.0, 'ACTIVE')," +
                             "(5, 'YS502', 'Kathmandu (KTM)', 'Bhairahawa (BWA)', '25 JUN 2026', '11:15AM', 18, 4800.0, 'ACTIVE');");
 
-                    // Seed bookings
+                    // Seed bookings (Amount: 5000 + 7500 = 12500 total spent)
                     stmt.executeUpdate("INSERT INTO bookings (booking_id, user_id, flight_id, passenger_name, seat_number, booking_date, amount, booking_status) VALUES " +
-                            "('BK001', 1, 1, 'Gaurav Chandra', 'A2', '2026-04-01 10:00:00', 5000.0, 'CONFIRMED')," +
-                            "('BK002', 1, 2, 'Gaurav Chandra', 'B5', '2026-04-10 14:30:00', 5500.0, 'CONFIRMED')," +
-                            "('BK003', 1, 3, 'Gaurav Chandra', 'C1', '2026-03-01 08:00:00', 4500.0, 'CANCELLED')," +
-                            "('BK004', 1, 4, 'Gaurav Chandra', 'D3', '2026-04-15 06:00:00', 8000.0, 'CONFIRMED');");
+                            "('BK001', 1, 1, 'User Name', 'A2', '2026-04-01 10:00:00', 5000.0, 'CONFIRMED')," +
+                            "('BK002', 1, 2, 'User Name', 'B5', '2026-04-10 14:30:00', 7500.0, 'CONFIRMED')," +
+                            "('BK003', 1, 3, 'User Name', 'C1', '2026-03-01 08:00:00', 4500.0, 'CANCELLED');");
 
                     // Seed payments
                     stmt.executeUpdate("INSERT INTO payments (payment_id, booking_id, amount, payment_method, payment_date) VALUES " +
                             "(1, 'BK001', 5000.0, 'E-SEWA', '2026-04-01 10:05:00')," +
-                            "(2, 'BK002', 5500.0, 'KHALTI', '2026-04-10 14:35:00')," +
-                            "(3, 'BK004', 8000.0, 'CREDIT_CARD', '2026-04-15 06:05:00');");
+                            "(2, 'BK002', 7500.0, 'KHALTI', '2026-04-10 14:35:00');");
+                } else {
+                    // Check if old seed data needs migration to match mockup
+                    try (ResultSet rsCheck = stmt.executeQuery("SELECT COUNT(*) FROM users WHERE user_id = 1 AND full_name = 'Gaurav Chandra';")) {
+                        if (rsCheck.next() && rsCheck.getInt(1) > 0) {
+                            System.out.println("Migrating database seed data to match mockup...");
+                            stmt.executeUpdate("UPDATE users SET full_name = 'User Name', email = 'user@yatraair.com' WHERE user_id = 1;");
+                            stmt.executeUpdate("UPDATE bookings SET passenger_name = 'User Name' WHERE user_id = 1;");
+                            stmt.executeUpdate("UPDATE bookings SET amount = 7500.0 WHERE booking_id = 'BK002';");
+                            stmt.executeUpdate("DELETE FROM payments WHERE booking_id = 'BK004';");
+                            stmt.executeUpdate("DELETE FROM bookings WHERE booking_id = 'BK004';");
+                        }
+                    }
                 }
             }
         }

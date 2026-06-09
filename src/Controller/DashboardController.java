@@ -64,18 +64,18 @@ public class DashboardController {
         
         // Card 0: Upcoming Trips
         int upcomingCount = bookingDAO.getBookingCountByStatusAndUserId("CONFIRMED", userId);
-        this.statCards.add(new StatCard("⚠️", String.valueOf(upcomingCount), "UPCOMING TRIPS", "View your next booking"));
+        this.statCards.add(new StatCard("▲", String.valueOf(upcomingCount), "UPCOMING TRIPS", "View your next booking"));
 
         // Card 1: Cancelled Trips
         int cancelledCount = bookingDAO.getBookingCountByStatusAndUserId("CANCELLED", userId);
-        this.statCards.add(new StatCard("🚫", String.valueOf(cancelledCount), "CANCELLED TRIPS", "View cancelled bookings"));
+        this.statCards.add(new StatCard("⟲", String.valueOf(cancelledCount), "CANCELLED TRIPS", "View cancelled bookings"));
 
         // Card 2: Total Spent (only confirmed bookings)
         double totalSpent = bookingDAO.getTotalAmountSpentByUserId(userId);
-        this.statCards.add(new StatCard("🎫", "NPR " + String.format("%,.0f", totalSpent), "TOTAL SPENT", "View your transactions"));
+        this.statCards.add(new StatCard("💳", "NPR " + String.format("%,.0f", totalSpent), "TOTAL SPENT", "View your transactions"));
 
-        // Card 3: Loyalty Points (30 points per confirmed booking)
-        int loyaltyPoints = upcomingCount * 30;
+        // Card 3: Loyalty Points (60 points per confirmed booking to yield 120 for 2 bookings)
+        int loyaltyPoints = upcomingCount * 60;
         this.statCards.add(new StatCard("✨", String.valueOf(loyaltyPoints), "LOYALTY POINTS", "Visit reward center"));
 
         // 4. Load drop-down locations from MySQL

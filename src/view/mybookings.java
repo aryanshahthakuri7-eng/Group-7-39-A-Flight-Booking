@@ -419,6 +419,5 @@ public class mybookings extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMainBg;
     private javax.swing.JPanel pnlSidebar;
     private javax.swing.JPanel pnlTopHeader;
-    private javax.swing.JTable tblBookings;
     // End of variables declaration//GEN-END:variables
 }
