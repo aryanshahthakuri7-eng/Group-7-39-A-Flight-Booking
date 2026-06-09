@@ -119,7 +119,12 @@ public class dashboard extends javax.swing.JFrame {
         if (firstBooking != null) {
             lblRoute.setText(firstBooking.getRoute());
             lblFlightInfo.setText(firstBooking.getFormattedFlightInfo());
-            lblConfirmedBadge.setText(firstBooking.getStatus());
+            String status = firstBooking.getStatus();
+            if ("CONFIRMED".equalsIgnoreCase(status)) {
+                lblConfirmedBadge.setText("CONaIRMED");
+            } else {
+                lblConfirmedBadge.setText(status);
+            }
             lblConfirmedBadge.setVisible(true);
             lblSeatVal.setText(firstBooking.getSeatNumber());
             lblPassengerVal.setText(firstBooking.getPassengerName());
@@ -141,37 +146,13 @@ public class dashboard extends javax.swing.JFrame {
             lblNoMoreBookings.setText("No more upcoming bookings");
         }
         
-        // --- Populate Recent Tickets Section (replacing Quick Actions) ---
-        lblQuickActionsTitle.setText("Latest Bookings");
-        ArrayList<Booking> allBookings = dashController.getAllBookings();
-        
-        if (allBookings.size() > 0) {
-            Booking b1 = allBookings.get(0);
-            btnActionSearch.setText("🎟️ " + b1.getBookingId() + " - " + b1.getRoute() + " (" + b1.getStatus() + ")");
-            btnActionSearch.setVisible(true);
-        } else {
-            btnActionSearch.setText("No bookings found. Click to Search Flights.");
-            btnActionSearch.setVisible(true);
-        }
-        
-        if (allBookings.size() > 1) {
-            Booking b2 = allBookings.get(1);
-            btnActionBookings.setText("🎟️ " + b2.getBookingId() + " - " + b2.getRoute() + " (" + b2.getStatus() + ")");
-            btnActionBookings.setVisible(true);
-        } else {
-            btnActionBookings.setVisible(false);
-        }
-        
-        if (allBookings.size() > 2) {
-            Booking b3 = allBookings.get(2);
-            btnActionProfile.setText("🎟️ " + b3.getBookingId() + " - " + b3.getRoute() + " (" + b3.getStatus() + ")");
-            btnActionProfile.setVisible(true);
-        } else {
-            btnActionProfile.setVisible(false);
-        }
-        
-        btnActionLogout.setText("💼 View All Bookings                               〉");
-        btnActionLogout.setForeground(new java.awt.Color(20, 28, 35));
+        // Keep Quick Actions panel static as designed in the form
+        lblQuickActionsTitle.setText("Quick Actions");
+        btnActionSearch.setVisible(true);
+        btnActionBookings.setVisible(true);
+        btnActionProfile.setVisible(true);
+        btnActionLogout.setVisible(true);
+        btnActionLogout.setForeground(new java.awt.Color(255, 59, 48));
         
         lblStatusText.setText(dashController.getSystemStatus());
         if (dashController.isDatabaseConnected()) {
@@ -457,7 +438,7 @@ public class dashboard extends javax.swing.JFrame {
         getContentPane().add(cmbPassengers);
         cmbPassengers.setBounds(805, 170, 130, 35);
 
-        btnSearchFlights.setText("Search flights");
+        btnSearchFlights.setText("Search alights");
         btnSearchFlights.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnSearchFlights.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchFlights.setBackground(new java.awt.Color(255, 115, 21));
@@ -626,7 +607,7 @@ public class dashboard extends javax.swing.JFrame {
         getContentPane().add(lblFlightInfo);
         lblFlightInfo.setBounds(380, 455, 280, 20);
 
-        lblConfirmedBadge.setText("CONFIRMED");
+        lblConfirmedBadge.setText("CONaIRMED");
         lblConfirmedBadge.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
         lblConfirmedBadge.setForeground(new java.awt.Color(16, 185, 129));
         lblConfirmedBadge.setBackground(new java.awt.Color(235, 255, 235));
@@ -794,30 +775,19 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCheckInActionPerformed
 
     private void btnActionSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionSearchActionPerformed
-        ArrayList<Booking> list = dashController.getAllBookings();
-        if (list.size() > 0) {
-            NavigationController.openTicketWindow(list.get(0));
-        } else {
-            NavigationController.goToSearchFlight(this);
-        }
+        NavigationController.goToSearchFlight(this);
     }//GEN-LAST:event_btnActionSearchActionPerformed
 
     private void btnActionBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionBookingsActionPerformed
-        ArrayList<Booking> list = dashController.getAllBookings();
-        if (list.size() > 1) {
-            NavigationController.openTicketWindow(list.get(1));
-        }
+        NavigationController.goToMyBookings(this);
     }//GEN-LAST:event_btnActionBookingsActionPerformed
 
     private void btnActionProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionProfileActionPerformed
-        ArrayList<Booking> list = dashController.getAllBookings();
-        if (list.size() > 2) {
-            NavigationController.openTicketWindow(list.get(2));
-        }
+        NavigationController.goToProfile(this);
     }//GEN-LAST:event_btnActionProfileActionPerformed
 
     private void btnActionLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionLogoutActionPerformed
-        NavigationController.goToMyBookings(this);
+        NavigationController.logout(this);
     }//GEN-LAST:event_btnActionLogoutActionPerformed
 
 

@@ -8,14 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.User;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl {
     private final Db db;
 
     public UserDaoImpl() {
         this.db = new MySqlConnector();
     }
 
-    @Override
     public boolean createUser(User user) {
         String sql = "INSERT INTO users (fullname, email, phone, password) VALUES (?, ?, ?, ?)";
         try (Connection conn = db.openConnection();
@@ -34,7 +33,6 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    @Override
     public User getUserByEmail(String email) {
         String sql = "SELECT * FROM users WHERE email = ?";
         try (Connection conn = db.openConnection();
@@ -58,7 +56,6 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
-    @Override
     public boolean updatePassword(String email, String newPassword) {
         String sql = "UPDATE users SET password = ? WHERE email = ?";
         try (Connection conn = db.openConnection();
@@ -75,7 +72,6 @@ public class UserDaoImpl implements UserDao {
         }
      }
 
-    @Override
     public boolean updateUser(User user) {
         String sql = "UPDATE users SET fullname = ?, phone = ?, password = ? WHERE email = ?";
         try (Connection conn = db.openConnection();

@@ -86,6 +86,7 @@ public class livechat extends javax.swing.JFrame {
         lblHeader = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        txtChatHistory = new javax.swing.JTextArea();
         txtMessageInput = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
         pnlBg = new javax.swing.JPanel();
@@ -106,6 +107,13 @@ public class livechat extends javax.swing.JFrame {
         lblStatus.setText("● Online Now");
         getContentPane().add(lblStatus);
         lblStatus.setBounds(20, 40, 100, 15);
+
+        txtChatHistory.setColumns(20);
+        txtChatHistory.setRows(5);
+        txtChatHistory.setEditable(false);
+        txtChatHistory.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jScrollPane1.setViewportView(txtChatHistory);
+
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 70, 410, 420);
         getContentPane().add(txtMessageInput);
@@ -131,6 +139,7 @@ public class livechat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSend;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtChatHistory;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JPanel pnlBg;

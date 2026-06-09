@@ -38,16 +38,7 @@ public class User {
         this.password = password;
     }
 
-    // For rahul branch compatibility
-    public User(int userId, String fullName, String email, String password, String phone) {
-        this.userId = userId;
-        this.id = userId;
-        this.fullName = fullName;
-        this.fullname = fullName;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-    }
+
 
     // Getters and Setters mapping both conventions
     public int getId() {

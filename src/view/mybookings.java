@@ -138,6 +138,7 @@ public class mybookings extends javax.swing.JFrame {
         pnlMainBg = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        tblBookings = new javax.swing.JTable();
         btnViewTicket = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnDownload = new javax.swing.JButton();
@@ -148,6 +149,25 @@ public class mybookings extends javax.swing.JFrame {
         setTitle("Yatra Air Sewa - My Bookings");
         setPreferredSize(new java.awt.Dimension(1200, 800));
         getContentPane().setLayout(null);
+
+        tblBookings.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Booking ID", "Flight Code", "From", "To", "Passenger", "Seat", "Date", "Amount", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblBookings.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jScrollPane1.setViewportView(tblBookings);
 
         lblLogo.setText("▼  YATRAAIR");
         lblLogo.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -397,7 +417,6 @@ public class mybookings extends javax.swing.JFrame {
 
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCheckIn;
     private javax.swing.JButton btnCustomerSupport;
@@ -411,6 +430,7 @@ public class mybookings extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchFlight;
     private javax.swing.JButton btnViewTicket;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblBookings;
     private javax.swing.JLabel lblBackToHome;
     private javax.swing.JLabel lblHeaderIcons;
     private javax.swing.JLabel lblLogo;

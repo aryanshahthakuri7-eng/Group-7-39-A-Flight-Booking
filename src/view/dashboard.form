@@ -421,7 +421,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSearchFlights">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search flights"/>
+        <Property name="text" type="java.lang.String" value="Search alights"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="13" style="1"/>
         </Property>
@@ -864,7 +864,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblConfirmedBadge">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CONFIRMED"/>
+        <Property name="text" type="java.lang.String" value="CONaIRMED"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="1"/>
         </Property>

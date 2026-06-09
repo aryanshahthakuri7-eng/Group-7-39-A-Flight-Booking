@@ -1,11 +1,10 @@
 package Controller;
 
-import dao.UserDao;
 import dao.UserDaoImpl;
 import model.User;
 
 public class UserController {
-    private final UserDao userDao;
+    private final UserDaoImpl userDao;
 
     public UserController() {
         this.userDao = new UserDaoImpl();

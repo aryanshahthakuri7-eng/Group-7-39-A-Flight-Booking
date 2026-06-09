@@ -21,7 +21,13 @@ public class SessionManager {
      */
     public static User getCurrentUser() {
         if (currentUser == null) {
-            currentUser = new User(1, "Gaurav Chandra", "gaurav.chandra@gmail.com", "password123", "+977 9812345678");
+            User defaultUser = new User();
+            defaultUser.setUserId(1);
+            defaultUser.setFullName("Gaurav Chandra");
+            defaultUser.setEmail("gaurav.chandra@gmail.com");
+            defaultUser.setPassword("password123");
+            defaultUser.setPhone("+977 9812345678");
+            currentUser = defaultUser;
         }
         return currentUser;
     }
