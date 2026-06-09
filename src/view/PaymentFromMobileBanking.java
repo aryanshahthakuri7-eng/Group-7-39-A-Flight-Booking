@@ -919,3 +919,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 30: Documented mobile payment network timeout thresholds
 
 // Commit 32: Documented mobile banking service provider icons layout
+
+// Commit 34: Documented eSewa payment details label dimensions
