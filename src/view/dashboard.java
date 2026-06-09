@@ -350,7 +350,6 @@ public class dashboard extends javax.swing.JFrame {
         btnCheckIn.setText("Check-in");
         btnCheckIn.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnCheckIn.setForeground(new java.awt.Color(92, 100, 112));
-        btnCheckIn.addActionListener(this::btnCheckInActionPerformed);
         getContentPane().add(btnCheckIn);
         btnCheckIn.setBounds(15, 270, 220, 40);
 
@@ -442,8 +441,8 @@ public class dashboard extends javax.swing.JFrame {
         getContentPane().add(lblDepartDate);
         lblDepartDate.setBounds(670, 150, 100, 15);
 
-        txtDepartDate.setText("DD/MM/YYYY");
         txtDepartDate.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        txtDepartDate.setText("DD/MM/YYYY");
         getContentPane().add(txtDepartDate);
         txtDepartDate.setBounds(670, 170, 120, 35);
 
@@ -453,8 +452,8 @@ public class dashboard extends javax.swing.JFrame {
         getContentPane().add(lblPassengers);
         lblPassengers.setBounds(805, 150, 100, 15);
 
-        cmbPassengers.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "", "" }));
         cmbPassengers.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        cmbPassengers.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "", "" }));
         getContentPane().add(cmbPassengers);
         cmbPassengers.setBounds(805, 170, 130, 35);
 

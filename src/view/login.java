@@ -23,6 +23,22 @@ public class login extends javax.swing.JFrame {
         styleTextField(txtEmail);
         styleTextField(txtPassword);
         
+        // Clickable Forgot Password Link
+        javax.swing.JLabel lblForgot = new javax.swing.JLabel("Forgot Password?");
+        lblForgot.setFont(new java.awt.Font("SansSerif", 1, 11));
+        lblForgot.setForeground(new java.awt.Color(255, 122, 26)); // Orange Accent
+        lblForgot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblForgot.setBounds(250, 220, 110, 20);
+        lblForgot.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblForgot.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                login.this.dispose();
+                new controller.PasswordRecoveryController(new view.passwordrecovery()).activate();
+            }
+        });
+        pnlMain.add(lblForgot);
+        
         btnLogin.setContentAreaFilled(true);
         btnLogin.setBackground(new java.awt.Color(255, 122, 26)); // Orange Accent
         btnLogin.setForeground(java.awt.Color.WHITE);
@@ -79,49 +95,47 @@ public class login extends javax.swing.JFrame {
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
         pnlMain.setLayout(null);
 
+        lblLogo.setText("▼  YATRAAIR");
         lblLogo.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
         lblLogo.setForeground(new java.awt.Color(20, 28, 35));
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setText("▼  YATRAAIR");
         pnlMain.add(lblLogo);
         lblLogo.setBounds(20, 40, 360, 40);
 
+        lblTagline.setText("Yatra Air Sewa Flight Booking Portal");
         lblTagline.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         lblTagline.setForeground(new java.awt.Color(113, 128, 150));
         lblTagline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTagline.setText("Yatra Air Sewa Flight Booking Portal");
         pnlMain.add(lblTagline);
         lblTagline.setBounds(20, 80, 360, 20);
 
+        lblEmail.setText("Email Address");
         lblEmail.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(92, 100, 112));
-        lblEmail.setText("Email Address");
         pnlMain.add(lblEmail);
         lblEmail.setBounds(40, 140, 320, 20);
 
+        txtEmail.setText("gauravchandra@gmail.com");
         txtEmail.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        txtEmail.setText("gaurav.chandra@gmail.com");
         pnlMain.add(txtEmail);
         txtEmail.setBounds(40, 165, 320, 35);
 
+        lblPassword.setText("Password");
         lblPassword.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(92, 100, 112));
-        lblPassword.setText("Password");
         pnlMain.add(lblPassword);
         lblPassword.setBounds(40, 220, 320, 20);
 
-        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         txtPassword.setText("password123");
+        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         pnlMain.add(txtPassword);
         txtPassword.setBounds(40, 245, 320, 35);
 
-        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLogin.setText("Sign In");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
+        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setBackground(new java.awt.Color(255, 115, 21));
+        btnLogin.addActionListener(this::btnLoginActionPerformed);
         pnlMain.add(btnLogin);
         btnLogin.setBounds(40, 320, 320, 40);
 
@@ -131,10 +145,10 @@ public class login extends javax.swing.JFrame {
         pnlMain.add(lblError);
         lblError.setBounds(40, 380, 320, 20);
 
-        lblHint.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        lblHint.setForeground(new java.awt.Color(160, 174, 192));
-        lblHint.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHint.setText("Hint: gaurav.chandra@gmail.com / password123");
+        lblHint.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        lblHint.setForeground(new java.awt.Color(144, 160, 176));
+        lblHint.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pnlMain.add(lblHint);
         lblHint.setBounds(20, 440, 360, 20);
 
@@ -142,7 +156,6 @@ public class login extends javax.swing.JFrame {
         pnlMain.setBounds(50, 50, 400, 480);
 
         pnlBg.setBackground(new java.awt.Color(20, 28, 35));
-        pnlBg.setLayout(null);
         getContentPane().add(pnlBg);
         pnlBg.setBounds(0, 0, 500, 600);
 

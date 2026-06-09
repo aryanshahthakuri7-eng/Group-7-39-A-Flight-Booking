@@ -295,6 +295,8 @@
               <AbsoluteConstraints x="30" y="90" width="890" height="480"/>
             </Constraint>
           </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
         </Container>
         <Component class="javax.swing.JButton" name="btnViewTicket">
           <Properties>
