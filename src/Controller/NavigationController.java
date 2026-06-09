@@ -11,6 +11,7 @@ import view.customersupport;
 import view.login;
 import view.checkin;
 import view.ticketwindow;
+import view.signup;
 
 /**
  * Controller to handle application navigation flow.
@@ -23,6 +24,15 @@ public class NavigationController {
         }
         java.awt.EventQueue.invokeLater(() -> {
             new login().setVisible(true);
+        });
+    }
+
+    public static void goToSignUp(JFrame currentFrame) {
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
+        java.awt.EventQueue.invokeLater(() -> {
+            new signup().setVisible(true);
         });
     }
 

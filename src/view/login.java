@@ -39,6 +39,22 @@ public class login extends javax.swing.JFrame {
         });
         pnlMain.add(lblForgot);
         
+        // Clickable Sign Up Link
+        javax.swing.JLabel lblSignUp = new javax.swing.JLabel("Don't have an account? Sign Up");
+        lblSignUp.setFont(new java.awt.Font("SansSerif", 1, 11));
+        lblSignUp.setForeground(new java.awt.Color(255, 122, 26)); // Orange Accent
+        lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSignUp.setBounds(40, 410, 320, 20);
+        lblSignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                login.this.dispose();
+                NavigationController.goToSignUp(login.this);
+            }
+        });
+        pnlMain.add(lblSignUp);
+        
         btnLogin.setContentAreaFilled(true);
         btnLogin.setBackground(new java.awt.Color(255, 122, 26)); // Orange Accent
         btnLogin.setForeground(java.awt.Color.WHITE);

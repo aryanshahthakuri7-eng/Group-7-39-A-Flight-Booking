@@ -1,13 +1,13 @@
-package Controller;
+package controller;
 
-import dao.UserDaoImpl;
+import dao.UserDAO;
 import model.User;
 
 public class UserController {
-    private final UserDaoImpl userDao;
+    private final UserDAO userDao;
 
     public UserController() {
-        this.userDao = new UserDaoImpl();
+        this.userDao = new UserDAO();
     }
 
     /**
@@ -39,13 +39,13 @@ public class UserController {
         }
 
         // Check duplicate email
-        if (userDao.getUserByEmail(email.trim()) != null) {
+        if (userDao.getByEmail(email.trim()) != null) {
             return "Email is already registered.";
         }
 
         // Create and save user
         User user = new User(fullname.trim(), email.trim(), phone.trim(), password);
-        boolean saved = userDao.createUser(user);
+        boolean saved = userDao.insert(user);
         
         return saved ? "success" : "Failed to save user in database. Please check connection.";
     }
@@ -59,7 +59,7 @@ public class UserController {
             return null;
         }
 
-        User user = userDao.getUserByEmail(email.trim());
+        User user = userDao.getByEmail(email.trim());
         if (user != null && user.getPassword().equals(password)) {
             return user;
         }
@@ -78,7 +78,7 @@ public class UserController {
             return null;
         }
         
-        User user = userDao.getUserByEmail(email.trim());
+        User user = userDao.getByEmail(email.trim());
         if (user == null) {
             return null;
         }
@@ -100,12 +100,13 @@ public class UserController {
             return false;
         }
 
-        User user = userDao.getUserByEmail(email.trim());
+        User user = userDao.getByEmail(email.trim());
         if (user == null) {
             return false;
         }
 
-        return userDao.updatePassword(email.trim(), newPassword);
+        user.setPassword(newPassword);
+        return userDao.update(user);
     }
 
     /**
@@ -116,7 +117,7 @@ public class UserController {
         if (user == null) {
             return "User session is invalid.";
         }
-        if (user.getFullname() == null || user.getFullname().trim().isEmpty()) {
+        if (user.getFullName() == null || user.getFullName().trim().isEmpty()) {
             return "Full Name cannot be empty.";
         }
         if (user.getPhone() == null || user.getPhone().trim().isEmpty()) {
@@ -132,7 +133,7 @@ public class UserController {
             return "Invalid phone number format.";
         }
 
-        boolean updated = userDao.updateUser(user);
+        boolean updated = userDao.update(user);
         return updated ? "success" : "Failed to update profile in database.";
     }
 }
