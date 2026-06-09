@@ -541,3 +541,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 3: Documented navigation bounds mapping and button events.
 
 // Commit 4: Documented cabin class ticket price calculations.
+
+// Commit 5: Documented filtering listeners and search flight callbacks.
