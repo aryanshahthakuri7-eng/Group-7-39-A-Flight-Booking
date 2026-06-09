@@ -1,22 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package group.pkg7.pkg39.a.flight.booking;
 
-import view.SignIn;
+import view.login;
 
 /**
- *
- * @author Lenovo LOQ
+ * Main application entry point for Yatra Air Sewa.
+ * Starts the application on the Login Screen.
  */
 public class Group739AFlightBooking {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(() -> new SignIn().setVisible(true));
+        // Test database connection on startup
+        try {
+            System.out.println("Checking database connection...");
+            try (java.sql.Connection conn = database.DatabaseConnection.getConnection()) {
+                if (conn != null && !conn.isClosed()) {
+                    System.out.println("Connection successful!");
+                } else {
+                    System.out.println("Unsuccessful connection.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Unsuccessful connection.");
+            System.err.println("Error details: " + e.getMessage());
+        }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new login().setVisible(true);
+        });
     }
-    
 }
