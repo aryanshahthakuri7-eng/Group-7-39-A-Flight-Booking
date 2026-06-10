@@ -543,3 +543,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 4: Documented cabin class ticket price calculations.
 
 // Commit 5: Documented filtering listeners and search flight callbacks.
+
+// Commit 6: Documented Getter functions returning JFrame Swing labels.
