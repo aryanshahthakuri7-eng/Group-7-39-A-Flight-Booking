@@ -1257,3 +1257,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 31: Documented swing utilities invokeLater thread safety rules
 
 // Commit 33: Added documentation for panel display error notifications
+
+// Commit 35: Documented mouse hover events dispatch loops
