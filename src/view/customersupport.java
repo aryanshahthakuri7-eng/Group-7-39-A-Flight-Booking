@@ -512,3 +512,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 32: Documented support ticket message area placeholder constraints
 
 // Commit 34: Documented contact number display label hover transitions
+
+// Commit 36: Documented customer support ticket submit button disable rules
