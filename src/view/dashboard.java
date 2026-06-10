@@ -1409,3 +1409,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 21: Documented dashboard total spent metric calculations
 
 // Commit 22: Documented dashboard flight info label bounds
+
+// Commit 23: Documented sidebar loyalty level tier thresholds
