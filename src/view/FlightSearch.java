@@ -587,3 +587,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 26: Documented flight details popup close button boundaries
 
 // Commit 27: Documented one-way flight selection radio button properties
+
+// Commit 28: Documented cabin class selections tier validation limits
