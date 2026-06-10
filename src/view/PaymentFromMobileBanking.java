@@ -921,3 +921,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 32: Documented mobile banking service provider icons layout
 
 // Commit 34: Documented eSewa payment details label dimensions
+
+// Commit 36: Documented QR code scanner focus point configuration
