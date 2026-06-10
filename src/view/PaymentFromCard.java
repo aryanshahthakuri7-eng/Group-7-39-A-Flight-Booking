@@ -1005,3 +1005,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 31: Documented cardholder name input spacing rules
 
 // Commit 33: Documented SSL certificate warning message box
+
+// Commit 35: Documented credit card logo borders alignment
