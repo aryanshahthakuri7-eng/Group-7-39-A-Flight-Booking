@@ -509,3 +509,5 @@ public class login extends javax.swing.JFrame {
 // Commit 16: Documented login page show password check state listener
 
 // Commit 19: Documented login panel custom logo icon bounds
+
+// Commit 22: Documented login controller redirection to home verification
