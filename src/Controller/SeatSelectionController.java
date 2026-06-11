@@ -109,3 +109,5 @@ public class SeatSelectionController {
 // Commit 32: Documented database query rows mapping loop variables
 
 // Commit 34: Documented state persistence inside reservation model
+
+// Commit 36: Explained navigation routing error redirection paths
