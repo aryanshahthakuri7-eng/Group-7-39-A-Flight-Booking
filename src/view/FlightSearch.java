@@ -547,3 +547,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 6: Documented Getter functions returning JFrame Swing labels.
 
 // Commit 7: Explained PremiumPlus class selections and passenger capacity.
+
+// Commit 8: Documented viewdetails action mappings and viewresults controllers.
