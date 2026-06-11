@@ -1259,3 +1259,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 33: Added documentation for panel display error notifications
 
 // Commit 35: Documented mouse hover events dispatch loops
+
+// Commit 37: Documented glassmorphic frame visual specs override configurations
