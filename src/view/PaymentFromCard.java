@@ -1007,3 +1007,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 33: Documented SSL certificate warning message box
 
 // Commit 35: Documented credit card logo borders alignment
+
+// Commit 37: Documented card validator return values schema
