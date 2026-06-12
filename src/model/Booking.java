@@ -174,7 +174,28 @@ public class Booking {
     }
     
     public String getRoute() {
+        if (route != null && route.contains("(") && route.contains(")")) {
+            try {
+                String src = extractAirportCode(fromCity);
+                String dest = extractAirportCode(toCity);
+                if (src != null && dest != null) {
+                    return src + " → " + dest;
+                }
+            } catch (Exception e) {
+                // fallback
+            }
+        }
         return route;
+    }
+
+    private String extractAirportCode(String cityAndCode) {
+        if (cityAndCode == null) return null;
+        int start = cityAndCode.indexOf("(");
+        int end = cityAndCode.indexOf(")");
+        if (start != -1 && end != -1 && end > start + 1) {
+            return cityAndCode.substring(start + 1, end).trim();
+        }
+        return cityAndCode.trim();
     }
     
     public void setRoute(String route) {
@@ -273,11 +294,47 @@ public class Booking {
      * Example: "YS101 ● 28 APR 2026 ● 10:00AM"
      */
     public String getFormattedFlightInfo() {
-        String info = flightCode + " ● " + departureDate + " ● " + departureTime;
-        if (arrivalTime != null && !arrivalTime.isEmpty()) {
-            info += " - " + arrivalTime;
+        String info = flightCode + " • " + departureDate + " • " + departureTime;
+        String arr = (arrivalTime == null || arrivalTime.isEmpty()) ? calculateArrivalTime(departureTime) : arrivalTime;
+        if (arr != null && !arr.isEmpty()) {
+            info += " - " + arr;
         }
         return info;
+    }
+
+    private String calculateArrivalTime(String depTime) {
+        try {
+            if (depTime == null || depTime.trim().isEmpty()) return "";
+            depTime = depTime.trim().toUpperCase();
+            boolean isPm = depTime.endsWith("PM");
+            boolean isAm = depTime.endsWith("AM");
+            String timePart = depTime;
+            if (isPm || isAm) {
+                timePart = depTime.substring(0, depTime.length() - 2).trim();
+            }
+            String[] parts = timePart.split(":");
+            int hour = Integer.parseInt(parts[0]);
+            int min = parts.length > 1 ? Integer.parseInt(parts[1]) : 0;
+            
+            int arrHour = hour + 1;
+            String suffix = "";
+            if (isAm || isPm) {
+                if (hour == 11) {
+                    suffix = isAm ? "PM" : "AM";
+                } else if (hour == 12) {
+                    arrHour = 1;
+                    suffix = isPm ? "PM" : "AM";
+                } else {
+                    suffix = isAm ? "AM" : "PM";
+                }
+            }
+            if (arrHour > 12) {
+                arrHour -= 12;
+            }
+            return String.format("%02d:%02d%s", arrHour, min, suffix);
+        } catch (Exception e) {
+            return "";
+        }
     }
     
     /**
