@@ -589,3 +589,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 27: Documented one-way flight selection radio button properties
 
 // Commit 28: Documented cabin class selections tier validation limits
+
+// Commit 29: Documented search query execution timer latency parameters
