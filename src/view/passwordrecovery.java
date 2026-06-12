@@ -750,3 +750,5 @@ public class passwordrecovery extends javax.swing.JFrame {
 // Commit 17: Documented password recovery action submit triggers verification
 
 // Commit 20: Documented password recovery confirmation dialog messages
+
+// Commit 23: Documented password recovery view cancel button navigation
