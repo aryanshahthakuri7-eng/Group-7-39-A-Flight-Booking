@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 /**
  * View class representing the User Login interface.
- * Built using NetBeans Form Designer components to maintain visual editing compatibility.
+ * Built using NetBeans Form Designer components with custom premium painting logic.
  */
 public class login extends javax.swing.JFrame {
 
@@ -17,11 +17,80 @@ public class login extends javax.swing.JFrame {
         initComponents();
         loginController = new LoginController();
         
-        // Custom premium stylings matching mockup exactly
-        getContentPane().setBackground(new java.awt.Color(15, 30, 54)); // Matching dark blue background
-        pnlMain.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(226, 232, 240), 1, true));
-        pnlMain.setLayout(null);
+        // Custom premium stylings matching mockup exactly at runtime
+        pnlMain.setBorder(new javax.swing.border.Border() {
+            @Override
+            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(new java.awt.Color(226, 232, 240));
+                g2.setStroke(new java.awt.BasicStroke(1.0f));
+                g2.drawRoundRect(x, y, width - 1, height - 1, 16, 16);
+                g2.dispose();
+            }
+            @Override
+            public java.awt.Insets getBorderInsets(java.awt.Component c) {
+                return new java.awt.Insets(1, 1, 1, 1);
+            }
+            @Override
+            public boolean isBorderOpaque() {
+                return false;
+            }
+        });
+        pnlMain.setOpaque(false);
+
+        // Customize main background gradient painting
+        pnlBg.setOpaque(false);
         
+        // Make email and password field borders anti-aliased and smooth at runtime
+        pnlEmail.setOpaque(false);
+        pnlEmail.setBorder(new javax.swing.border.Border() {
+            @Override
+            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                // Background
+                g2.setColor(new java.awt.Color(245, 246, 248));
+                g2.fillRoundRect(x, y, width, height, 8, 8);
+                // Border
+                g2.setColor(new java.awt.Color(230, 233, 238));
+                g2.drawRoundRect(x, y, width - 1, height - 1, 8, 8);
+                g2.dispose();
+            }
+            @Override
+            public java.awt.Insets getBorderInsets(java.awt.Component c) {
+                return new java.awt.Insets(1, 1, 1, 1);
+            }
+            @Override
+            public boolean isBorderOpaque() {
+                return false;
+            }
+        });
+
+        pnlPassword.setOpaque(false);
+        pnlPassword.setBorder(new javax.swing.border.Border() {
+            @Override
+            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                // Background
+                g2.setColor(new java.awt.Color(245, 246, 248));
+                g2.fillRoundRect(x, y, width, height, 8, 8);
+                // Border
+                g2.setColor(new java.awt.Color(230, 233, 238));
+                g2.drawRoundRect(x, y, width - 1, height - 1, 8, 8);
+                g2.dispose();
+            }
+            @Override
+            public java.awt.Insets getBorderInsets(java.awt.Component c) {
+                return new java.awt.Insets(1, 1, 1, 1);
+            }
+            @Override
+            public boolean isBorderOpaque() {
+                return false;
+            }
+        });
+
         // 1. Header listeners
         lblBackHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,8 +142,8 @@ public class login extends javax.swing.JFrame {
         });
         
         // 4. Clickable Forgot Password Link
-        lblForgot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblForgot.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblForgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 login.this.dispose();
@@ -82,27 +151,96 @@ public class login extends javax.swing.JFrame {
             }
         });
         
-        // 5. Styled LOGIN button
-        btnLogin.setContentAreaFilled(true);
-        btnLogin.setBackground(new java.awt.Color(245, 130, 32)); // Mockup Orange
-        btnLogin.setForeground(java.awt.Color.WHITE);
+        // 5. Styled LOGIN button at runtime with rounded corners and hand cursor
+        btnLogin.setContentAreaFilled(false);
         btnLogin.setBorderPainted(false);
         btnLogin.setFocusPainted(false);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setBorder(new javax.swing.border.Border() {
+            @Override
+            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                if (btnLogin.getModel().isPressed()) {
+                    g2.setColor(new java.awt.Color(220, 105, 10));
+                } else if (btnLogin.getModel().isRollover()) {
+                    g2.setColor(new java.awt.Color(255, 145, 50));
+                } else {
+                    g2.setColor(new java.awt.Color(245, 130, 32));
+                }
+                g2.fillRoundRect(x, y, width, height, 8, 8);
+                g2.dispose();
+                // Paint Text
+                g.setColor(java.awt.Color.WHITE);
+                g.setFont(btnLogin.getFont());
+                java.awt.FontMetrics fm = g.getFontMetrics();
+                java.awt.geom.Rectangle2D r = fm.getStringBounds(btnLogin.getText(), g);
+                int tx = (width - (int) r.getWidth()) / 2;
+                int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
+                g.drawString(btnLogin.getText(), tx, ty);
+            }
+            @Override
+            public java.awt.Insets getBorderInsets(java.awt.Component c) {
+                return new java.awt.Insets(1, 1, 1, 1);
+            }
+            @Override
+            public boolean isBorderOpaque() {
+                return false;
+            }
+        });
         
         // 6. Styled Google Sign-In Button
-        btnGoogle.setText("<html><font color='#4285F4'><b>G</b></font>&nbsp;&nbsp;&nbsp;Login with Google</html>");
-        btnGoogle.setBackground(java.awt.Color.WHITE);
-        btnGoogle.setForeground(new java.awt.Color(51, 51, 51));
-        btnGoogle.setBorder(BorderFactory.createLineBorder(new java.awt.Color(226, 232, 240), 1, true));
+        btnGoogle.setContentAreaFilled(false);
+        btnGoogle.setBorderPainted(false);
         btnGoogle.setFocusPainted(false);
         btnGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGoogle.setBorder(new javax.swing.border.Border() {
+            @Override
+            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                if (btnGoogle.getModel().isPressed()) {
+                    g2.setColor(new java.awt.Color(245, 245, 245));
+                } else if (btnGoogle.getModel().isRollover()) {
+                    g2.setColor(new java.awt.Color(250, 250, 250));
+                } else {
+                    g2.setColor(java.awt.Color.WHITE);
+                }
+                g2.fillRoundRect(x, y, width, height, 8, 8);
+                g2.setColor(new java.awt.Color(226, 232, 240));
+                g2.drawRoundRect(x, y, width - 1, height - 1, 8, 8);
+                g2.dispose();
+                
+                // Draw Google logo and text
+                if (btnGoogle.getIcon() != null) {
+                    int size = 16;
+                    int cx = 25;
+                    int cy = (height - size) / 2;
+                    btnGoogle.getIcon().paintIcon(c, g, cx, cy);
+                    
+                    g.setColor(new java.awt.Color(51, 51, 51));
+                    g.setFont(btnGoogle.getFont());
+                    java.awt.FontMetrics fm = g.getFontMetrics();
+                    java.awt.geom.Rectangle2D r = fm.getStringBounds(btnGoogle.getText(), g);
+                    int tx = cx + size + btnGoogle.getIconTextGap();
+                    int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
+                    g.drawString(btnGoogle.getText(), tx, ty);
+                }
+            }
+            @Override
+            public java.awt.Insets getBorderInsets(java.awt.Component c) {
+                return new java.awt.Insets(1, 1, 1, 1);
+            }
+            @Override
+            public boolean isBorderOpaque() {
+                return false;
+            }
+        });
         btnGoogle.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Google Sign-In is currently in sandbox/testing mode.\nPlease login using your email and password.", "Google Login", JOptionPane.INFORMATION_MESSAGE);
         });
         
         // 7. Sign Up Link
-        lblSignUp.setText("<html>Don't have an account? <font color='#1A73E8'><b>Sign Up</b></font></html>");
         lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -137,15 +275,16 @@ public class login extends javax.swing.JFrame {
         pnlHeader = new javax.swing.JPanel();
         lblBackHome = new javax.swing.JLabel();
         lblHeaderLogo = new javax.swing.JLabel();
+        lblLogoIcon = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
-        lblTagline = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
         pnlEmail = new javax.swing.JPanel();
         lblEmailIcon = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         pnlPassword = new javax.swing.JPanel();
         lblPasswordIcon = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        lblForgot = new javax.swing.JLabel();
+        lblForgotPassword = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         lblOr = new javax.swing.JLabel();
         sepLeft = new javax.swing.JSeparator();
@@ -157,10 +296,13 @@ public class login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Yatra Air Sewa - Login");
-        setPreferredSize(new java.awt.Dimension(500, 600));
+        setBackground(new java.awt.Color(11, 31, 77));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMain.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         pnlMain.setLayout(null);
 
         pnlHeader.setBackground(new java.awt.Color(240, 242, 245));
@@ -168,123 +310,130 @@ public class login extends javax.swing.JFrame {
 
         lblBackHome.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         lblBackHome.setForeground(new java.awt.Color(102, 102, 102));
-        lblBackHome.setText("⌂ BACK TO HOME");
+        lblBackHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_outline.png"))); // NOI18N
+        lblBackHome.setText(" BACK TO HOME");
+        lblBackHome.setIconTextGap(6);
         pnlHeader.add(lblBackHome);
-        lblBackHome.setBounds(15, 10, 150, 15);
+        lblBackHome.setBounds(15, 8, 110, 15);
 
+        lblHeaderLogo.setText("YATRA AIR SEWA");
         lblHeaderLogo.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         lblHeaderLogo.setForeground(new java.awt.Color(117, 140, 179));
         lblHeaderLogo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblHeaderLogo.setText("YATRA AIR SEWA");
         pnlHeader.add(lblHeaderLogo);
-        lblHeaderLogo.setBounds(235, 10, 150, 15);
+        lblHeaderLogo.setBounds(155, 8, 150, 15);
 
         pnlMain.add(pnlHeader);
-        pnlHeader.setBounds(0, 0, 400, 35);
+        pnlHeader.setBounds(0, 0, 320, 30);
+        pnlMain.add(lblLogoIcon);
+        lblLogoIcon.setBounds(145, 38, 0, 0);
 
+        lblLogo.setText(" YATRA AIR SEWA");
         lblLogo.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        lblLogo.setForeground(new java.awt.Color(15, 37, 55));
+        lblLogo.setForeground(new java.awt.Color(11, 31, 77));
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setText("▼  YATRA AIR SEWA");
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_arrowhead.png"))); // NOI18N
+        lblLogo.setIconTextGap(8);
         pnlMain.add(lblLogo);
-        lblLogo.setBounds(20, 55, 360, 30);
+        lblLogo.setBounds(10, 45, 300, 30);
 
-        lblTagline.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        lblTagline.setForeground(new java.awt.Color(113, 128, 150));
-        lblTagline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTagline.setText("Welcome Back!");
-        pnlMain.add(lblTagline);
-        lblTagline.setBounds(20, 85, 360, 20);
+        lblWelcome.setText("Welcome Back!");
+        lblWelcome.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(68, 68, 68));
+        lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pnlMain.add(lblWelcome);
+        lblWelcome.setBounds(10, 90, 300, 25);
 
-        pnlEmail.setBackground(new java.awt.Color(255, 255, 255));
-        pnlEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 232, 240)));
+        pnlEmail.setBackground(new java.awt.Color(245, 246, 248));
+        pnlEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         pnlEmail.setLayout(null);
 
-        lblEmailIcon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblEmailIcon.setForeground(new java.awt.Color(160, 174, 192));
-        lblEmailIcon.setText("✉");
+        lblEmailIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mail_outline.png"))); // NOI18N
         pnlEmail.add(lblEmailIcon);
-        lblEmailIcon.setBounds(12, 8, 20, 24);
+        lblEmailIcon.setBounds(12, 7, 20, 24);
 
-        txtEmail.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(160, 174, 192));
         txtEmail.setText("Email");
+        txtEmail.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         txtEmail.setBorder(null);
+        txtEmail.setForeground(new java.awt.Color(153, 153, 153));
         pnlEmail.add(txtEmail);
-        txtEmail.setBounds(35, 5, 275, 30);
+        txtEmail.setBounds(35, 4, 245, 30);
 
         pnlMain.add(pnlEmail);
-        pnlEmail.setBounds(40, 130, 320, 40);
+        pnlEmail.setBounds(15, 135, 290, 38);
 
-        pnlPassword.setBackground(new java.awt.Color(255, 255, 255));
-        pnlPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 232, 240)));
+        pnlPassword.setBackground(new java.awt.Color(245, 246, 248));
+        pnlPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         pnlPassword.setLayout(null);
 
-        lblPasswordIcon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblPasswordIcon.setForeground(new java.awt.Color(160, 174, 192));
-        lblPasswordIcon.setText("🔒");
+        lblPasswordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lock_outline.png"))); // NOI18N
         pnlPassword.add(lblPasswordIcon);
-        lblPasswordIcon.setBounds(12, 8, 20, 24);
+        lblPasswordIcon.setBounds(12, 7, 20, 24);
 
-        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(160, 174, 192));
         txtPassword.setText("Password");
+        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         txtPassword.setBorder(null);
+        txtPassword.setForeground(new java.awt.Color(153, 153, 153));
         pnlPassword.add(txtPassword);
-        txtPassword.setBounds(35, 5, 275, 30);
+        txtPassword.setBounds(35, 4, 245, 30);
 
         pnlMain.add(pnlPassword);
-        pnlPassword.setBounds(40, 185, 320, 40);
+        pnlPassword.setBounds(15, 185, 290, 38);
 
-        lblForgot.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
-        lblForgot.setForeground(new java.awt.Color(26, 115, 232));
-        lblForgot.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblForgot.setText("Forgot Password?");
-        pnlMain.add(lblForgot);
-        lblForgot.setBounds(250, 230, 110, 20);
+        lblForgotPassword.setText("Forgot Password?");
+        lblForgotPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        lblForgotPassword.setForeground(new java.awt.Color(90, 109, 143));
+        lblForgotPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pnlMain.add(lblForgotPassword);
+        lblForgotPassword.setBounds(15, 230, 290, 20);
 
-        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
+        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setBackground(new java.awt.Color(245, 130, 32));
+        btnLogin.setBorderPainted(false);
         btnLogin.addActionListener(this::btnLoginActionPerformed);
         pnlMain.add(btnLogin);
-        btnLogin.setBounds(40, 260, 320, 40);
+        btnLogin.setBounds(15, 255, 290, 40);
 
-        lblOr.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        lblOr.setForeground(new java.awt.Color(160, 174, 192));
-        lblOr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblOr.setText("or");
+        lblOr.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        lblOr.setForeground(new java.awt.Color(153, 153, 153));
+        lblOr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pnlMain.add(lblOr);
-        lblOr.setBounds(190, 310, 20, 20);
+        lblOr.setBounds(145, 305, 30, 20);
         pnlMain.add(sepLeft);
-        sepLeft.setBounds(40, 320, 140, 2);
+        sepLeft.setBounds(15, 315, 120, 2);
         pnlMain.add(sepRight);
-        sepRight.setBounds(220, 320, 140, 2);
+        sepRight.setBounds(185, 315, 120, 2);
 
-        btnGoogle.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         btnGoogle.setText("Login with Google");
+        btnGoogle.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnGoogle.setForeground(new java.awt.Color(51, 51, 51));
+        btnGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/google_icon.png"))); // NOI18N
+        btnGoogle.setIconTextGap(15);
         pnlMain.add(btnGoogle);
-        btnGoogle.setBounds(40, 345, 320, 40);
+        btnGoogle.setBounds(15, 335, 290, 38);
 
+        lblSignUp.setText("<html>Don't have an account? <font color='#111827'><b>Sign Up</b></font></html>");
         lblSignUp.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         lblSignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSignUp.setText("Don't have an account? Sign Up");
         pnlMain.add(lblSignUp);
-        lblSignUp.setBounds(40, 405, 320, 20);
+        lblSignUp.setBounds(15, 390, 290, 20);
 
         lblError.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblError.setForeground(new java.awt.Color(255, 59, 48));
         lblError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pnlMain.add(lblError);
-        lblError.setBounds(40, 435, 320, 20);
+        lblError.setBounds(15, 420, 290, 20);
 
         getContentPane().add(pnlMain);
-        pnlMain.setBounds(50, 50, 400, 480);
+        pnlMain.setBounds(240, 70, 320, 460);
 
-        pnlBg.setBackground(new java.awt.Color(20, 28, 35));
+        pnlBg.setBackground(new java.awt.Color(11, 31, 77));
         pnlBg.setLayout(null);
         getContentPane().add(pnlBg);
-        pnlBg.setBounds(0, 0, 500, 600);
+        pnlBg.setBounds(0, 0, 800, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -313,13 +462,14 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackHome;
     private javax.swing.JLabel lblEmailIcon;
     private javax.swing.JLabel lblError;
-    private javax.swing.JLabel lblForgot;
+    private javax.swing.JLabel lblForgotPassword;
     private javax.swing.JLabel lblHeaderLogo;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblLogoIcon;
     private javax.swing.JLabel lblOr;
     private javax.swing.JLabel lblPasswordIcon;
     private javax.swing.JLabel lblSignUp;
-    private javax.swing.JLabel lblTagline;
+    private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel pnlBg;
     private javax.swing.JPanel pnlEmail;
     private javax.swing.JPanel pnlHeader;
