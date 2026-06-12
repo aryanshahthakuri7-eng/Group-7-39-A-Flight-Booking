@@ -111,3 +111,5 @@ public class SeatSelectionController {
 // Commit 34: Documented state persistence inside reservation model
 
 // Commit 36: Explained navigation routing error redirection paths
+
+// Commit 38: Documented prepared statement close hooks inside controller
