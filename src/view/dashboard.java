@@ -1411,3 +1411,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 22: Documented dashboard flight info label bounds
 
 // Commit 23: Documented sidebar loyalty level tier thresholds
+
+// Commit 24: Documented ticket box confirmed badge rendering parameters
