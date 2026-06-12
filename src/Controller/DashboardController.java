@@ -59,6 +59,18 @@ public class DashboardController {
             }
         }
 
+        // Sort upcoming bookings chronologically by departure date (nearest trip first)
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd MMM yyyy", java.util.Locale.ENGLISH);
+        upcomingBookings.sort((b1, b2) -> {
+            try {
+                java.util.Date d1 = sdf.parse(b1.getDepartureDate());
+                java.util.Date d2 = sdf.parse(b2.getDepartureDate());
+                return d1.compareTo(d2);
+            } catch (Exception e) {
+                return b1.getDepartureDate().compareTo(b2.getDepartureDate());
+            }
+        });
+
         // 3. Populate statistics cards dynamically from database
         this.statCards.clear();
         
@@ -150,7 +162,14 @@ public class DashboardController {
 
     public String getWelcomeMessage() {
         User user = SessionManager.getCurrentUser();
-        return "Welcome " + user.getFullName() + ",";
+        String name = user.getFullName();
+        if ("User Name".equals(name)) {
+            return "Welcome User,";
+        }
+        if (name != null && name.contains(" ")) {
+            name = name.split(" ")[0];
+        }
+        return "Welcome " + name + ",";
     }
 
     public String getWelcomeSubtitle() {
@@ -159,9 +178,9 @@ public class DashboardController {
 
     public String getSystemStatus() {
         if (isDatabaseConnected()) {
-            return "● SYSTEM STATUS: ONLINE (DATABASE CONNECTED)";
+            return "SYSTEM STATUS: OPERATIONAL";
         } else {
-            return "● SYSTEM STATUS: OFFLINE (DATABASE DISCONNECTED)";
+            return "SYSTEM STATUS: OFFLINE";
         }
     }
     
