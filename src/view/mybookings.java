@@ -150,25 +150,6 @@ public class mybookings extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1200, 800));
         getContentPane().setLayout(null);
 
-        tblBookings.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Booking ID", "Flight Code", "From", "To", "Passenger", "Seat", "Date", "Amount", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblBookings.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jScrollPane1.setViewportView(tblBookings);
-
         lblLogo.setText("▼  YATRAAIR");
         lblLogo.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lblLogo.setForeground(new java.awt.Color(20, 28, 35));
@@ -260,6 +241,26 @@ public class mybookings extends javax.swing.JFrame {
         lblTitle.setForeground(new java.awt.Color(20, 28, 35));
         pnlMainBg.add(lblTitle);
         lblTitle.setBounds(30, 30, 300, 30);
+
+        tblBookings.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Booking ID", "Flight Code", "From", "To", "Passenger", "Seat", "Date", "Amount", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblBookings.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jScrollPane1.setViewportView(tblBookings);
+
         pnlMainBg.add(jScrollPane1);
         jScrollPane1.setBounds(30, 90, 890, 480);
 
@@ -429,7 +430,6 @@ public class mybookings extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchFlight;
     private javax.swing.JButton btnViewTicket;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblBookings;
     private javax.swing.JLabel lblBackToHome;
     private javax.swing.JLabel lblHeaderIcons;
     private javax.swing.JLabel lblLogo;
@@ -438,5 +438,6 @@ public class mybookings extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMainBg;
     private javax.swing.JPanel pnlSidebar;
     private javax.swing.JPanel pnlTopHeader;
+    private javax.swing.JTable tblBookings;
     // End of variables declaration//GEN-END:variables
 }
