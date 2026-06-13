@@ -54,7 +54,8 @@ public class searchflight extends javax.swing.JFrame {
         lblHeaderIcons.setVisible(true);
         lblHeaderIcons.setForeground(java.awt.Color.WHITE);
 
-        // Back to Home listener
+        // Back to Home listener.
+        // Attaches cursor hand trigger pointing to dashboard route on back-to-home navigation links.
         lblBackToHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBackToHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
