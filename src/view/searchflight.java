@@ -40,7 +40,8 @@ public class searchflight extends javax.swing.JFrame {
         btnCustomerSupport.setText("💬  Customer Support");
         btnLogout.setText("🚪  Logout");
 
-        // Custom stylings
+        // Custom stylings.
+        // Applies clean flat visual styling attributes to the sidebar selection buttons at runtime.
         styleSidebarButton(btnDashboard);
         styleSidebarButton(btnSearchFlight);
         styleSidebarButton(btnMyBookings);
