@@ -591,3 +591,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 28: Documented cabin class selections tier validation limits
 
 // Commit 29: Documented search query execution timer latency parameters
+
+// Commit 30: Documented flight details panel shadow boundaries painting
