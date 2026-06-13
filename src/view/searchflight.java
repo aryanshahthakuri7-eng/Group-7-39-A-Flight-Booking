@@ -144,6 +144,7 @@ public class searchflight extends javax.swing.JFrame {
         }
     }
     
+    // Extracts the 3-letter IATA airport code nested within parenthesis (e.g. 'Kathmandu (KTM)' -> 'KTM')
     private String getAirportCode(String location) {
         if (location == null) return "KTM";
         if (location.contains("(")) {
