@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Data Access Object for flights table.
+ * Handles database queries for inserting, updating, and searching flight records.
  */
 public class FlightDAO {
 
