@@ -153,6 +153,7 @@ public class searchflight extends javax.swing.JFrame {
         return location;
     }
     
+    // Computes flight arrival time by adding a standard 1-hour travel duration to the departure timestamp
     private String getArrivalTime(String depTime) {
         if (depTime == null) return "11:00 AM";
         if (depTime.toLowerCase().contains("01:00") || depTime.toLowerCase().contains("1:00")) return "02:00 PM";
