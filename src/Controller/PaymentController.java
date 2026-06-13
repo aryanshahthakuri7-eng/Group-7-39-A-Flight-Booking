@@ -10,6 +10,7 @@ import java.util.Calendar;
 /**
  * Controller linking PaymentModel and PaymentFrame.
  * Implements form validation, interactive tab toggling, and payment completion popups.
+ * Optimized for date expiry validation checks.
  */
 public class PaymentController {
 
