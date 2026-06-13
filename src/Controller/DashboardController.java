@@ -71,10 +71,11 @@ public class DashboardController {
             }
         });
 
-        // 3. Populate statistics cards dynamically from database
+        // 3. Populate statistics cards dynamically from database.
+        // Each card represents a key metric fetched via the BookingDAO for the currently logged-in user session.
         this.statCards.clear();
         
-        // Card 0: Upcoming Trips
+        // Card 0: Upcoming Trips (Active confirmed travels)
         int upcomingCount = bookingDAO.getBookingCountByStatusAndUserId("CONFIRMED", userId);
         this.statCards.add(new StatCard("▲", String.valueOf(upcomingCount), "UPCOMING TRIPS", "View your next booking"));
 
