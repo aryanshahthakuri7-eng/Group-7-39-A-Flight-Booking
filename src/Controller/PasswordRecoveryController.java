@@ -100,12 +100,14 @@ public class PasswordRecoveryController {
             return;
         }
 
+        // Validate that the verification OTP code matches the database record
         PasswordRecovery recovery = recoveryDAO.getLatestByEmail(email);
         if (recovery == null || !recovery.getOtp().equals(enteredOtp)) {
             showError("Invalid verification code. Please check and try again.");
             return;
         }
 
+        // Validate that the code has not expired (5-minute expiration period)
         if (recovery.getExpiryTime().getTime() < System.currentTimeMillis()) {
             showError("The OTP code has expired. Please request a new one.");
             return;
