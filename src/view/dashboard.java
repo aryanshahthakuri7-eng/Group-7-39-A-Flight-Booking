@@ -21,6 +21,9 @@ public class dashboard extends javax.swing.JFrame {
         initComponents();
         setupPremiumStyling();
         populateDashboardData();
+        
+        // Initialize simple debug console log output on successful dashboard initialization
+        System.out.println("[INFO] Yatra Air Sewa Dashboard initialized. Database status: " + dashController.getSystemStatus());
     }
 
     private void setupPremiumStyling() {
