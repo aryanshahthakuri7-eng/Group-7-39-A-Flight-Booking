@@ -27,7 +27,8 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     private void setupPremiumStyling() {
-        // Frame Background
+        // Frame Background.
+        // Sets the background color of the main dashboard JFrame window to dark navy blue.
         getContentPane().setBackground(new java.awt.Color(7, 29, 71)); // #071D47
 
         // Center card container panel styling (shadow + rounded corners + border)
