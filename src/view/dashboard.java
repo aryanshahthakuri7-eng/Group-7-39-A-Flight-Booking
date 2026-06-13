@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  * Main application dashboard showing user booking statistics, recent tickets,
  * and quick flight search access. Fully database-driven.
+ * Coordinates layout bounds, sidebar transparent styling elements, and database metrics.
  */
 public class dashboard extends javax.swing.JFrame {
 
