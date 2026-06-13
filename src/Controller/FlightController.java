@@ -20,7 +20,8 @@ public class FlightController {
      * Searches flights in database matching source, destination, and optional date.
      */
     public List<Flight> searchFlights(String source, String destination, String date) {
-        // Strip code annotations like 'Kathmandu (KTM)' to search names directly
+        // Strip code annotations like 'Kathmandu (KTM)' to search names directly.
+        // This parses selection components into simplified database search strings.
         String cleanSource = cleanLocationString(source);
         String cleanDestination = cleanLocationString(destination);
         return flightDAO.searchFlights(cleanSource, cleanDestination, date);
