@@ -498,11 +498,13 @@ public class signup extends javax.swing.JFrame {
         String password = new String(jPasswordFieldPassword.getPassword()).trim();
         String confirmPassword = new String(jPasswordFieldConfirmPassword.getPassword()).trim();
 
+        // Ensure all required registration input fields have been filled out properly
         if (fullname.equals("Full Name") || email.equals("Email") || phone.equals("Phone Number") || password.equals("Password") || confirmPassword.equals("Confirm Password") || fullname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
+        // Verify that the password match constraint is satisfied before sending data to controller
         if (!password.equals(confirmPassword)) {
             JOptionPane.showMessageDialog(this, "Passwords do not match.", "Validation Error", JOptionPane.WARNING_MESSAGE);
             return;
