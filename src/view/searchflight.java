@@ -96,6 +96,7 @@ public class searchflight extends javax.swing.JFrame {
             lblToCode1.setText(getAirportCode(f.getDestination()));
             lblFareVal1.setText("NPR " + String.format("%,.0f", f.getPrice()));
             
+            // Determine class badge category label based on flight ticket pricing tiers
             String classBadgeText = "STANDARD CLASS";
             if (f.getPrice() >= 5200) classBadgeText = "PREMIUM PLUS";
             else if (f.getPrice() <= 4500) classBadgeText = "ECONOMY";
