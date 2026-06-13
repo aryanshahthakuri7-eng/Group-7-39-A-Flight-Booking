@@ -104,6 +104,7 @@ public class login extends javax.swing.JFrame {
         txtEmail.addFocusListener(new java.awt.event.FocusListener() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
+                // Remove placeholder text when user clicks or tabs into the email input field
                 if (txtEmail.getText().equals("Email")) {
                     txtEmail.setText("");
                     txtEmail.setForeground(new java.awt.Color(51, 51, 51));
@@ -111,6 +112,7 @@ public class login extends javax.swing.JFrame {
             }
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
+                // Restore placeholder text if the input field is left empty
                 if (txtEmail.getText().trim().isEmpty()) {
                     txtEmail.setText("Email");
                     txtEmail.setForeground(new java.awt.Color(160, 174, 192));
