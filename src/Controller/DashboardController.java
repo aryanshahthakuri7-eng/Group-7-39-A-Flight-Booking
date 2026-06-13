@@ -92,7 +92,8 @@ public class DashboardController {
         int loyaltyPoints = upcomingCount * 60;
         this.statCards.add(new StatCard("✨", String.valueOf(loyaltyPoints), "LOYALTY POINTS", "Visit reward center"));
 
-        // 4. Load drop-down locations from MySQL
+        // 4. Load drop-down locations from MySQL.
+        // Retrieves the list of available airports/cities from the locations table to populate search fields.
         this.fromLocations = locationDAO.getFromLocationsArray();
         this.toLocations = locationDAO.getToLocationsArray();
 
