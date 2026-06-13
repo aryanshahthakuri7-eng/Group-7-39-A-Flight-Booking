@@ -31,7 +31,8 @@ public class passwordrecovery extends javax.swing.JFrame {
     }
 
     private void setupPremiumStyling() {
-        // Main white card (shadow + rounded corners + border)
+        // Main white card (shadow + rounded corners + border).
+        // Positions and draws the central content card container with dynamic shadows.
         jPanelCard.setOpaque(false);
         jPanelCard.setBorder(new javax.swing.border.Border() {
             @Override
