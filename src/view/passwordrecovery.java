@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the Password Recovery interface.
  * Built using NetBeans Form Designer components with custom premium painting logic.
+ * Extends JFrame container with panel visibility state transition triggers.
  */
 public class passwordrecovery extends javax.swing.JFrame {
 
