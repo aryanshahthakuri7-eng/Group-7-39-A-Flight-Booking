@@ -22,6 +22,7 @@ public class passwordrecovery extends javax.swing.JFrame {
     }
 
     private void showStep(int stepNum) {
+        // Toggle card container panel visibilities depending on the current active step (1=email, 2=OTP code, 3=password reset)
         jPanelStep1.setVisible(stepNum == 1);
         jPanelStep2.setVisible(stepNum == 2);
         jPanelStep3.setVisible(stepNum == 3);
