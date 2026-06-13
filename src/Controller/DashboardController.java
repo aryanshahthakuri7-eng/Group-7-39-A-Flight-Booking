@@ -88,7 +88,8 @@ public class DashboardController {
         double totalSpent = bookingDAO.getTotalAmountSpentByUserId(userId);
         this.statCards.add(new StatCard("💳", "NPR " + String.format("%,.0f", totalSpent), "TOTAL SPENT", "View your transactions"));
 
-        // Card 3: Loyalty Points (60 points per confirmed booking to yield 120 for 2 bookings)
+        // Card 3: Loyalty Points (60 points per confirmed booking to yield 120 for 2 bookings).
+        // Calculates user loyalty rewards dynamically based on active upcoming travel counts.
         int loyaltyPoints = upcomingCount * 60;
         this.statCards.add(new StatCard("✨", String.valueOf(loyaltyPoints), "LOYALTY POINTS", "Visit reward center"));
 
