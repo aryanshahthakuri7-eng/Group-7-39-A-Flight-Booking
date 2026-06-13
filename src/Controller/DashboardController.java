@@ -60,6 +60,7 @@ public class DashboardController {
         }
 
         // Sort upcoming bookings chronologically by departure date (nearest trip first)
+        // Parses dates using English locale to guarantee correct ordering format comparison
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd MMM yyyy", java.util.Locale.ENGLISH);
         upcomingBookings.sort((b1, b2) -> {
             try {
