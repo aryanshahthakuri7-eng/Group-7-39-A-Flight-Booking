@@ -90,7 +90,7 @@ public class dashboard extends javax.swing.JFrame {
         btnActionProfile.setText("Profile Settings");
         btnActionLogout.setText("Logout");
 
-        // Sidebar active button rounded border styling
+        // Sidebar active button rounded border styling to match native Windows Look and Feel transparency
         styleSidebarButton(btnDashboard);
         styleSidebarButton(btnSearchFlight);
         styleSidebarButton(btnMyBookings);

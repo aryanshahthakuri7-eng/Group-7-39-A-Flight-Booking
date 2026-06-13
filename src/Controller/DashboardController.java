@@ -153,7 +153,7 @@ public class DashboardController {
     public int getLoyaltyPoints() {
         User currentUser = SessionManager.getCurrentUser();
         int upcomingCount = bookingDAO.getBookingCountByStatusAndUserId("CONFIRMED", currentUser.getUserId());
-        return upcomingCount * 30;
+        return upcomingCount * 60;
     }
 
     public boolean hasUpcomingBookings() {
