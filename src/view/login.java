@@ -267,6 +267,18 @@ public class login extends javax.swing.JFrame {
                 });
             }
         }).start();
+
+        // Enter key action listener to allow submitting the login form on Enter keypress
+        java.awt.event.KeyAdapter enterKeyAdapter = new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    btnLoginActionPerformed(null);
+                }
+            }
+        };
+        txtEmail.addKeyListener(enterKeyAdapter);
+        txtPassword.addKeyListener(enterKeyAdapter);
     }
 
     @SuppressWarnings("unchecked")
