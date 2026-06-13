@@ -306,6 +306,34 @@ public class passwordrecovery extends javax.swing.JFrame {
                 NavigationController.goToLogin(null);
             }
         });
+
+        // Enter key action listeners to trigger transition actions on Enter keypress
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    btnSendOTP.doClick();
+                }
+            }
+        });
+        txtOTP.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    btnVerifyOTP.doClick();
+                }
+            }
+        });
+        java.awt.event.KeyAdapter passwordEnterAdapter = new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    btnResetPassword.doClick();
+                }
+            }
+        };
+        txtNewPassword.addKeyListener(passwordEnterAdapter);
+        txtConfirmPassword.addKeyListener(passwordEnterAdapter);
     }
 
     @SuppressWarnings("unchecked")
