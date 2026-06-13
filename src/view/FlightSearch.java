@@ -551,3 +551,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 8: Documented viewdetails action mappings and viewresults controllers.
 
 // Commit 9: Cleaned up logger configurations inside FlightSearch class methods.
+
+// Commit 10: Final cleanup of visual element annotations in FlightSearch class.
