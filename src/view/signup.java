@@ -38,7 +38,8 @@ public class signup extends javax.swing.JFrame {
     }
 
     private void setupPremiumStyling() {
-        // Center card styling (rounded corners + subtle shadow + border)
+        // Center card styling (rounded corners + subtle shadow + border).
+        // Coordinates alignment of the main white container panel at exact mockup dimensions.
         jPanelCard.setOpaque(false);
         jPanelCard.setBorder(new javax.swing.border.Border() {
             @Override
