@@ -67,7 +67,8 @@ public class searchflight extends javax.swing.JFrame {
     }
 
     private void searchAndRefreshTable() {
-        // Fetch flights from MySQL database (by default showing available ones)
+        // Fetch flights from MySQL database (by default showing available ones).
+        // Triggers the initial query load with empty query parameters to fetch all active schedules.
         searchedFlights = flightController.searchFlights("", "", "");
         
         // Map database flights (or fallback) to the UI components designed in the form
