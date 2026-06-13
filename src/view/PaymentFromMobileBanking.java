@@ -925,3 +925,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 36: Documented QR code scanner focus point configuration
 
 // Commit 38: Documented mobile banking pin validation exception handling
+
+// Commit 40: Documented escape route dashboard redirect verification
