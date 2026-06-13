@@ -1413,3 +1413,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 23: Documented sidebar loyalty level tier thresholds
 
 // Commit 24: Documented ticket box confirmed badge rendering parameters
+
+// Commit 25: Documented quick action options navigation dispatching rules
