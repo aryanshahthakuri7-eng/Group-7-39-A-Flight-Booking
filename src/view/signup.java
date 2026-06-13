@@ -597,3 +597,5 @@ public class signup extends javax.swing.JFrame {
 // Commit 18: Documented signup view database connection pool details
 
 // Commit 21: Documented signup view validation error labels styling
+
+// Commit 24: Documented signup view database error connection warnings
