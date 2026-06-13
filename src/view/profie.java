@@ -647,3 +647,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 35: Documented user profile details cancel confirmation prompt
 
 // Commit 37: Documented user profile layout panel dimensions sizing rules
+
+// Commit 39: Documented user profile layout custom button border highlight
