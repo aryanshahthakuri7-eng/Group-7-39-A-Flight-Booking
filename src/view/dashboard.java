@@ -63,7 +63,8 @@ public class dashboard extends javax.swing.JFrame {
         int iw = 14;
         int ih = 14;
 
-        // Set sidebar button icons and texts
+        // Set sidebar button icons and texts.
+        // Employs a custom antialiased vector graphics rendering system to draw clear high-DPI icons at runtime.
         setSidebarButtonIcon(btnDashboard, "grid", iw, ih);
         setSidebarButtonIcon(btnSearchFlight, "search", iw, ih);
         setSidebarButtonIcon(btnMyBookings, "briefcase", iw, ih);
