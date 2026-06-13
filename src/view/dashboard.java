@@ -107,7 +107,8 @@ public class dashboard extends javax.swing.JFrame {
         
         styleSidebarActiveButton(btnDashboard);
 
-        // Style seat, passenger, and amount labels with vector icons
+        // Style seat, passenger, and amount labels with vector icons.
+        // Binds custom vector icons to dynamic text metrics indicators in the ticket panel view.
         lblSeatIcon.setIcon(getVectorIcon("ticket", 9, 9, new java.awt.Color(156, 163, 175)));
         lblSeatIcon.setIconTextGap(4);
         lblSeatIcon.setText("SEAT");
