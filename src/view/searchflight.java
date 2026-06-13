@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the Flight Search and Booking screen.
  * Seamlessly integrates database flight searching with atomic transaction bookings.
+ * Coordinates input text criteria filtering, and displays dynamic flight cards.
  */
 public class searchflight extends javax.swing.JFrame {
 
