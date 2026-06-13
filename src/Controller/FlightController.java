@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Controller to manage flights lookup and search operations.
+ * Implements sanitization of location options and fetches matching flight lists from DAO.
  */
 public class FlightController {
 
