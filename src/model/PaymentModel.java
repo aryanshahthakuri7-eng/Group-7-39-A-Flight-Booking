@@ -3,6 +3,7 @@ package model;
 /**
  * Model class representing the card details collected on the payment form.
  * Follows Java Bean conventions for MVC compatibility.
+ * Configured with properties for card holder, number, expiry, and CVV.
  */
 public class PaymentModel {
 
