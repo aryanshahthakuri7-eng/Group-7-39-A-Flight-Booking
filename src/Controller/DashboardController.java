@@ -96,7 +96,8 @@ public class DashboardController {
         this.fromLocations = locationDAO.getFromLocationsArray();
         this.toLocations = locationDAO.getToLocationsArray();
 
-        // 5. Hardcoded passengers count options (static ui config)
+        // 5. Hardcoded passengers count options (static ui config).
+        // Provides default passenger selection dropdown options for local flights.
         this.passengerOptions = new String[] {
             "1 Passenger",
             "2 Passengers",
