@@ -166,6 +166,7 @@ public class searchflight extends javax.swing.JFrame {
     }
 
     private void openBookingDialog(Flight flight) {
+        // Build a modal JDialog window to collect traveler booking details dynamically on top of the search view
         javax.swing.JDialog dialog = new javax.swing.JDialog(this, "Book Flight - " + flight.getFlightCode(), true);
         dialog.setSize(400, 450);
         dialog.setLocationRelativeTo(this);
