@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the User Login interface.
  * Built using NetBeans Form Designer components with custom premium painting logic.
+ * Handles input validation, session connection callbacks, and responsive scaling boundaries.
  */
 public class login extends javax.swing.JFrame {
 
