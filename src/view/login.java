@@ -92,7 +92,8 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        // 1. Header listeners
+        // 1. Header listeners.
+        // Sets mouse hover hand cursor indicators and back navigation triggers for top home link.
         lblBackHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
