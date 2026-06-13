@@ -7,6 +7,8 @@ import java.sql.Timestamp;
  */
 public class User {
 
+    // Dual-field mapping variables implemented to maintain backward compatibility 
+    // between the different branch naming conventions (e.g. 'fullname' vs 'fullName')
     private int id;
     private int userId;
     private String fullname;
