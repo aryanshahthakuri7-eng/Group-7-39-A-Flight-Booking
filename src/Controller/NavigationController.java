@@ -12,6 +12,7 @@ import view.login;
 import view.checkin;
 import view.ticketwindow;
 import view.signup;
+import view.PaymentFrame;
 
 /**
  * Controller to handle application navigation flow.
@@ -102,5 +103,14 @@ public class NavigationController {
     public static void logout(JFrame currentFrame) {
         SessionManager.clearSession();
         goToLogin(currentFrame);
+    }
+
+    public static void goToPayment(JFrame currentFrame) {
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PaymentFrame().setVisible(true);
+        });
     }
 }
