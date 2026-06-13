@@ -113,3 +113,5 @@ public class SeatSelectionController {
 // Commit 36: Explained navigation routing error redirection paths
 
 // Commit 38: Documented prepared statement close hooks inside controller
+
+// Commit 40: Documented listeners unbinding hooks to release reference holds
