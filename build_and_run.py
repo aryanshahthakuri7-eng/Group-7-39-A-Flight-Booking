@@ -62,6 +62,20 @@ def main():
         print("Running CaptureDashboard failed!")
         sys.exit(res2.returncode)
     print("CaptureDashboard completed successfully.")
+    
+    # Run CapturePayment
+    print("Running CapturePayment...")
+    run_cmd_payment = [
+        "java",
+        "-cp", "build/classes;lib/mysql-connector-j-8.0.33.jar",
+        "view.CapturePayment"
+    ]
+    res3 = subprocess.run(run_cmd_payment, shell=True)
+    if res3.returncode != 0:
+        print("Running CapturePayment failed!")
+        sys.exit(res3.returncode)
+    print("CapturePayment completed successfully.")
+
 
 if __name__ == '__main__':
     main()
