@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the User Sign Up interface.
  * Built using NetBeans Form Designer components with custom premium painting logic.
+ * Extends JFrame container with responsive field bounds and focus border highlights.
  */
 public class signup extends javax.swing.JFrame {
     
