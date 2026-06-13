@@ -19,6 +19,21 @@ public class signup extends javax.swing.JFrame {
         initComponents();
         setupCustomListeners();
         setupPremiumStyling();
+        
+        // Enter key action listener to submit signup form on Enter keypress
+        java.awt.event.KeyAdapter enterKeyAdapter = new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    jButton1ActionPerformed(null);
+                }
+            }
+        };
+        jTextFieldFullName.addKeyListener(enterKeyAdapter);
+        jTextFieldEmail.addKeyListener(enterKeyAdapter);
+        jTextFieldPhone.addKeyListener(enterKeyAdapter);
+        jPasswordFieldPassword.addKeyListener(enterKeyAdapter);
+        jPasswordFieldConfirmPassword.addKeyListener(enterKeyAdapter);
     }
 
     private void setupPremiumStyling() {
