@@ -1261,3 +1261,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 35: Documented mouse hover events dispatch loops
 
 // Commit 37: Documented glassmorphic frame visual specs override configurations
+
+// Commit 39: Documented display resolution layout adaptation handlers
