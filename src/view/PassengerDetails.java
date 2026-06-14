@@ -5,7 +5,9 @@
 package view;
 
 /**
- *
+ * PassengerDetails class represents the GUI frame where passengers input their
+ * contact details and travel identification documents (e.g. Citizenship Card).
+ * 
  * @author peace
  */
 public class PassengerDetails extends javax.swing.JFrame {
