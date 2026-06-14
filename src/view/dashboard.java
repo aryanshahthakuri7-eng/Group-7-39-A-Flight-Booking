@@ -1415,3 +1415,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 24: Documented ticket box confirmed badge rendering parameters
 
 // Commit 25: Documented quick action options navigation dispatching rules
+
+// Commit 26: Documented dashboard flight info panel spacing attributes
