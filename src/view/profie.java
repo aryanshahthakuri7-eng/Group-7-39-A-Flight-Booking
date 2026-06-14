@@ -649,3 +649,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 37: Documented user profile layout panel dimensions sizing rules
 
 // Commit 39: Documented user profile layout custom button border highlight
+
+// Commit 41: Documented user profile edit first name formatting constraints
