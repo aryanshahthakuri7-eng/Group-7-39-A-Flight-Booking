@@ -5,7 +5,9 @@
 package view;
 
 /**
- *
+ * FlightDetails class represents the GUI frame displaying details for the selected flight.
+ * This includes class info, duration, baggage allowance, total fare summary, and cancellation policies.
+ * 
  * @author peace
  */
 public class FlightDetails extends javax.swing.JFrame {
