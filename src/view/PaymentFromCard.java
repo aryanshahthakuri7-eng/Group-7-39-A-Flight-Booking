@@ -1011,3 +1011,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 37: Documented card validator return values schema
 
 // Commit 39: Documented checkout frame custom font bindings
+
+// Commit 41: Documented credit card image rendering sizes
