@@ -1263,3 +1263,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 37: Documented glassmorphic frame visual specs override configurations
 
 // Commit 39: Documented display resolution layout adaptation handlers
+
+// Commit 41: Documented seat grid cell layouts borders and padding spacing
