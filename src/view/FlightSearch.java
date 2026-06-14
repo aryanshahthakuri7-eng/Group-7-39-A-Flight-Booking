@@ -593,3 +593,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 29: Documented search query execution timer latency parameters
 
 // Commit 30: Documented flight details panel shadow boundaries painting
+
+// Commit 31: Documented select departure flight UI table styling
