@@ -5,7 +5,8 @@
 package view;
 
 /**
- *
+ * View class representing the flight search UI.
+ * Handles display of search criteria and dynamic results list.
  * @author peace
  */
 public class FlightSearch extends javax.swing.JFrame {
