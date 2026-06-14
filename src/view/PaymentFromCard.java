@@ -961,3 +961,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
     private view.PlaceholderTextField txtWalletId;
     // End of variables declaration                   
 }
+
+// Commit 2: Documented card input validations and layout customInit
