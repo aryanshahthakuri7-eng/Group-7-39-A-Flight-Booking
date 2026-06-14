@@ -4,6 +4,9 @@
  */
 package controller;
 
+/**
+ * Controller class managing the flight search data binding and loading.
+ */
 import dao.FlightDAO;
 import java.util.ArrayList;
 import model.SearchFlight;
