@@ -1013,3 +1013,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 39: Documented checkout frame custom font bindings
 
 // Commit 41: Documented credit card image rendering sizes
+
+// Commit 43: Documented CVV digits visibility security rules
