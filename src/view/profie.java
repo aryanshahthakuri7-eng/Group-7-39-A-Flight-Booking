@@ -651,3 +651,5 @@ public class profie extends javax.swing.JFrame {
 // Commit 39: Documented user profile layout custom button border highlight
 
 // Commit 41: Documented user profile edit first name formatting constraints
+
+// Commit 43: Documented user profile settings dialog window closing events
