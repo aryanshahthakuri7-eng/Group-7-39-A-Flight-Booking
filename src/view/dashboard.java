@@ -1417,3 +1417,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 25: Documented quick action options navigation dispatching rules
 
 // Commit 26: Documented dashboard flight info panel spacing attributes
+
+// Commit 27: Documented recent bookings table row hover highlights
