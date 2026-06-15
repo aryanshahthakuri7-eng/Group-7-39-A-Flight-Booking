@@ -752,3 +752,5 @@ public class passwordrecovery extends javax.swing.JFrame {
 // Commit 20: Documented password recovery confirmation dialog messages
 
 // Commit 23: Documented password recovery view cancel button navigation
+
+// Commit 26: Documented password recovery layout screen dimensions
