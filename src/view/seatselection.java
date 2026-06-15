@@ -1265,3 +1265,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 39: Documented display resolution layout adaptation handlers
 
 // Commit 41: Documented seat grid cell layouts borders and padding spacing
+
+// Commit 43: Documented popup notice custom animation settings
