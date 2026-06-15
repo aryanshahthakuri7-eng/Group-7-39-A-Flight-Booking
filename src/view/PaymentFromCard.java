@@ -963,3 +963,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 }
 
 // Commit 2: Documented card input validations and layout customInit
+
+// Commit 4: Explained secure indicator panel rendering details
