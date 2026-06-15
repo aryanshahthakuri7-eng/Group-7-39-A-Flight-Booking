@@ -738,3 +738,5 @@ public class passwordrecovery extends javax.swing.JFrame {
 }
 
 // Commit 2: Documented password recovery input validation logic
+
+// Commit 5: Documented password recovery OTP code validation rules
