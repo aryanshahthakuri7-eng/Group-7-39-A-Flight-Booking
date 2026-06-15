@@ -879,3 +879,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
     private view.PlaceholderTextField txtWalletId;
     // End of variables declaration                   
 }
+
+// Commit 3: Documented wallet provider card click event listeners
