@@ -117,3 +117,5 @@ public class SeatSelectionController {
 // Commit 40: Documented listeners unbinding hooks to release reference holds
 
 // Commit 42: Explained DB retry delay intervals for high concurrency
+
+// Commit 44: Explained controller action mapping logic for next screens
