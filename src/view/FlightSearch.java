@@ -679,3 +679,4 @@ public javax.swing.JLabel getPrice3() {
 // Update mid June batch 5
 // Update late June batch 0
 // Update late June batch 1
+// Update late June batch 2
