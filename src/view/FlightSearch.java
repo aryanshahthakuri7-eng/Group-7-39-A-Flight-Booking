@@ -597,3 +597,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 31: Documented select departure flight UI table styling
 
 // Commit 32: Documented departure search flight custom background border
+
+// Commit 33: Documented flight result status description labels
