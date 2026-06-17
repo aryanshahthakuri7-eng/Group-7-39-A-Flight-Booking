@@ -931,3 +931,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 42: Documented wallet ID placeholder font style
 
 // Commit 44: Documented mobile banking pin validation limits
+
+// Commit 46: Documented IME Pay callback return path configurations
