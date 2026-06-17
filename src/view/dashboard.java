@@ -1419,3 +1419,5 @@ public class dashboard extends javax.swing.JFrame {
 // Commit 26: Documented dashboard flight info panel spacing attributes
 
 // Commit 27: Documented recent bookings table row hover highlights
+
+// Commit 28: Documented sidebar loyalty tier points progress rendering
