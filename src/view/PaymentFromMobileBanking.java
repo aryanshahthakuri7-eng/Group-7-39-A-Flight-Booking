@@ -933,3 +933,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 44: Documented mobile banking pin validation limits
 
 // Commit 46: Documented IME Pay callback return path configurations
+
+// Commit 48: Documented wallet provider selection event handler bindings
