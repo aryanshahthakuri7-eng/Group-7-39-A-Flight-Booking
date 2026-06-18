@@ -599,3 +599,5 @@ public javax.swing.JLabel getPrice3() {
 // Commit 32: Documented departure search flight custom background border
 
 // Commit 33: Documented flight result status description labels
+
+// Commit 34: Documented cabin class seats remaining validation checks
