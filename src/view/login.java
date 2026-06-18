@@ -513,3 +513,5 @@ public class login extends javax.swing.JFrame {
 // Commit 22: Documented login controller redirection to home verification
 
 // Commit 25: Documented login panel custom layout border margins
+
+// Commit 28: Documented login panel background coloring customization
