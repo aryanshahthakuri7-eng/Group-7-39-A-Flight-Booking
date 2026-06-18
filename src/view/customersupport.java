@@ -524,3 +524,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 44: Documented customer support main frame scroll pane configurations
 
 // Commit 46: Documented support ticket message length validations checks
+
+// Commit 48: Documented customer support ticket attachment format restrictions
