@@ -119,3 +119,5 @@ public class SeatSelectionController {
 // Commit 42: Explained DB retry delay intervals for high concurrency
 
 // Commit 44: Explained controller action mapping logic for next screens
+
+// Commit 46: Explained SQL queries validation rules for seats mapping
