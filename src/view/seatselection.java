@@ -1269,3 +1269,5 @@ public class seatselection extends javax.swing.JFrame {
 // Commit 43: Documented popup notice custom animation settings
 
 // Commit 45: Added documentation for graphic buffer rendering optimizations
+
+// Commit 47: Documented display resolution layout adaptation constraints
