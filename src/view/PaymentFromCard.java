@@ -1017,3 +1017,5 @@ public class PaymentFromCard extends javax.swing.JFrame {
 // Commit 43: Documented CVV digits visibility security rules
 
 // Commit 45: Documented card input focus borders color configuration
+
+// Commit 47: Documented cardholder name input regex limits
