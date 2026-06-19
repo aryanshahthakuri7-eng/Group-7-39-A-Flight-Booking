@@ -1,51 +1,101 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package controller;
 
-import dao.FlightDAO;
-import model.Flight;
-import java.util.List;
-
 /**
- * Controller to manage flights lookup and search operations.
- * Implements sanitization of location options and fetches matching flight lists from DAO.
+ * Controller class managing the flight search data binding and loading.
  */
-public class FlightController {
+import dao.FlightDAO;
+import java.util.ArrayList;
+import model.SearchFlight;
+import view.FlightSearch;
 
-    private final FlightDAO flightDAO;
+public final class FlightController {
 
-    public FlightController() {
-        this.flightDAO = new FlightDAO();
+    private final FlightSearch view;
+    private final FlightDAO dao;
+
+    public FlightController(FlightSearch view){
+
+        this.view=view;
+        dao=new FlightDAO();
+
+        loadFlights();
+
     }
 
     /**
-     * Searches flights in database matching source, destination, and optional date.
+     * Loads flight data from the DAO database and populates the view search flight cards.
+     * It binds flight details like name, departure time, arrival time, class, and price.
      */
-    public List<Flight> searchFlights(String source, String destination, String date) {
-        // Strip code annotations like 'Kathmandu (KTM)' to search names directly.
-        // This parses selection components into simplified database search strings.
-        String cleanSource = cleanLocationString(source);
-        String cleanDestination = cleanLocationString(destination);
-        return flightDAO.searchFlights(cleanSource, cleanDestination, date);
-    }
+    public void loadFlights(){
 
-    /**
-     * Retrieves all flights.
-     */
-    public List<Flight> getAllFlights() {
-        return flightDAO.getAll();
-    }
+        ArrayList<SearchFlight> list=
+                dao.getFlights();
 
-    /**
-     * Helper to clean locations from combo boxes.
-     * e.g., "Kathmandu (KTM)" -> "Kathmandu"
-     */
-    private String cleanLocationString(String loc) {
-        if (loc == null || loc.trim().isEmpty() || loc.contains("Select")) {
-            return "";
+        if(list.size()>=3){
+
+            SearchFlight f1=list.get(0);
+
+            view.getFlightName1()
+                    .setText(f1.getFlightName());
+
+            view.getDepartureTime1()
+                    .setText(f1.getDepartureTime());
+
+            view.getArrivalTime1()
+                    .setText(f1.getArrivalTime());
+
+            view.getClass1()
+                    .setText(f1.getFlightClass());
+
+            view.getPrice1()
+                    .setText("NPR "+f1.getPrice());
+
+
+
+
+            SearchFlight f2=list.get(1);
+
+            view.getFlightName2()
+                    .setText(f2.getFlightName());
+
+            view.getDepartureTime2()
+                    .setText(f2.getDepartureTime());
+
+            view.getArrivalTime2()
+                    .setText(f2.getArrivalTime());
+
+            view.getClass2()
+                    .setText(f2.getFlightClass());
+
+            view.getPrice2()
+                    .setText("NPR "+f2.getPrice());
+
+
+
+
+            SearchFlight f3=list.get(2);
+
+            view.getFlightName3()
+                    .setText(f3.getFlightName());
+
+            view.getDepartureTime3()
+                    .setText(f3.getDepartureTime());
+
+            view.getArrivalTime3()
+                    .setText(f3.getArrivalTime());
+
+            view.getClass3()
+                    .setText(f3.getFlightClass());
+
+            view.getPrice3()
+                    .setText("NPR "+f3.getPrice());
+
         }
-        int index = loc.indexOf('(');
-        if (index != -1) {
-            return loc.substring(0, index).trim();
-        }
-        return loc.trim();
+
     }
+
 }
