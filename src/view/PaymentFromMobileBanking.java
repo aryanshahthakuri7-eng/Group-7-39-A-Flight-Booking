@@ -885,3 +885,5 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 // Commit 5: Documented vector QR grid painting loop logic
 
 // Commit 7: Explained verify mobile wallet transaction steps
+
+// Commit 9: Documented connectIPS selection border styles
