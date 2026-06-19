@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Data Access Object for users table.
- * Implements CRUD operations using PreparedStatements to secure user login,
+ * Implements CRUD operations using PreparedStatements to secure user Login,
  * user registration, and recovery procedures against SQL injection.
  */
 public class UserDAO {
@@ -130,7 +130,7 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error validating user login: " + e.getMessage());
+            System.err.println("Error validating user Login: " + e.getMessage());
         }
         return null;
     }

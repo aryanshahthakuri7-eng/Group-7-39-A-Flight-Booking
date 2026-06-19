@@ -432,7 +432,7 @@ public class PaymentFrame extends javax.swing.JFrame {
         lblInfoIcon = new javax.swing.JLabel();
         chkSaveCard = new javax.swing.JCheckBox();
         lblMobileWalletTitle = new javax.swing.JLabel();
-        cmbMobileWallet = new javax.swing.JComboBox<>();
+        cmbMobileWallet = new javax.swing.JComboBox();
         lblWalletId = new javax.swing.JLabel();
         txtWalletId = new javax.swing.JTextField();
         pnlSecureBox = new javax.swing.JPanel();
@@ -461,6 +461,7 @@ public class PaymentFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Yatra Air Sewa - Payment");
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -625,10 +626,8 @@ public class PaymentFrame extends javax.swing.JFrame {
         pnlPaymentMethods.add(lblInfoIcon);
         lblInfoIcon.setBounds(665, 335, 24, 24);
 
-        chkSaveCard.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         chkSaveCard.setForeground(new java.awt.Color(51, 51, 51));
         chkSaveCard.setText("Save this card for future bookings");
-        chkSaveCard.setOpaque(false);
         pnlPaymentMethods.add(chkSaveCard);
         chkSaveCard.setBounds(20, 385, 350, 25);
 
@@ -639,7 +638,6 @@ public class PaymentFrame extends javax.swing.JFrame {
         lblMobileWalletTitle.setBounds(20, 130, 250, 20);
 
         cmbMobileWallet.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmbMobileWallet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "eSewa Wallet", "Khalti Wallet", "ConnectIPS", "Global IME Bank Transfer", "Nabil Bank Transfer" }));
         pnlPaymentMethods.add(cmbMobileWallet);
         cmbMobileWallet.setBounds(20, 155, 680, 45);
 
@@ -812,7 +810,7 @@ public class PaymentFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmPay;
     private javax.swing.JCheckBox chkSaveCard;
-    private javax.swing.JComboBox<String> cmbMobileWallet;
+    private javax.swing.JComboBox cmbMobileWallet;
     private javax.swing.JLabel lblBackSeat;
     private javax.swing.JLabel lblCardHolderName;
     private javax.swing.JLabel lblCardIcon;
@@ -834,6 +832,8 @@ public class PaymentFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSeatDesc;
     private javax.swing.JLabel lblSeatLabel;
     private javax.swing.JLabel lblSeatValue;
+    private javax.swing.JLabel lblSecureDesc;
+    private javax.swing.JLabel lblSecureTitle;
     private javax.swing.JLabel lblShieldIcon;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblSummaryTitle;
@@ -851,8 +851,6 @@ public class PaymentFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalLabel;
     private javax.swing.JLabel lblTotalValue;
     private javax.swing.JLabel lblWalletId;
-    private javax.swing.JLabel lblSecureTitle;
-    private javax.swing.JLabel lblSecureDesc;
     private javax.swing.JPanel pnlBookingSummary;
     private javax.swing.JPanel pnlMainBg;
     private javax.swing.JPanel pnlPaymentMethods;

@@ -14,13 +14,13 @@ import javax.swing.table.DefaultTableModel;
  * View class representing the User Bookings list.
  * Built with professional JTable and dynamic CRUD actions.
  */
-public class mybookings extends javax.swing.JFrame {
+public class MyBookings extends javax.swing.JFrame {
 
     private final BookingController bookingController;
     private final TicketController ticketController;
     private ArrayList<Booking> bookingsList;
 
-    public mybookings() {
+    public MyBookings() {
         this.bookingController = new BookingController();
         this.ticketController = new TicketController();
 

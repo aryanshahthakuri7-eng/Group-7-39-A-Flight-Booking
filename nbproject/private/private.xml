@@ -8,23 +8,19 @@
             <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/dao/NewClass.java</file>
             <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/images/NewClass.java</file>
             <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/NewClass.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/model/NewClass.java</file>
             <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/database/Db.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/SearchFlight.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/CustomerSupport.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/MyBookings.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/Login.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/SignUp.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/Dashboard.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/model/User.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/Controller/UserController.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/test/controller/UserControllerTest.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/database/DatabaseConnection.java</file>
             <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/database/MySqlConnector.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/dashboard.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/passwordrecovery.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/mybookings.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/Controller/NavigationController.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/ticketwindow.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/supporttickets.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/model/PasswordRecovery.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/checkin.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/profie.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/customersupport.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/model/SessionManager.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/model/Payment.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/signup.java</file>
-            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/view/login.java</file>
+            <file>file:/C:/Users/Lenovo%20LOQ/Documents/NetBeansProjects/Group-7-39-A-Flight-Booking/src/database/flight.sql</file>
         </group>
     </open-files>
 </project-private>

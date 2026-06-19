@@ -4,7 +4,6 @@ import dao.PasswordRecoveryDAO;
 import dao.UserDAO;
 import model.PasswordRecovery;
 import model.User;
-import view.passwordrecovery;
 import javax.swing.JOptionPane;
 import java.sql.Timestamp;
 import java.util.Random;
@@ -15,11 +14,11 @@ import java.util.Random;
  */
 public class PasswordRecoveryController {
 
-    private final passwordrecovery view;
+    private final view.PasswordRecovery view;
     private final PasswordRecoveryDAO recoveryDAO;
     private final UserDAO userDAO;
 
-    public PasswordRecoveryController(passwordrecovery view) {
+    public PasswordRecoveryController(view.PasswordRecovery view) {
         this.view = view;
         this.recoveryDAO = new PasswordRecoveryDAO();
         this.userDAO = new UserDAO();
@@ -175,7 +174,7 @@ public class PasswordRecoveryController {
                     "Please sign in with your new password.",
                     "Password Reset Successful", JOptionPane.INFORMATION_MESSAGE);
                 
-                // Go back to login screen
+                // Go back to Login screen
                 handleBack();
             } else {
                 showError("Failed to update password. Database error occurred.");
@@ -186,7 +185,7 @@ public class PasswordRecoveryController {
     }
 
     /**
-     * Closes the recovery frame and returns to login.
+     * Closes the recovery frame and returns to Login.
      */
     private void handleBack() {
         view.dispose();

@@ -1,3 +1,4 @@
+
 package view;
 
 import controller.TicketController;
@@ -14,13 +15,13 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the flight Check-In and Boarding Pass generation screen.
  */
-public class checkin extends javax.swing.JFrame {
+public class CheckIn extends javax.swing.JFrame {
 
     private final TicketController ticketController;
     private final BookingDAO bookingDAO;
     private Booking activeBooking = null;
 
-    public checkin() {
+    public CheckIn() {
         this.ticketController = new TicketController();
         this.bookingDAO = new BookingDAO();
 

@@ -4,14 +4,14 @@ import javax.swing.JFrame;
 import model.Booking;
 import model.SessionManager;
 import view.Dashboard;
-import view.searchflight;
-import view.mybookings;
-import view.profie;
-import view.customersupport;
-import view.login;
-import view.checkin;
-import view.ticketwindow;
-import view.signup;
+import view.SearchFlight;
+import view.MyBookings;
+import view.Profile;
+import view.CustomerSupport;
+import view.Login;
+import view.CheckIn;
+import view.TicketWindow;
+import view.SignUp;
 import view.PaymentFrame;
 import view.FlightDetails;
 
@@ -25,7 +25,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new login().setVisible(true);
+            new Login().setVisible(true);
         });
     }
 
@@ -34,7 +34,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new signup().setVisible(true);
+            new SignUp().setVisible(true);
         });
     }
 
@@ -52,7 +52,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new searchflight().setVisible(true);
+            new SearchFlight().setVisible(true);
         });
     }
 
@@ -61,7 +61,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new mybookings().setVisible(true);
+            new MyBookings().setVisible(true);
         });
     }
 
@@ -70,7 +70,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new profie().setVisible(true);
+            new Profile().setVisible(true);
         });
     }
 
@@ -79,7 +79,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new customersupport().setVisible(true);
+            new CustomerSupport().setVisible(true);
         });
     }
 
@@ -88,7 +88,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new checkin().setVisible(true);
+            new CheckIn().setVisible(true);
         });
     }
 
@@ -97,7 +97,7 @@ public class NavigationController {
      */
     public static void openTicketWindow(Booking booking) {
         java.awt.EventQueue.invokeLater(() -> {
-            new ticketwindow(booking).setVisible(true);
+            new TicketWindow(booking).setVisible(true);
         });
     }
 

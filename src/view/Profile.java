@@ -7,11 +7,11 @@ import controller.ProfileController;
 import model.User;
 import javax.swing.JOptionPane;
 
-public class profie extends javax.swing.JFrame {
+public class Profile extends javax.swing.JFrame {
 
     private final ProfileController profileController;
 
-    public profie() {
+    public Profile() {
         initComponents();
         profileController = new ProfileController();
         

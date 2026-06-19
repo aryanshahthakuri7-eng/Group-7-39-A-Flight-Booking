@@ -10,11 +10,11 @@ import javax.swing.JOptionPane;
  * Built using NetBeans Form Designer components with custom premium painting logic.
  * Handles input validation, session connection callbacks, and responsive scaling boundaries.
  */
-public class login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     private final LoginController loginController;
 
-    public login() {
+    public Login() {
         // Enable system-wide text anti-aliasing for Swing components
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
@@ -22,7 +22,7 @@ public class login extends javax.swing.JFrame {
         initComponents();
         loginController = new LoginController();
         
-        // 1. Center the login card (pnlMain) using GridBagLayout inside pnlBg
+        // 1. Center the Login card (pnlMain) using GridBagLayout inside pnlBg
         getContentPane().remove(pnlMain);
         getContentPane().remove(pnlBg);
         
@@ -147,7 +147,7 @@ public class login extends javax.swing.JFrame {
         lblBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                JOptionPane.showMessageDialog(login.this, "Returning to Home page...", "Home", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(Login.this, "Returning to Home page...", "Home", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         
@@ -209,8 +209,8 @@ public class login extends javax.swing.JFrame {
         lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                login.this.dispose();
-                new controller.PasswordRecoveryController(new view.passwordrecovery()).activate();
+                Login.this.dispose();
+                new controller.PasswordRecoveryController(new view.PasswordRecovery()).activate();
             }
         });
         
@@ -304,7 +304,7 @@ public class login extends javax.swing.JFrame {
         btnGoogle.setFocusPainted(false);
         btnGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGoogle.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Google Sign-In is currently in sandbox/testing mode.\nPlease login using your email and password.", "Google Login", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Google Sign-In is currently in sandbox/testing mode.\nPlease Login using your email and password.", "Google Login", JOptionPane.INFORMATION_MESSAGE);
         });
         pnlMain.add(btnGoogle);
         btnGoogle.setBounds(15, 335, 290, 38);
@@ -314,8 +314,8 @@ public class login extends javax.swing.JFrame {
         lblSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                login.this.dispose();
-                NavigationController.goToSignUp(login.this);
+                Login.this.dispose();
+                NavigationController.goToSignUp(Login.this);
             }
         });
 
@@ -335,7 +335,7 @@ public class login extends javax.swing.JFrame {
             }
         }).start();
 
-        // Enter key action listener to allow submitting the login form on Enter keypress
+        // Enter key action listener to allow submitting the Login form on Enter keypress
         java.awt.event.KeyAdapter enterKeyAdapter = new java.awt.event.KeyAdapter() {
             @Override
             public void keyPressed(java.awt.event.KeyEvent e) {
@@ -530,7 +530,7 @@ public class login extends javax.swing.JFrame {
             return;
         }
         
-        if (loginController.login(email, password)) {
+        if (loginController.Login(email, password)) {
             NavigationController.goToDashboard(this);
         } else {
             lblError.setText("Invalid email address or password.");
@@ -563,22 +563,22 @@ public class login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-// Commit 1: Documented login frame visual boundaries layout
+// Commit 1: Documented Login frame visual boundaries layout
 
-// Commit 4: Documented login email input validation regex checks
+// Commit 4: Documented Login email input validation regex checks
 
-// Commit 7: Documented login panel custom background coloring
+// Commit 7: Documented Login panel custom background coloring
 
-// Commit 10: Documented login submit button key press activation
+// Commit 10: Documented Login submit button key press activation
 
-// Commit 13: Documented login panel custom border rendering attributes
+// Commit 13: Documented Login panel custom border rendering attributes
 
-// Commit 16: Documented login page show password check state listener
+// Commit 16: Documented Login page show password check state listener
 
-// Commit 19: Documented login panel custom logo icon bounds
+// Commit 19: Documented Login panel custom logo icon bounds
 
-// Commit 22: Documented login controller redirection to home verification
+// Commit 22: Documented Login controller redirection to home verification
 
-// Commit 25: Documented login panel custom layout border margins
+// Commit 25: Documented Login panel custom layout border margins
 
-// Commit 28: Documented login panel background coloring customization
+// Commit 28: Documented Login panel background coloring customization

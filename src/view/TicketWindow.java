@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the flight boarding pass receipt window.
  */
-public class ticketwindow extends javax.swing.JFrame {
+public class TicketWindow extends javax.swing.JFrame {
 
     private final TicketController ticketController;
     private final Booking booking;
 
-    public ticketwindow(Booking booking) {
+    public TicketWindow(Booking booking) {
         this.ticketController = new TicketController();
         this.booking = booking;
 

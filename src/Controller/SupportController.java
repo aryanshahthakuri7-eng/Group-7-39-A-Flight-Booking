@@ -139,7 +139,7 @@ public class SupportController {
             return "You can cancel any confirmed flight under 'My Bookings'. Refunds are processed automatically and credited back to your payment method (eSewa, Khalti, Card) in 3-5 business days.";
         } else if (input.contains("seat") || input.contains("change seat")) {
             return "Seats can be selected at the time of flight booking. To change your seat, please cancel your booking and rebook, or contact our support counter at the airport terminal.";
-        } else if (input.contains("check-in") || input.contains("boarding pass") || input.contains("checkin")) {
+        } else if (input.contains("check-in") || input.contains("boarding pass") || input.contains("CheckIn")) {
             return "Online check-in opens 24 hours prior to departure. You can perform check-in and generate your boarding pass under the 'Check-in' tab in the main sidebar menu.";
         } else if (input.contains("hello") || input.contains("hi") || input.contains("hey")) {
             return "Hello! Thank you for choosing Yatra Air Sewa. How can I help you with your flight booking or ticket information today?";

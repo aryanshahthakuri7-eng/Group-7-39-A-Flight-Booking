@@ -13,13 +13,13 @@ import javax.swing.event.ListSelectionListener;
  * View class representing the Support Tickets and messaging log.
  * Integrates with NetBeans GUI Builder components.
  */
-public class supporttickets extends javax.swing.JFrame {
+public class SupportTickets extends javax.swing.JFrame {
 
     private final SupportController supportController;
     private ArrayList<SupportTicket> ticketList;
     private SupportTicket selectedTicket = null;
 
-    public supporttickets() {
+    public SupportTickets() {
         initComponents();
         supportController = new SupportController();
         

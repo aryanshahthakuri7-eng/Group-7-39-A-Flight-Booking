@@ -21,7 +21,7 @@ import javax.swing.border.Border;
  * View class representing the Seat Selection page UI.
  * Integrates an interactive visual grid representing flight rows with custom checks.
  */
-public class seatselection extends javax.swing.JFrame {
+public class SeatSelection extends javax.swing.JFrame {
 
     private Flight flight;
     private String passengerName;
@@ -32,7 +32,7 @@ public class seatselection extends javax.swing.JFrame {
     private final boolean[][] occupiedSeats = new boolean[5][6]; // row x col (0-indexed)
     private final JPanel[][] seatPanels = new JPanel[5][6];
 
-    public seatselection() {
+    public SeatSelection() {
         this.flight = new Flight(1, "YS101", "Kathmandu (KTM)", "Pokhara (PKR)", "28 APR 2026", "10:00 AM", 15, 8400.0, "ACTIVE");
         this.passengerName = "Aryan Shah";
         initOccupiedStates();
@@ -41,7 +41,7 @@ public class seatselection extends javax.swing.JFrame {
         this.controller = new SeatSelectionController(this, this.flight, this.passengerName);
     }
 
-    public seatselection(Flight flight, String passengerName) {
+    public SeatSelection(Flight flight, String passengerName) {
         this.flight = flight;
         this.passengerName = passengerName;
         initOccupiedStates();
@@ -758,7 +758,7 @@ public class seatselection extends javax.swing.JFrame {
                     g2.drawRoundRect(x, y + 3, width - 1, height - 4, 2, 2);
                     g2.drawRect(x + width / 4, y, width / 2, 3);
                     g2.drawLine(x, y + 7, x + width - 1, y + 7);
-                } else if ("checkin".equalsIgnoreCase(type)) {
+                } else if ("CheckIn".equalsIgnoreCase(type)) {
                     g2.drawRoundRect(x, y + 2, width - 1, height - 4, 2, 2);
                     g2.drawLine(x + 4, y + 2, x + 4, y + height - 2);
                     g2.drawLine(x + 7, y + height / 2 + 1, x + 9, y + height / 2 + 3);

@@ -1,6 +1,6 @@
 package group.pkg7.pkg39.a.flight.booking;
 
-import view.login;
+import view.Login;
 
 /**
  * Main application entry point for Yatra Air Sewa.
@@ -25,7 +25,7 @@ public class Group739AFlightBooking {
         }
 
         java.awt.EventQueue.invokeLater(() -> {
-            new login().setVisible(true);
+            new Login().setVisible(true);
         });
     }
 }

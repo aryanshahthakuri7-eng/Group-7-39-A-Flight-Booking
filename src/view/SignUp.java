@@ -9,19 +9,19 @@ import javax.swing.JOptionPane;
  * Built using NetBeans Form Designer components with custom premium painting logic.
  * Extends JFrame container with responsive field bounds and focus border highlights.
  */
-public class signup extends javax.swing.JFrame {
+public class SignUp extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(signup.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SignUp.class.getName());
 
     /**
-     * Creates new form signup
+     * Creates new form SignUp
      */
-    public signup() {
+    public SignUp() {
         initComponents();
         setupCustomListeners();
         setupPremiumStyling();
         
-        // Enter key action listener to submit signup form on Enter keypress
+        // Enter key action listener to submit SignUp form on Enter keypress
         java.awt.event.KeyAdapter enterKeyAdapter = new java.awt.event.KeyAdapter() {
             @Override
             public void keyPressed(java.awt.event.KeyEvent e) {
@@ -295,8 +295,8 @@ public class signup extends javax.swing.JFrame {
         jLabelLoginLink.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                signup.this.dispose();
-                NavigationController.goToLogin(signup.this);
+                SignUp.this.dispose();
+                NavigationController.goToLogin(SignUp.this);
             }
         });
 
@@ -304,8 +304,8 @@ public class signup extends javax.swing.JFrame {
         jLabelBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                signup.this.dispose();
-                NavigationController.goToLogin(signup.this);
+                SignUp.this.dispose();
+                NavigationController.goToLogin(SignUp.this);
             }
         });
     }
@@ -545,7 +545,7 @@ public class signup extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void runFrame(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -558,7 +558,7 @@ public class signup extends javax.swing.JFrame {
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new signup().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new SignUp().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -590,22 +590,22 @@ public class signup extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-// Commit 3: Documented signup password complexity limits validations
+// Commit 3: Documented SignUp password complexity limits validations
 
-// Commit 6: Documented signup email input database check mappings
+// Commit 6: Documented SignUp email input database check mappings
 
-// Commit 9: Documented signup username length validation constraints
+// Commit 9: Documented SignUp username length validation constraints
 
-// Commit 12: Documented signup view password reveal checkbox toggle
+// Commit 12: Documented SignUp view password reveal checkbox toggle
 
-// Commit 15: Documented signup first name character boundaries validation
+// Commit 15: Documented SignUp first name character boundaries validation
 
-// Commit 18: Documented signup view database connection pool details
+// Commit 18: Documented SignUp view database connection pool details
 
-// Commit 21: Documented signup view validation error labels styling
+// Commit 21: Documented SignUp view validation error labels styling
 
-// Commit 24: Documented signup view database error connection warnings
+// Commit 24: Documented SignUp view database error connection warnings
 
-// Commit 27: Documented signup view fields layout bounds alignments
+// Commit 27: Documented SignUp view fields layout bounds alignments
 
-// Commit 30: Documented signup view error reporting component parameters
+// Commit 30: Documented SignUp view error reporting component parameters

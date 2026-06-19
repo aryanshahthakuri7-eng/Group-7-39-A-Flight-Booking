@@ -1,7 +1,7 @@
 package controller;
 
 import model.Flight;
-import view.seatselection;
+import view.SeatSelection;
 import javax.swing.JOptionPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,12 +12,12 @@ import java.awt.event.MouseEvent;
  */
 public class SeatSelectionController {
 
-    private final seatselection view;
+    private final SeatSelection view;
     private final Flight flight;
     private final String passengerName;
     private final BookingController bookingController;
 
-    public SeatSelectionController(seatselection view, Flight flight, String passengerName) {
+    public SeatSelectionController(SeatSelection view, Flight flight, String passengerName) {
         this.view = view;
         this.flight = flight;
         this.passengerName = passengerName;

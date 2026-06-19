@@ -5,7 +5,7 @@ import model.User;
 import model.SessionManager;
 
 /**
- * Controller to validate user login and establish a user session.
+ * Controller to validate user Login and establish a user session.
  */
 public class LoginController {
 
@@ -18,7 +18,7 @@ public class LoginController {
     /**
      * Validates user credentials. If correct, starts a session and returns true.
      */
-    public boolean login(String email, String password) {
+    public boolean Login(String email, String password) {
         // Validate that fields are not empty or null before invoking the database query
         if (email == null || password == null || email.trim().isEmpty() || password.trim().isEmpty()) {
             return false;

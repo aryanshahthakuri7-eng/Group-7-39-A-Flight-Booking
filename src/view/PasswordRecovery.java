@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
  * Built using NetBeans Form Designer components with custom premium painting logic.
  * Extends JFrame container with panel visibility state transition triggers.
  */
-public class passwordrecovery extends javax.swing.JFrame {
+public class PasswordRecovery extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(passwordrecovery.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PasswordRecovery.class.getName());
 
     /**
-     * Creates new form passwordrecovery
+     * Creates new form PasswordRecovery
      */
-    public passwordrecovery() {
+    public PasswordRecovery() {
         initComponents();
         setupPremiumStyling();
         setupCustomListeners();
@@ -304,7 +304,7 @@ public class passwordrecovery extends javax.swing.JFrame {
         jLabelBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordrecovery.this.dispose();
+                PasswordRecovery.this.dispose();
                 NavigationController.goToLogin(null);
             }
         });
@@ -641,7 +641,7 @@ public class passwordrecovery extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void runFrame(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -654,7 +654,7 @@ public class passwordrecovery extends javax.swing.JFrame {
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new passwordrecovery().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new PasswordRecovery().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -745,7 +745,7 @@ public class passwordrecovery extends javax.swing.JFrame {
 
 // Commit 8: Documented password recovery text field input limits
 
-// Commit 11: Documented password recovery back to login navigation hooks
+// Commit 11: Documented password recovery back to Login navigation hooks
 
 // Commit 14: Documented password recovery text field invalid warnings
 

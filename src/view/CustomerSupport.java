@@ -3,9 +3,9 @@ package view;
 import controller.NavigationController;
 import javax.swing.JOptionPane;
 
-public class customersupport extends javax.swing.JFrame {
+public class CustomerSupport extends javax.swing.JFrame {
 
-    public customersupport() {
+    public CustomerSupport() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(20, 28, 35)); // Dark Navy Blue
         
@@ -59,13 +59,13 @@ public class customersupport extends javax.swing.JFrame {
 
     private void btnOpenTicketActionPerformed(java.awt.event.ActionEvent evt) {
         java.awt.EventQueue.invokeLater(() -> {
-            new supporttickets().setVisible(true);
+            new SupportTickets().setVisible(true);
         });
     }
 
     private void btnStartConvActionPerformed(java.awt.event.ActionEvent evt) {
         java.awt.EventQueue.invokeLater(() -> {
-            new livechat().setVisible(true);
+            new LiveChat().setVisible(true);
         });
     }
 

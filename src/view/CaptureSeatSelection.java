@@ -9,10 +9,10 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 /**
- * Utility class to capture a high-fidelity visual rendering of seatselection.
+ * Utility class to capture a high-fidelity visual rendering of SeatSelection.
  */
 public class CaptureSeatSelection {
-    public static void main(String[] args) {
+    public static void runCapture(String[] args) {
         System.out.println("Starting CaptureSeatSelection...");
         
         // 1. Initialize session with mock user
@@ -37,7 +37,7 @@ public class CaptureSeatSelection {
             );
             
             // 3. Create the seat selection frame
-            seatselection frame = new seatselection(mockFlight, "Aryan Shah");
+            SeatSelection frame = new SeatSelection(mockFlight, "Aryan Shah");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
             // Set size exactly to the mockup dimensions

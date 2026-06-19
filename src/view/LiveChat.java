@@ -8,11 +8,11 @@ import java.util.ArrayList;
  * View class representing the Live Support Chat interface.
  * Integrates with NetBeans GUI Builder components.
  */
-public class livechat extends javax.swing.JFrame {
+public class LiveChat extends javax.swing.JFrame {
 
     private final SupportController supportController;
 
-    public livechat() {
+    public LiveChat() {
         initComponents();
         supportController = new SupportController();
 
@@ -139,10 +139,10 @@ public class livechat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSend;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtChatHistory;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JPanel pnlBg;
+    private javax.swing.JTextArea txtChatHistory;
     private javax.swing.JTextField txtMessageInput;
     // End of variables declaration//GEN-END:variables
 }

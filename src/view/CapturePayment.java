@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
  * Utility class to capture a high-fidelity visual rendering of PaymentFrame.
  */
 public class CapturePayment {
-    public static void main(String[] args) {
+    public static void runCapture(String[] args) {
         System.out.println("Starting CapturePayment...");
         
         // 1. Initialize session with mock user

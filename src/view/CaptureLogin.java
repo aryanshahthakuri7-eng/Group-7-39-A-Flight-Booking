@@ -6,12 +6,12 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 public class CaptureLogin {
-    public static void main(String[] args) {
+    public static void runCapture(String[] args) {
         System.out.println("Starting CaptureLogin...");
         
         try {
-            // Create the login frame
-            login frame = new login();
+            // Create the Login frame
+            Login frame = new Login();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
             // Set size matching the preferred dimensions

@@ -8,7 +8,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 public class CaptureDashboard {
-    public static void main(String[] args) {
+    public static void runCapture(String[] args) {
         System.out.println("Starting CaptureDashboard...");
         
         // 1. Initialize session with mock user "User Name"

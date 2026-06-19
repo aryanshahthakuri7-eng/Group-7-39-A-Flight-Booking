@@ -25,5 +25,9 @@
 .DS_Store
 Thumbs.db
 
+# Temp / build files
+sources.txt
+test_sources.txt
+
 #database ignore
 #src/database

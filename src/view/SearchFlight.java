@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * Seamlessly integrates database flight searching with atomic transaction bookings.
  * Coordinates input text criteria filtering, and displays dynamic flight cards.
  */
-public class searchflight extends javax.swing.JFrame {
+public class SearchFlight extends javax.swing.JFrame {
 
     private final FlightController flightController;
     private final BookingController bookingController;
@@ -23,7 +23,7 @@ public class searchflight extends javax.swing.JFrame {
     
     private List<Flight> searchedFlights;
 
-    public searchflight() {
+    public SearchFlight() {
         this.flightController = new FlightController();
         this.bookingController = new BookingController();
         this.locationDAO = new LocationDAO();
@@ -61,7 +61,7 @@ public class searchflight extends javax.swing.JFrame {
         lblBackToHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NavigationController.goToDashboard(searchflight.this);
+                NavigationController.goToDashboard(SearchFlight.this);
             }
         });
         
