@@ -123,3 +123,5 @@ public class SeatSelectionController {
 // Commit 46: Explained SQL queries validation rules for seats mapping
 
 // Commit 48: Documented memory leak prevention unbind events hooks
+
+// Commit 50: Final annotations for NetBeans UI builder properties on seat panels release
