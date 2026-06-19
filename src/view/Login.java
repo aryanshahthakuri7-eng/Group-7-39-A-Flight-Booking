@@ -253,61 +253,11 @@ public class Login extends javax.swing.JFrame {
         pnlMain.add(btnLogin);
         btnLogin.setBounds(15, 255, 290, 40);
         
-        // 8. Replace btnGoogle with custom painted version
+        // 8. Hide Google Login and separators
         pnlMain.remove(btnGoogle);
-        btnGoogle = new javax.swing.JButton("Login with Google") {
-            @Override
-            protected void paintComponent(java.awt.Graphics g) {
-                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                int width = getWidth();
-                int height = getHeight();
-                
-                if (getModel().isPressed()) {
-                    g2.setColor(new java.awt.Color(245, 245, 245));
-                } else if (getModel().isRollover()) {
-                    g2.setColor(new java.awt.Color(250, 250, 250));
-                } else {
-                    g2.setColor(java.awt.Color.WHITE);
-                }
-                g2.fillRoundRect(0, 0, width, height, 8, 8);
-                
-                g2.setColor(new java.awt.Color(226, 232, 240));
-                g2.drawRoundRect(0, 0, width - 1, height - 1, 8, 8);
-                
-                if (getIcon() != null) {
-                    int size = 16;
-                    int gap = getIconTextGap();
-                    g2.setFont(getFont());
-                    java.awt.FontMetrics fm = g2.getFontMetrics();
-                    java.awt.geom.Rectangle2D r = fm.getStringBounds(getText(), g2);
-                    int textWidth = (int) r.getWidth();
-                    int totalContentWidth = size + gap + textWidth;
-                    int startX = (width - totalContentWidth) / 2;
-                    int cy = (height - size) / 2;
-                    getIcon().paintIcon(this, g2, startX, cy);
-                    
-                    g2.setColor(new java.awt.Color(51, 51, 51));
-                    int tx = startX + size + gap;
-                    int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
-                    g2.drawString(getText(), tx, ty);
-                }
-                g2.dispose();
-            }
-        };
-        btnGoogle.setFont(new java.awt.Font("SansSerif", 1, 12));
-        btnGoogle.setForeground(new java.awt.Color(51, 51, 51));
-        btnGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/google_icon.png")));
-        btnGoogle.setIconTextGap(15);
-        btnGoogle.setContentAreaFilled(false);
-        btnGoogle.setBorderPainted(false);
-        btnGoogle.setFocusPainted(false);
-        btnGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGoogle.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Google Sign-In is currently in sandbox/testing mode.\nPlease Login using your email and password.", "Google Login", JOptionPane.INFORMATION_MESSAGE);
-        });
-        pnlMain.add(btnGoogle);
-        btnGoogle.setBounds(15, 335, 290, 38);
+        lblOr.setVisible(false);
+        sepLeft.setVisible(false);
+        sepRight.setVisible(false);
         
         // 9. Sign Up Link
         lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
