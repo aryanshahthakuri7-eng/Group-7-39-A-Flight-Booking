@@ -1,6 +1,5 @@
 package view;
 
-import controller.LoginController;
 import controller.NavigationController;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -12,15 +11,12 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
-    private final LoginController loginController;
-
     public Login() {
         // Enable system-wide text anti-aliasing for Swing components
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
 
         initComponents();
-        loginController = new LoginController();
         
         // 1. Center the Login card (pnlMain) using GridBagLayout inside pnlBg
         getContentPane().remove(pnlMain);
@@ -142,14 +138,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        // 3. Header listeners
+        // 3. Header listeners - Handled by Controller
         lblBackHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                JOptionPane.showMessageDialog(Login.this, "Returning to Home page...", "Home", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
         
         // 4. Replace txtEmail with custom placeholder-enabled text field
         pnlEmail.remove(txtEmail);
@@ -204,15 +194,8 @@ public class Login extends javax.swing.JFrame {
         pnlPassword.add(txtPassword);
         txtPassword.setBounds(35, 4, 245, 30);
         
-        // 6. Clickable Forgot Password Link
+        // 6. Clickable Forgot Password Link - Handled by Controller
         lblForgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Login.this.dispose();
-                new controller.PasswordRecoveryController(new view.PasswordRecovery()).activate();
-            }
-        });
         
         // 7. Replace btnLogin with custom painted version
         pnlMain.remove(btnLogin);
@@ -249,7 +232,7 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setBorderPainted(false);
         btnLogin.setFocusPainted(false);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogin.addActionListener(this::btnLoginActionPerformed);
+        // Action listener handled by Controller
         pnlMain.add(btnLogin);
         btnLogin.setBounds(15, 255, 290, 40);
         
@@ -259,15 +242,8 @@ public class Login extends javax.swing.JFrame {
         sepLeft.setVisible(false);
         sepRight.setVisible(false);
         
-        // 9. Sign Up Link
+        // 9. Sign Up Link - Handled by Controller
         lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Login.this.dispose();
-                NavigationController.goToSignUp(Login.this);
-            }
-        });
 
         // Verify database connection on startup in a background thread
         new Thread(() -> {
@@ -285,17 +261,7 @@ public class Login extends javax.swing.JFrame {
             }
         }).start();
 
-        // Enter key action listener to allow submitting the Login form on Enter keypress
-        java.awt.event.KeyAdapter enterKeyAdapter = new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyPressed(java.awt.event.KeyEvent e) {
-                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-                    btnLoginActionPerformed(null);
-                }
-            }
-        };
-        txtEmail.addKeyListener(enterKeyAdapter);
-        txtPassword.addKeyListener(enterKeyAdapter);
+        // Enter key action listener handled by Controller
     }
 
     @SuppressWarnings("unchecked")
@@ -423,7 +389,6 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setBackground(new java.awt.Color(245, 130, 32));
         btnLogin.setBorderPainted(false);
-        btnLogin.addActionListener(this::btnLoginActionPerformed);
         pnlMain.add(btnLogin);
         btnLogin.setBounds(15, 255, 290, 40);
 
@@ -470,22 +435,15 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String email = txtEmail.getText().trim();
-        String password = new String(txtPassword.getPassword()).trim();
-        
-        lblError.setText("");
-        if (email.equals("Email") || password.equals("Password") || email.isEmpty() || password.isEmpty()) {
-            lblError.setText("Please enter both email and password.");
-            return;
-        }
-        
-        if (loginController.Login(email, password)) {
-            NavigationController.goToDashboard(this);
-        } else {
-            lblError.setText("Invalid email address or password.");
-        }
-    }//GEN-LAST:event_btnLoginActionPerformed
+    // Getters for Controller access
+    public javax.swing.JTextField getTxtEmail() { return txtEmail; }
+    public javax.swing.JPasswordField getTxtPassword() { return txtPassword; }
+    public javax.swing.JButton getBtnLogin() { return btnLogin; }
+    public javax.swing.JLabel getLblError() { return lblError; }
+    public javax.swing.JLabel getLblSignUp() { return lblSignUp; }
+    public javax.swing.JLabel getLblForgotPassword() { return lblForgotPassword; }
+    public javax.swing.JLabel getLblBackHome() { return lblBackHome; }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGoogle;

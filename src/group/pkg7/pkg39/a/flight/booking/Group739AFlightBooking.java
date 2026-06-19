@@ -25,7 +25,9 @@ public class Group739AFlightBooking {
         }
 
         java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
+            Login loginView = new Login();
+            new controller.LoginController(loginView);
+            loginView.setVisible(true);
         });
     }
 }
