@@ -2,6 +2,7 @@ package dao;
 
 import database.DatabaseConnection;
 import model.Flight;
+import model.SearchFlight;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
