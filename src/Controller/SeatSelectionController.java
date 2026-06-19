@@ -121,3 +121,5 @@ public class SeatSelectionController {
 // Commit 44: Explained controller action mapping logic for next screens
 
 // Commit 46: Explained SQL queries validation rules for seats mapping
+
+// Commit 48: Documented memory leak prevention unbind events hooks
