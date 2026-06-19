@@ -31,6 +31,24 @@ public class CustomerSupport extends javax.swing.JFrame {
             javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15)
         ));
         
+        // Add placeholder behavior to the search field
+        txtSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (txtSearch.getText().trim().equals("🔍 Search for baggage rules, refund status, or flight changes...")) {
+                    txtSearch.setText("");
+                    txtSearch.setForeground(new java.awt.Color(20, 28, 35));
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (txtSearch.getText().trim().isEmpty()) {
+                    txtSearch.setText("   🔍 Search for baggage rules, refund status, or flight changes...");
+                    txtSearch.setForeground(new java.awt.Color(113, 128, 150));
+                }
+            }
+        });
+        
         // Add nice rounded background to online badge
         lblOnlineBadge.setBorder(javax.swing.BorderFactory.createCompoundBorder(
             new javax.swing.border.LineBorder(new java.awt.Color(230, 244, 234), 1, true),
