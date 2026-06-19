@@ -48,7 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
         styleComboBox(cmbFrom);
         styleComboBox(cmbTo);
         styleComboBox(cmbPassengers);
-        styleTextField(txtDepartDate);
+        // styleTextField(txtDepartDate); // Removed since it's a JDateChooser now
         
         btnSearchFlights.setContentAreaFilled(true);
         btnSearchFlights.setBackground(new java.awt.Color(255, 122, 26)); // Orange Accent
@@ -260,7 +260,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblTo = new javax.swing.JLabel();
         cmbTo = new javax.swing.JComboBox();
         lblDepartDate = new javax.swing.JLabel();
-        txtDepartDate = new javax.swing.JTextField();
+        txtDepartDate = new com.toedter.calendar.JDateChooser();
         lblPassengers = new javax.swing.JLabel();
         cmbPassengers = new javax.swing.JComboBox();
         btnSearchFlights = new javax.swing.JButton();
@@ -442,7 +442,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblDepartDate.setBounds(670, 150, 100, 15);
 
         txtDepartDate.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        txtDepartDate.setText("DD/MM/YYYY");
+        // txtDepartDate.setText("DD/MM/YYYY");
         getContentPane().add(txtDepartDate);
         txtDepartDate.setBounds(670, 170, 120, 35);
 
@@ -895,6 +895,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTicketBox;
     private javax.swing.JPanel pnlTicketLine;
     private javax.swing.JPanel pnlTopHeader;
-    private javax.swing.JTextField txtDepartDate;
+    private com.toedter.calendar.JDateChooser txtDepartDate;
     // End of variables declaration//GEN-END:variables
 }
