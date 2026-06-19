@@ -51,7 +51,7 @@ public class Profile extends javax.swing.JFrame {
         styleTextField(txtFullName);
         styleTextField(txtEmail);
         styleTextField(txtPhone);
-        styleTextField(txtDob);
+        // styleTextField(txtDob); // Removed since it's a JDateChooser
         
         // Load User Details
         loadUserProfile();
@@ -187,7 +187,7 @@ public class Profile extends javax.swing.JFrame {
         txtPhone = new javax.swing.JTextField();
         lblDob = new javax.swing.JLabel();
         lblDobCal = new javax.swing.JLabel();
-        txtDob = new javax.swing.JTextField();
+        txtDob = new com.toedter.calendar.JDateChooser();
         cardPersonalInfo = new javax.swing.JPanel();
         lblSecurity = new javax.swing.JLabel();
         lblSecurityIcon = new javax.swing.JLabel();
@@ -396,7 +396,6 @@ public class Profile extends javax.swing.JFrame {
         getContentPane().add(lblDobCal);
         lblDobCal.setBounds(1115, 380, 20, 25);
 
-        txtDob.setText("10 January 2006");
         txtDob.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         getContentPane().add(txtDob);
         txtDob.setBounds(720, 375, 420, 35);
@@ -605,7 +604,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSidebar;
     private javax.swing.JPanel pnlStatus;
     private javax.swing.JPanel pnlTopHeader;
-    private javax.swing.JTextField txtDob;
+    private com.toedter.calendar.JDateChooser txtDob;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFullName;
     private javax.swing.JTextField txtPhone;
