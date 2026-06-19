@@ -8,6 +8,14 @@ public class CustomerSupport extends javax.swing.JFrame {
     public CustomerSupport() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(20, 28, 35)); // Dark Navy Blue
+
+        // Match sidebar button text and icons
+        btnDashboard.setText("㗊  Dashboard");
+        btnSearchFlight.setText("🔍  Search Flight");
+        btnMyBookings.setText("💼  My Bookings");
+        btnProfile.setText("👤  Profile");
+        btnCustomerSupport.setText("💬  Customer Support");
+        btnLogout.setText("🚪  Logout");
         
         // Custom stylings to make UI look extremely premium and flat!
         styleSidebarButton(btnDashboard);
@@ -180,10 +188,10 @@ public class CustomerSupport extends javax.swing.JFrame {
         lblStatusText = new javax.swing.JLabel();
         pnlStatus = new javax.swing.JPanel();
         pnlMainBg = new javax.swing.JPanel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(20, 28, 35));
-        setPreferredSize(new java.awt.Dimension(1200, 800));
         getContentPane().setLayout(null);
 
         lblLogo.setText("▼  YATRAAIR");
@@ -288,10 +296,10 @@ public class CustomerSupport extends javax.swing.JFrame {
         getContentPane().add(txtSearch);
         txtSearch.setBounds(400, 235, 650, 40);
 
-        lblHelpToday.setText("How can we help you today?");
         lblHelpToday.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lblHelpToday.setForeground(new java.awt.Color(255, 255, 255));
         lblHelpToday.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHelpToday.setText("How can we help you today?");
         getContentPane().add(lblHelpToday);
         lblHelpToday.setBounds(300, 165, 850, 30);
 
@@ -422,6 +430,8 @@ public class CustomerSupport extends javax.swing.JFrame {
         pnlMainBg.setBackground(new java.awt.Color(244, 246, 249));
         getContentPane().add(pnlMainBg);
         pnlMainBg.setBounds(250, 60, 950, 740);
+        getContentPane().add(jDateChooser1);
+        jDateChooser1.setBounds(420, 270, 88, 22);
 
         pack();
         setLocationRelativeTo(null);
@@ -466,6 +476,7 @@ public class CustomerSupport extends javax.swing.JFrame {
     private javax.swing.JPanel cardCall;
     private javax.swing.JPanel cardLiveChat;
     private javax.swing.JPanel cardTicket;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel lblBackToHome;
     private javax.swing.JLabel lblCall;
     private javax.swing.JLabel lblCallDesc;

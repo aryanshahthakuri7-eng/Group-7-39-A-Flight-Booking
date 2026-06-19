@@ -28,6 +28,15 @@ public class CheckIn extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(20, 28, 35)); // Navy
 
+        // Match sidebar button text and icons
+        btnDashboard.setText("㗊  Dashboard");
+        btnSearchFlight.setText("🔍  Search Flight");
+        btnMyBookings.setText("💼  My Bookings");
+        btnCheckIn.setText("🎫  Check-in");
+        btnProfile.setText("👤  Profile");
+        btnCustomerSupport.setText("💬  Customer Support");
+        btnLogout.setText("🚪  Logout");
+
         // Sidebar custom styles
         styleSidebarButton(btnDashboard);
         styleSidebarButton(btnSearchFlight);

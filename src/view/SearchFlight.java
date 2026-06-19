@@ -34,7 +34,7 @@ public class SearchFlight extends javax.swing.JFrame {
         // Match sidebar button text and icons with dashboard
         btnDashboard.setText("㗊  Dashboard");
         btnSearchFlight.setText("🔍  Search Flight");
-        btnMyBookings.setText("📋  My Bookings");
+        btnMyBookings.setText("💼  My Bookings");
         btnCheckIn.setText("🎫  Check-in");
         btnProfile.setText("👤  Profile");
         btnCustomerSupport.setText("💬  Customer Support");

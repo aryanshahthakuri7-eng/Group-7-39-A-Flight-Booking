@@ -16,6 +16,14 @@ public class Profile extends javax.swing.JFrame {
         profileController = new ProfileController();
         
         getContentPane().setBackground(new java.awt.Color(20, 28, 35)); // Dark Navy Blue
+
+        // Match sidebar button text and icons
+        btnDashboard.setText("㗊  Dashboard");
+        btnSearchFlight.setText("🔍  Search Flight");
+        btnMyBookings.setText("💼  My Bookings");
+        btnProfile.setText("👤  Profile");
+        btnCustomerSupport.setText("💬  Customer Support");
+        btnLogout.setText("🚪  Logout");
         
         // Custom stylings to make UI look extremely premium and flat!
         styleSidebarButton(btnDashboard);
