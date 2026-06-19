@@ -526,3 +526,5 @@ public class customersupport extends javax.swing.JFrame {
 // Commit 46: Documented support ticket message length validations checks
 
 // Commit 48: Documented customer support ticket attachment format restrictions
+
+// Commit 50: Documented customer support page exit back to main window listener
