@@ -146,7 +146,7 @@ public class login extends javax.swing.JFrame {
         lblBackHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 JOptionPane.showMessageDialog(login.this, "Returning to Home page...", "Home", JOptionPane.INFORMATION_MESSAGE);
             }
         });
@@ -208,7 +208,7 @@ public class login extends javax.swing.JFrame {
         lblForgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 login.this.dispose();
                 new controller.PasswordRecoveryController(new view.passwordrecovery()).activate();
             }
@@ -313,7 +313,7 @@ public class login extends javax.swing.JFrame {
         lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 login.this.dispose();
                 NavigationController.goToSignUp(login.this);
             }

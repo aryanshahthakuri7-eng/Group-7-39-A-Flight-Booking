@@ -295,7 +295,7 @@ public class signup extends javax.swing.JFrame {
         jLabelLoginLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelLoginLink.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 signup.this.dispose();
                 NavigationController.goToLogin(signup.this);
             }
@@ -304,7 +304,7 @@ public class signup extends javax.swing.JFrame {
         jLabelBackHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 signup.this.dispose();
                 NavigationController.goToLogin(signup.this);
             }
