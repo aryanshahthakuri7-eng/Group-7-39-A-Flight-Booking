@@ -153,40 +153,27 @@ public class login extends javax.swing.JFrame {
         
         // 4. Replace txtEmail with custom placeholder-enabled text field
         pnlEmail.remove(txtEmail);
-        txtEmail = new javax.swing.JTextField() {
-            private final String placeholder = "Email";
-            private final java.awt.Color placeholderColor = new java.awt.Color(160, 174, 192);
-            
-            @Override
-            protected void paintComponent(java.awt.Graphics g) {
-                super.paintComponent(g);
-                if (getText().isEmpty()) {
-                    java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-                    g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                    g2.setColor(placeholderColor);
-                    g2.setFont(getFont().deriveFont(java.awt.Font.PLAIN));
-                    java.awt.FontMetrics fm = g2.getFontMetrics();
-                    int ty = fm.getAscent() + (getHeight() - fm.getHeight()) / 2;
-                    g2.drawString(placeholder, 2, ty);
-                    g2.dispose();
-                }
-            }
-        };
+        txtEmail = new javax.swing.JTextField();
         txtEmail.setText("Email");
         txtEmail.setForeground(new java.awt.Color(160, 174, 192));
         txtEmail.addFocusListener(new java.awt.event.FocusListener() {
             @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (txtEmail.getText().equals("Email")) {
-                    txtEmail.setText("");
-                    txtEmail.setForeground(new java.awt.Color(51, 51, 51));
-                }
-            }
+            public void focusGained(java.awt.event.FocusEvent evt) {}
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 if (txtEmail.getText().trim().isEmpty()) {
                     txtEmail.setText("Email");
                     txtEmail.setForeground(new java.awt.Color(160, 174, 192));
+                }
+            }
+        });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent e) {
+                char c = e.getKeyChar();
+                if (txtEmail.getText().equals("Email") && c != '\b' && c != '\n' && c != '\u001B') {
+                    txtEmail.setText("");
+                    txtEmail.setForeground(new java.awt.Color(51, 51, 51));
                 }
             }
         });
@@ -198,39 +185,13 @@ public class login extends javax.swing.JFrame {
         
         // 5. Replace txtPassword with custom placeholder-enabled password field
         pnlPassword.remove(txtPassword);
-        txtPassword = new javax.swing.JPasswordField() {
-            private final String placeholder = "Password";
-            private final java.awt.Color placeholderColor = new java.awt.Color(160, 174, 192);
-            
-            @Override
-            protected void paintComponent(java.awt.Graphics g) {
-                super.paintComponent(g);
-                String pass = new String(getPassword());
-                if (pass.isEmpty()) {
-                    java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-                    g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                    g2.setColor(placeholderColor);
-                    g2.setFont(getFont().deriveFont(java.awt.Font.PLAIN));
-                    java.awt.FontMetrics fm = g2.getFontMetrics();
-                    int ty = fm.getAscent() + (getHeight() - fm.getHeight()) / 2;
-                    g2.drawString(placeholder, 2, ty);
-                    g2.dispose();
-                }
-            }
-        };
+        txtPassword = new javax.swing.JPasswordField();
         txtPassword.setText("Password");
         txtPassword.setEchoChar((char) 0);
         txtPassword.setForeground(new java.awt.Color(160, 174, 192));
         txtPassword.addFocusListener(new java.awt.event.FocusListener() {
             @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                String pass = new String(txtPassword.getPassword());
-                if (pass.equals("Password")) {
-                    txtPassword.setText("");
-                    txtPassword.setEchoChar('•');
-                    txtPassword.setForeground(new java.awt.Color(51, 51, 51));
-                }
-            }
+            public void focusGained(java.awt.event.FocusEvent evt) {}
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 String pass = new String(txtPassword.getPassword());
@@ -238,6 +199,18 @@ public class login extends javax.swing.JFrame {
                     txtPassword.setText("Password");
                     txtPassword.setEchoChar((char) 0);
                     txtPassword.setForeground(new java.awt.Color(160, 174, 192));
+                }
+            }
+        });
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent e) {
+                char c = e.getKeyChar();
+                String pass = new String(txtPassword.getPassword());
+                if (pass.equals("Password") && c != '\b' && c != '\n' && c != '\u001B') {
+                    txtPassword.setText("");
+                    txtPassword.setEchoChar('•');
+                    txtPassword.setForeground(new java.awt.Color(51, 51, 51));
                 }
             }
         });
