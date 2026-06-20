@@ -3,7 +3,7 @@ package controller;
 import javax.swing.JFrame;
 import model.Booking;
 import model.SessionManager;
-import view.dashboard;
+import view.Dashboard;
 import view.searchflight;
 import view.mybookings;
 import view.profie;
@@ -13,6 +13,7 @@ import view.checkin;
 import view.ticketwindow;
 import view.signup;
 import view.PaymentFrame;
+import view.FlightDetails;
 
 /**
  * Controller to handle application navigation flow.
@@ -42,7 +43,7 @@ public class NavigationController {
             currentFrame.dispose();
         }
         java.awt.EventQueue.invokeLater(() -> {
-            new dashboard().setVisible(true);
+            new Dashboard().setVisible(true);
         });
     }
 
@@ -111,6 +112,15 @@ public class NavigationController {
         }
         java.awt.EventQueue.invokeLater(() -> {
             new PaymentFrame().setVisible(true);
+        });
+    }
+
+    public static void goToFlightDetails(JFrame currentFrame, model.Flight flight) {
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FlightDetails().setVisible(true);
         });
     }
 }

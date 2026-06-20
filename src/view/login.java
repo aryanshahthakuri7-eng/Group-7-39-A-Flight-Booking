@@ -15,18 +15,76 @@ public class login extends javax.swing.JFrame {
     private final LoginController loginController;
 
     public login() {
+        // Enable system-wide text anti-aliasing for Swing components
+        System.setProperty("awt.useSystemAAFontSettings","on");
+        System.setProperty("swing.aatext", "true");
+
         initComponents();
         loginController = new LoginController();
         
-        // Custom premium stylings matching mockup exactly at runtime
+        // 1. Center the login card (pnlMain) using GridBagLayout inside pnlBg
+        getContentPane().remove(pnlMain);
+        getContentPane().remove(pnlBg);
+        
+        pnlBg = new javax.swing.JPanel() {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                int w = getWidth();
+                int h = getHeight();
+                float[] fractions = {0.0f, 1.0f};
+                java.awt.Color[] colors = {new java.awt.Color(20, 48, 85), new java.awt.Color(9, 21, 45)};
+                java.awt.RadialGradientPaint rgp = new java.awt.RadialGradientPaint(
+                    new java.awt.geom.Point2D.Float(w / 2f, h / 2f),
+                    Math.max(w, h) * 0.8f,
+                    fractions,
+                    colors
+                );
+                g2.setPaint(rgp);
+                g2.fillRect(0, 0, w, h);
+                g2.dispose();
+            }
+        };
+        pnlBg.setLayout(new java.awt.GridBagLayout());
+        
+        pnlMain.setPreferredSize(new java.awt.Dimension(320, 460));
+        pnlMain.setMinimumSize(new java.awt.Dimension(320, 460));
+        pnlMain.setMaximumSize(new java.awt.Dimension(320, 460));
+        pnlBg.add(pnlMain);
+        
+        getContentPane().setLayout(new java.awt.BorderLayout());
+        getContentPane().add(pnlBg, java.awt.BorderLayout.CENTER);
+
+        // 2. Custom premium card border & background drawing for pnlMain
+        pnlMain.setOpaque(false);
+        pnlHeader.setOpaque(false);
         pnlMain.setBorder(new javax.swing.border.Border() {
             @Override
             public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
                 java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
                 g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                
+                // Fill the main card body with solid white
+                g2.setColor(java.awt.Color.WHITE);
+                g2.fillRoundRect(x, y, width, height, 16, 16);
+                
+                // Fill the header area with light grey (top 30px) using clip
+                java.awt.geom.RoundRectangle2D rect = new java.awt.geom.RoundRectangle2D.Float(x, y, width, height, 16, 16);
+                g2.setClip(rect);
+                g2.setColor(new java.awt.Color(245, 246, 248));
+                g2.fillRect(x, y, width, 30);
+                g2.setClip(null);
+                
+                // Thin line dividing header from body
                 g2.setColor(new java.awt.Color(226, 232, 240));
+                g2.drawLine(x, y + 30, x + width, y + 30);
+                
+                // Draw the border around the entire card
                 g2.setStroke(new java.awt.BasicStroke(1.0f));
                 g2.drawRoundRect(x, y, width - 1, height - 1, 16, 16);
+                
                 g2.dispose();
             }
             @Override
@@ -38,11 +96,7 @@ public class login extends javax.swing.JFrame {
                 return false;
             }
         });
-        pnlMain.setOpaque(false);
 
-        // Customize main background gradient painting
-        pnlBg.setOpaque(false);
-        
         // Make email and password field borders anti-aliased and smooth at runtime
         pnlEmail.setOpaque(false);
         pnlEmail.setBorder(new javax.swing.border.Border() {
@@ -50,10 +104,8 @@ public class login extends javax.swing.JFrame {
             public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
                 java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
                 g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                // Background
                 g2.setColor(new java.awt.Color(245, 246, 248));
                 g2.fillRoundRect(x, y, width, height, 8, 8);
-                // Border
                 g2.setColor(new java.awt.Color(230, 233, 238));
                 g2.drawRoundRect(x, y, width - 1, height - 1, 8, 8);
                 g2.dispose();
@@ -74,10 +126,8 @@ public class login extends javax.swing.JFrame {
             public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
                 java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
                 g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                // Background
                 g2.setColor(new java.awt.Color(245, 246, 248));
                 g2.fillRoundRect(x, y, width, height, 8, 8);
-                // Border
                 g2.setColor(new java.awt.Color(230, 233, 238));
                 g2.drawRoundRect(x, y, width - 1, height - 1, 8, 8);
                 g2.dispose();
@@ -92,8 +142,7 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        // 1. Header listeners.
-        // Sets mouse hover hand cursor indicators and back navigation triggers for top home link.
+        // 3. Header listeners
         lblBackHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBackHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -102,11 +151,10 @@ public class login extends javax.swing.JFrame {
             }
         });
         
-        // 2. Email Input placeholder behaviour
+        // 4. Email Input placeholder behaviour
         txtEmail.addFocusListener(new java.awt.event.FocusListener() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                // Remove placeholder text when user clicks or tabs into the email input field
                 if (txtEmail.getText().equals("Email")) {
                     txtEmail.setText("");
                     txtEmail.setForeground(new java.awt.Color(51, 51, 51));
@@ -114,7 +162,6 @@ public class login extends javax.swing.JFrame {
             }
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                // Restore placeholder text if the input field is left empty
                 if (txtEmail.getText().trim().isEmpty()) {
                     txtEmail.setText("Email");
                     txtEmail.setForeground(new java.awt.Color(160, 174, 192));
@@ -122,7 +169,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         
-        // 3. Password Input placeholder behaviour
+        // 5. Password Input placeholder behaviour
         txtPassword.setEchoChar((char) 0);
         txtPassword.addFocusListener(new java.awt.event.FocusListener() {
             @Override
@@ -145,7 +192,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         
-        // 4. Clickable Forgot Password Link
+        // 6. Clickable Forgot Password Link
         lblForgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -155,96 +202,102 @@ public class login extends javax.swing.JFrame {
             }
         });
         
-        // 5. Styled LOGIN button at runtime with rounded corners and hand cursor
+        // 7. Replace btnLogin with custom painted version
+        pnlMain.remove(btnLogin);
+        btnLogin = new javax.swing.JButton("LOGIN") {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                int width = getWidth();
+                int height = getHeight();
+                
+                if (getModel().isPressed()) {
+                    g2.setColor(new java.awt.Color(217, 95, 20));
+                } else if (getModel().isRollover()) {
+                    g2.setColor(new java.awt.Color(255, 133, 51));
+                } else {
+                    g2.setColor(new java.awt.Color(243, 112, 33));
+                }
+                g2.fillRoundRect(0, 0, width, height, 8, 8);
+                
+                g2.setColor(java.awt.Color.WHITE);
+                g2.setFont(getFont());
+                java.awt.FontMetrics fm = g2.getFontMetrics();
+                java.awt.geom.Rectangle2D r = fm.getStringBounds(getText(), g2);
+                int tx = (width - (int) r.getWidth()) / 2;
+                int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
+                g2.drawString(getText(), tx, ty);
+                g2.dispose();
+            }
+        };
+        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 14));
+        btnLogin.setForeground(java.awt.Color.WHITE);
         btnLogin.setContentAreaFilled(false);
         btnLogin.setBorderPainted(false);
         btnLogin.setFocusPainted(false);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogin.setBorder(new javax.swing.border.Border() {
-            @Override
-            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
-                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                if (btnLogin.getModel().isPressed()) {
-                    g2.setColor(new java.awt.Color(220, 105, 10));
-                } else if (btnLogin.getModel().isRollover()) {
-                    g2.setColor(new java.awt.Color(255, 145, 50));
-                } else {
-                    g2.setColor(new java.awt.Color(245, 130, 32));
-                }
-                g2.fillRoundRect(x, y, width, height, 8, 8);
-                g2.dispose();
-                // Paint Text
-                g.setColor(java.awt.Color.WHITE);
-                g.setFont(btnLogin.getFont());
-                java.awt.FontMetrics fm = g.getFontMetrics();
-                java.awt.geom.Rectangle2D r = fm.getStringBounds(btnLogin.getText(), g);
-                int tx = (width - (int) r.getWidth()) / 2;
-                int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
-                g.drawString(btnLogin.getText(), tx, ty);
-            }
-            @Override
-            public java.awt.Insets getBorderInsets(java.awt.Component c) {
-                return new java.awt.Insets(1, 1, 1, 1);
-            }
-            @Override
-            public boolean isBorderOpaque() {
-                return false;
-            }
-        });
+        btnLogin.addActionListener(this::btnLoginActionPerformed);
+        pnlMain.add(btnLogin);
+        btnLogin.setBounds(15, 255, 290, 40);
         
-        // 6. Styled Google Sign-In Button
-        btnGoogle.setContentAreaFilled(false);
-        btnGoogle.setBorderPainted(false);
-        btnGoogle.setFocusPainted(false);
-        btnGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGoogle.setBorder(new javax.swing.border.Border() {
+        // 8. Replace btnGoogle with custom painted version
+        pnlMain.remove(btnGoogle);
+        btnGoogle = new javax.swing.JButton("Login with Google") {
             @Override
-            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+            protected void paintComponent(java.awt.Graphics g) {
                 java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
                 g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-                if (btnGoogle.getModel().isPressed()) {
+                int width = getWidth();
+                int height = getHeight();
+                
+                if (getModel().isPressed()) {
                     g2.setColor(new java.awt.Color(245, 245, 245));
-                } else if (btnGoogle.getModel().isRollover()) {
+                } else if (getModel().isRollover()) {
                     g2.setColor(new java.awt.Color(250, 250, 250));
                 } else {
                     g2.setColor(java.awt.Color.WHITE);
                 }
-                g2.fillRoundRect(x, y, width, height, 8, 8);
-                g2.setColor(new java.awt.Color(226, 232, 240));
-                g2.drawRoundRect(x, y, width - 1, height - 1, 8, 8);
-                g2.dispose();
+                g2.fillRoundRect(0, 0, width, height, 8, 8);
                 
-                // Draw Google logo and text
-                if (btnGoogle.getIcon() != null) {
+                g2.setColor(new java.awt.Color(226, 232, 240));
+                g2.drawRoundRect(0, 0, width - 1, height - 1, 8, 8);
+                
+                if (getIcon() != null) {
                     int size = 16;
-                    int cx = 25;
+                    int gap = getIconTextGap();
+                    g2.setFont(getFont());
+                    java.awt.FontMetrics fm = g2.getFontMetrics();
+                    java.awt.geom.Rectangle2D r = fm.getStringBounds(getText(), g2);
+                    int textWidth = (int) r.getWidth();
+                    int totalContentWidth = size + gap + textWidth;
+                    int startX = (width - totalContentWidth) / 2;
                     int cy = (height - size) / 2;
-                    btnGoogle.getIcon().paintIcon(c, g, cx, cy);
+                    getIcon().paintIcon(this, g2, startX, cy);
                     
-                    g.setColor(new java.awt.Color(51, 51, 51));
-                    g.setFont(btnGoogle.getFont());
-                    java.awt.FontMetrics fm = g.getFontMetrics();
-                    java.awt.geom.Rectangle2D r = fm.getStringBounds(btnGoogle.getText(), g);
-                    int tx = cx + size + btnGoogle.getIconTextGap();
+                    g2.setColor(new java.awt.Color(51, 51, 51));
+                    int tx = startX + size + gap;
                     int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
-                    g.drawString(btnGoogle.getText(), tx, ty);
+                    g2.drawString(getText(), tx, ty);
                 }
+                g2.dispose();
             }
-            @Override
-            public java.awt.Insets getBorderInsets(java.awt.Component c) {
-                return new java.awt.Insets(1, 1, 1, 1);
-            }
-            @Override
-            public boolean isBorderOpaque() {
-                return false;
-            }
-        });
+        };
+        btnGoogle.setFont(new java.awt.Font("SansSerif", 1, 12));
+        btnGoogle.setForeground(new java.awt.Color(51, 51, 51));
+        btnGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/google_icon.png")));
+        btnGoogle.setIconTextGap(15);
+        btnGoogle.setContentAreaFilled(false);
+        btnGoogle.setBorderPainted(false);
+        btnGoogle.setFocusPainted(false);
+        btnGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGoogle.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Google Sign-In is currently in sandbox/testing mode.\nPlease login using your email and password.", "Google Login", JOptionPane.INFORMATION_MESSAGE);
         });
+        pnlMain.add(btnGoogle);
+        btnGoogle.setBounds(15, 335, 290, 38);
         
-        // 7. Sign Up Link
+        // 9. Sign Up Link
         lblSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override

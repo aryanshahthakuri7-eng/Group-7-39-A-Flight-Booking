@@ -29,7 +29,7 @@ def main():
         "javac",
         "--release", "21",
         "-d", "build/classes",
-        "-cp", "lib/mysql-connector-j-8.0.33.jar",
+        "-cp", "lib/mysql-connector-j-8.0.33.jar;lib/AbsoluteLayout.jar",
         "@sources.txt"
     ]
     res = subprocess.run(compile_cmd, shell=True)
@@ -54,7 +54,7 @@ def main():
     print("Running CaptureDashboard...")
     run_cmd = [
         "java",
-        "-cp", "build/classes;lib/mysql-connector-j-8.0.33.jar",
+        "-cp", "build/classes;lib/mysql-connector-j-8.0.33.jar;lib/AbsoluteLayout.jar",
         "view.CaptureDashboard"
     ]
     res2 = subprocess.run(run_cmd, shell=True)
@@ -67,7 +67,7 @@ def main():
     print("Running CapturePayment...")
     run_cmd_payment = [
         "java",
-        "-cp", "build/classes;lib/mysql-connector-j-8.0.33.jar",
+        "-cp", "build/classes;lib/mysql-connector-j-8.0.33.jar;lib/AbsoluteLayout.jar",
         "view.CapturePayment"
     ]
     res3 = subprocess.run(run_cmd_payment, shell=True)
@@ -75,6 +75,19 @@ def main():
         print("Running CapturePayment failed!")
         sys.exit(res3.returncode)
     print("CapturePayment completed successfully.")
+    
+    # Run CaptureLogin
+    print("Running CaptureLogin...")
+    run_cmd_login = [
+        "java",
+        "-cp", "build/classes;lib/mysql-connector-j-8.0.33.jar;lib/AbsoluteLayout.jar",
+        "view.CaptureLogin"
+    ]
+    res4 = subprocess.run(run_cmd_login, shell=True)
+    if res4.returncode != 0:
+        print("Running CaptureLogin failed!")
+        sys.exit(res4.returncode)
+    print("CaptureLogin completed successfully.")
 
 
 if __name__ == '__main__':
