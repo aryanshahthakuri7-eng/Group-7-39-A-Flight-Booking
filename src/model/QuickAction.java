@@ -12,6 +12,7 @@ package model;
  */
 public class QuickAction {
     
+    // Field variables containing properties for Quick Action layout items on Dashboard
     private String icon;       // Emoji icon (e.g., "🔍", "💼", "⚙️", "🚪")
     private String label;      // Display label (e.g., "Search Flights")
     private String actionKey;  // Action identifier for the controller (e.g., "SEARCH", "BOOKINGS", "PROFILE", "LOGOUT")

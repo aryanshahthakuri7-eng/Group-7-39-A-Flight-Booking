@@ -12,7 +12,8 @@ package model;
  */
 public class StatCard {
     
-    private String icon;       // Emoji icon (e.g., "⚠️", "🚫", "🎫", "✨")
+    // Field variables containing stats details that are dynamically drawn on stats dashboard grid cards
+    private String icon;       // Emoji icon (e.g., "▲", "⟲", "💳", "✨")
     private String value;      // Display value (e.g., "2", "NPR 12,500", "120")
     private String label;      // Title label (e.g., "UPCOMING TRIPS")
     private String subtitle;   // Subtitle text (e.g., "View your next booking")

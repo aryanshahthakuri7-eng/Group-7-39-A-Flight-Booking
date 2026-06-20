@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Data Access Object for users table.
+ * Implements CRUD operations using PreparedStatements to secure user login,
+ * user registration, and recovery procedures against SQL injection.
  */
 public class UserDAO {
 

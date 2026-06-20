@@ -36,7 +36,7 @@ public class LocationDAO {
     public String[] getFromLocationsArray() {
         ArrayList<String> locations = getAllLocations();
         String[] result = new String[locations.size() + 1];
-        result[0] = "📍 Select Region"; // Placeholder
+        result[0] = "⌖ Select Region"; // Placeholder
         for (int i = 0; i < locations.size(); i++) {
             result[i + 1] = locations.get(i);
         }
@@ -49,7 +49,7 @@ public class LocationDAO {
     public String[] getToLocationsArray() {
         ArrayList<String> locations = getAllLocations();
         String[] result = new String[locations.size() + 1];
-        result[0] = "📍 Select Destination"; // Placeholder
+        result[0] = "⌖ Select Destination"; // Placeholder
         for (int i = 0; i < locations.size(); i++) {
             result[i + 1] = locations.get(i);
         }

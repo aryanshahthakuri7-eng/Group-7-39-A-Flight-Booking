@@ -3,11 +3,15 @@ package model;
 import java.sql.Timestamp;
 
 /**
- * Model representing a User account.
+ * Model representing a User account - merged version for compatibility with all DAO paths.
  */
 public class User {
 
+    // Dual-field mapping variables implemented to maintain backward compatibility 
+    // between the different branch naming conventions (e.g. 'fullname' vs 'fullName')
+    private int id;
     private int userId;
+    private String fullname;
     private String fullName;
     private String email;
     private String password;
@@ -17,12 +21,35 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String fullName, String email, String password, String phone) {
-        this.userId = userId;
-        this.fullName = fullName;
+    // For HEAD branch compatibility
+    public User(String fullname, String email, String phone, String password) {
+        this.fullname = fullname;
+        this.fullName = fullname;
         this.email = email;
-        this.password = password;
         this.phone = phone;
+        this.password = password;
+    }
+
+    public User(int id, String fullname, String email, String phone, String password) {
+        this.id = id;
+        this.userId = id;
+        this.fullname = fullname;
+        this.fullName = fullname;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
+
+
+
+    // Getters and Setters mapping both conventions
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+        this.userId = id;
     }
 
     public int getUserId() {
@@ -31,6 +58,16 @@ public class User {
 
     public void setUserId(int userId) {
         this.userId = userId;
+        this.id = userId;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+        this.fullName = fullname;
     }
 
     public String getFullName() {
@@ -39,6 +76,7 @@ public class User {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+        this.fullname = fullName;
     }
 
     public String getEmail() {

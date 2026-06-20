@@ -1,5 +1,7 @@
 package view;
 
+// View class for user profile management - configured by rahulmahasethh
+
 import controller.NavigationController;
 import controller.ProfileController;
 import model.User;
