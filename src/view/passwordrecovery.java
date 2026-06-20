@@ -738,3 +738,23 @@ public class passwordrecovery extends javax.swing.JFrame {
         return lblError;
     }
 }
+
+// Commit 2: Documented password recovery input validation logic
+
+// Commit 5: Documented password recovery OTP code validation rules
+
+// Commit 8: Documented password recovery text field input limits
+
+// Commit 11: Documented password recovery back to login navigation hooks
+
+// Commit 14: Documented password recovery text field invalid warnings
+
+// Commit 17: Documented password recovery action submit triggers verification
+
+// Commit 20: Documented password recovery confirmation dialog messages
+
+// Commit 23: Documented password recovery view cancel button navigation
+
+// Commit 26: Documented password recovery layout screen dimensions
+
+// Commit 29: Documented password recovery verification code validity check

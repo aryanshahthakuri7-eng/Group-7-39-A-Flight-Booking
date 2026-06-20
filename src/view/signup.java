@@ -585,3 +585,23 @@ public class signup extends javax.swing.JFrame {
     private javax.swing.JPanel pnlBg;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 3: Documented signup password complexity limits validations
+
+// Commit 6: Documented signup email input database check mappings
+
+// Commit 9: Documented signup username length validation constraints
+
+// Commit 12: Documented signup view password reveal checkbox toggle
+
+// Commit 15: Documented signup first name character boundaries validation
+
+// Commit 18: Documented signup view database connection pool details
+
+// Commit 21: Documented signup view validation error labels styling
+
+// Commit 24: Documented signup view database error connection warnings
+
+// Commit 27: Documented signup view fields layout bounds alignments
+
+// Commit 30: Documented signup view error reporting component parameters

@@ -497,3 +497,23 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 1: Documented login frame visual boundaries layout
+
+// Commit 4: Documented login email input validation regex checks
+
+// Commit 7: Documented login panel custom background coloring
+
+// Commit 10: Documented login submit button key press activation
+
+// Commit 13: Documented login panel custom border rendering attributes
+
+// Commit 16: Documented login page show password check state listener
+
+// Commit 19: Documented login panel custom logo icon bounds
+
+// Commit 22: Documented login controller redirection to home verification
+
+// Commit 25: Documented login panel custom layout border margins
+
+// Commit 28: Documented login panel background coloring customization

@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 /**
  * View class representing the Flight Search and Booking screen.
  * Seamlessly integrates database flight searching with atomic transaction bookings.
+ * Coordinates input text criteria filtering, and displays dynamic flight cards.
  */
 public class searchflight extends javax.swing.JFrame {
 
@@ -39,7 +40,8 @@ public class searchflight extends javax.swing.JFrame {
         btnCustomerSupport.setText("💬  Customer Support");
         btnLogout.setText("🚪  Logout");
 
-        // Custom stylings
+        // Custom stylings.
+        // Applies clean flat visual styling attributes to the sidebar selection buttons at runtime.
         styleSidebarButton(btnDashboard);
         styleSidebarButton(btnSearchFlight);
         styleSidebarButton(btnMyBookings);
@@ -53,7 +55,8 @@ public class searchflight extends javax.swing.JFrame {
         lblHeaderIcons.setVisible(true);
         lblHeaderIcons.setForeground(java.awt.Color.WHITE);
 
-        // Back to Home listener
+        // Back to Home listener.
+        // Attaches cursor hand trigger pointing to dashboard route on back-to-home navigation links.
         lblBackToHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBackToHome.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -67,7 +70,8 @@ public class searchflight extends javax.swing.JFrame {
     }
 
     private void searchAndRefreshTable() {
-        // Fetch flights from MySQL database (by default showing available ones)
+        // Fetch flights from MySQL database (by default showing available ones).
+        // Triggers the initial query load with empty query parameters to fetch all active schedules.
         searchedFlights = flightController.searchFlights("", "", "");
         
         // Map database flights (or fallback) to the UI components designed in the form
@@ -94,6 +98,7 @@ public class searchflight extends javax.swing.JFrame {
             lblToCode1.setText(getAirportCode(f.getDestination()));
             lblFareVal1.setText("NPR " + String.format("%,.0f", f.getPrice()));
             
+            // Determine class badge category label based on flight ticket pricing tiers
             String classBadgeText = "STANDARD CLASS";
             if (f.getPrice() >= 5200) classBadgeText = "PREMIUM PLUS";
             else if (f.getPrice() <= 4500) classBadgeText = "ECONOMY";
@@ -141,6 +146,7 @@ public class searchflight extends javax.swing.JFrame {
         }
     }
     
+    // Extracts the 3-letter IATA airport code nested within parenthesis (e.g. 'Kathmandu (KTM)' -> 'KTM')
     private String getAirportCode(String location) {
         if (location == null) return "KTM";
         if (location.contains("(")) {
@@ -149,6 +155,7 @@ public class searchflight extends javax.swing.JFrame {
         return location;
     }
     
+    // Computes flight arrival time by adding a standard 1-hour travel duration to the departure timestamp
     private String getArrivalTime(String depTime) {
         if (depTime == null) return "11:00 AM";
         if (depTime.toLowerCase().contains("01:00") || depTime.toLowerCase().contains("1:00")) return "02:00 PM";
@@ -161,6 +168,7 @@ public class searchflight extends javax.swing.JFrame {
     }
 
     private void openBookingDialog(Flight flight) {
+        // Build a modal JDialog window to collect traveler booking details dynamically on top of the search view
         javax.swing.JDialog dialog = new javax.swing.JDialog(this, "Book Flight - " + flight.getFlightCode(), true);
         dialog.setSize(400, 450);
         dialog.setLocationRelativeTo(this);
