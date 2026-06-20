@@ -172,10 +172,27 @@ public class login extends javax.swing.JFrame {
                 }
             }
         };
+        txtEmail.setText("Email");
+        txtEmail.setForeground(new java.awt.Color(160, 174, 192));
+        txtEmail.addFocusListener(new java.awt.event.FocusListener() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (txtEmail.getText().equals("Email")) {
+                    txtEmail.setText("");
+                    txtEmail.setForeground(new java.awt.Color(51, 51, 51));
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (txtEmail.getText().trim().isEmpty()) {
+                    txtEmail.setText("Email");
+                    txtEmail.setForeground(new java.awt.Color(160, 174, 192));
+                }
+            }
+        });
         txtEmail.setFont(new java.awt.Font("SansSerif", 0, 13));
         txtEmail.setBorder(null);
         txtEmail.setOpaque(false);
-        txtEmail.setForeground(new java.awt.Color(51, 51, 51));
         pnlEmail.add(txtEmail);
         txtEmail.setBounds(35, 4, 245, 30);
         
@@ -201,10 +218,32 @@ public class login extends javax.swing.JFrame {
                 }
             }
         };
+        txtPassword.setText("Password");
+        txtPassword.setEchoChar((char) 0);
+        txtPassword.setForeground(new java.awt.Color(160, 174, 192));
+        txtPassword.addFocusListener(new java.awt.event.FocusListener() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                String pass = new String(txtPassword.getPassword());
+                if (pass.equals("Password")) {
+                    txtPassword.setText("");
+                    txtPassword.setEchoChar('•');
+                    txtPassword.setForeground(new java.awt.Color(51, 51, 51));
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                String pass = new String(txtPassword.getPassword());
+                if (pass.trim().isEmpty()) {
+                    txtPassword.setText("Password");
+                    txtPassword.setEchoChar((char) 0);
+                    txtPassword.setForeground(new java.awt.Color(160, 174, 192));
+                }
+            }
+        });
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 13));
         txtPassword.setBorder(null);
         txtPassword.setOpaque(false);
-        txtPassword.setForeground(new java.awt.Color(51, 51, 51));
         pnlPassword.add(txtPassword);
         txtPassword.setBounds(35, 4, 245, 30);
         
