@@ -98,44 +98,43 @@ public class signup extends javax.swing.JFrame {
         applyRoundedBorder(jPanelConfirmPassword, jPasswordFieldConfirmPassword);
 
         // Sign Up button custom styling with hover/press paint states
-        jButton1.setContentAreaFilled(false);
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setBorder(new javax.swing.border.Border() {
+        jPanelCard.remove(jButton1);
+        jButton1 = new javax.swing.JButton("SIGN UP") {
             @Override
-            public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+            protected void paintComponent(java.awt.Graphics g) {
                 java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
                 g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                int width = getWidth();
+                int height = getHeight();
                 
-                if (jButton1.getModel().isPressed()) {
+                if (getModel().isPressed()) {
                     g2.setColor(new java.awt.Color(220, 105, 10)); // Darker orange
-                } else if (jButton1.getModel().isRollover()) {
+                } else if (getModel().isRollover()) {
                     g2.setColor(new java.awt.Color(230, 115, 15)); // Hover orange
                 } else {
                     g2.setColor(new java.awt.Color(247, 138, 36)); // #F78A24
                 }
-                g2.fillRoundRect(x, y, width, height, 8, 8);
-                g2.dispose();
+                g2.fillRoundRect(0, 0, width, height, 8, 8);
                 
-                // Draw text manually centered
-                g.setColor(java.awt.Color.WHITE);
-                g.setFont(jButton1.getFont());
-                java.awt.FontMetrics fm = g.getFontMetrics();
-                java.awt.geom.Rectangle2D r = fm.getStringBounds(jButton1.getText(), g);
+                g2.setColor(java.awt.Color.WHITE);
+                g2.setFont(getFont());
+                java.awt.FontMetrics fm = g2.getFontMetrics();
+                java.awt.geom.Rectangle2D r = fm.getStringBounds(getText(), g2);
                 int tx = (width - (int) r.getWidth()) / 2;
                 int ty = (height - (int) r.getHeight()) / 2 + fm.getAscent();
-                g.drawString(jButton1.getText(), tx, ty);
+                g2.drawString(getText(), tx, ty);
+                g2.dispose();
             }
-            @Override
-            public java.awt.Insets getBorderInsets(java.awt.Component c) {
-                return new java.awt.Insets(1, 1, 1, 1);
-            }
-            @Override
-            public boolean isBorderOpaque() {
-                return false;
-            }
-        });
+        };
+        jButton1.setFont(new java.awt.Font("SansSerif", 1, 14));
+        jButton1.setForeground(java.awt.Color.WHITE);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanelCard.add(jButton1);
+        jButton1.setBounds(30, 360, 300, 40);
 
         // Set design specifications from Figma
         jLabelLogo.setFont(new java.awt.Font("SansSerif", java.awt.Font.BOLD, 28)); // 28px
@@ -532,7 +531,12 @@ public class signup extends javax.swing.JFrame {
 
         if ("success".equals(result)) {
             JOptionPane.showMessageDialog(this, "Registration Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            NavigationController.goToLogin(this);
+            dao.UserDAO userDao = new dao.UserDAO();
+            model.User registeredUser = userDao.getByEmail(email.trim());
+            if (registeredUser != null) {
+                model.SessionManager.setCurrentUser(registeredUser);
+            }
+            NavigationController.goToDashboard(this);
         } else {
             JOptionPane.showMessageDialog(this, result, "Registration Error", JOptionPane.ERROR_MESSAGE);
         }
