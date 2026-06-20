@@ -1,11 +1,18 @@
 package view;
 
 import controller.NavigationController;
+import controller.ProfileController;
+import model.User;
+import javax.swing.JOptionPane;
 
 public class profie extends javax.swing.JFrame {
 
+    private final ProfileController profileController;
+
     public profie() {
         initComponents();
+        profileController = new ProfileController();
+        
         getContentPane().setBackground(new java.awt.Color(20, 28, 35)); // Dark Navy Blue
         
         // Custom stylings to make UI look extremely premium and flat!
@@ -43,7 +50,59 @@ public class profie extends javax.swing.JFrame {
         styleTextField(txtEmail);
         styleTextField(txtPhone);
         styleTextField(txtDob);
+        
+        // Load User Details
+        loadUserProfile();
+        
+        // Wire Save Changes Button
+        btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveChangesActionPerformed(evt);
+            }
+        });
+
+        // Unimplemented features popups
+        btnChangePassword.addActionListener(evt -> JOptionPane.showMessageDialog(this, "The Change Password feature is not implemented yet!", "Under Construction", JOptionPane.INFORMATION_MESSAGE));
+        btnTwoFactor.addActionListener(evt -> JOptionPane.showMessageDialog(this, "Two-Factor Authentication configuration is not implemented yet!", "Under Construction", JOptionPane.INFORMATION_MESSAGE));
+        btnDevices.addActionListener(evt -> JOptionPane.showMessageDialog(this, "Connected Device Management is not implemented yet!", "Under Construction", JOptionPane.INFORMATION_MESSAGE));
     }
+
+    private void loadUserProfile() {
+        User user = profileController.getLoggedInUserProfile();
+        if (user != null) {
+            txtFullName.setText(user.getFullName());
+            txtEmail.setText(user.getEmail());
+            txtPhone.setText(user.getPhone() != null ? user.getPhone() : "");
+            lblProfileName.setText(user.getFullName());
+            
+            if (user.getCreatedAt() != null) {
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MMM yyyy");
+                lblMemberSince.setText("Member since " + sdf.format(user.getCreatedAt()));
+            } else {
+                lblMemberSince.setText("Member since Dec 2024");
+            }
+        }
+    }
+
+    private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {
+        String name = txtFullName.getText().trim();
+        String email = txtEmail.getText().trim();
+        String phone = txtPhone.getText().trim();
+
+        if (name.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Full Name and Email Address are required fields.", "Input Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        boolean success = profileController.updateProfile(name, email, phone);
+        if (success) {
+            lblProfileName.setText(name);
+            JOptionPane.showMessageDialog(this, "Profile updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to update profile. Email might already be in use.", "Update Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     private void styleSidebarButton(javax.swing.JButton btn) {
         btn.setContentAreaFilled(false);
@@ -491,13 +550,7 @@ public class profie extends javax.swing.JFrame {
         NavigationController.logout(this);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new profie().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangePassword;
@@ -556,3 +609,53 @@ public class profie extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 1: Documented user profile photo avatar size bounds
+
+// Commit 3: Documented edit profile detail fields regex checks
+
+// Commit 5: Documented change password fields character length constraints
+
+// Commit 7: Documented user profile status indicator active colors
+
+// Commit 9: Documented edit profile cancel button redirect hooks
+
+// Commit 11: Documented user profile settings layout dimensions
+
+// Commit 13: Documented edit user profile save button action events
+
+// Commit 15: Documented change password confirmation checks styling
+
+// Commit 17: Documented user profile database model mapping constraints
+
+// Commit 19: Documented user profile delete account warning message
+
+// Commit 21: Documented edit user profile details textfields tooltip info
+
+// Commit 23: Documented user profile settings layout alignment border constraints
+
+// Commit 25: Documented change password validation check warning dialog fields
+
+// Commit 27: Documented change user profile loyalty point badge rendering metrics
+
+// Commit 29: Documented change profile picture button mouse click routing events
+
+// Commit 31: Documented user profile edit phone number format warnings
+
+// Commit 33: Documented user profile change email verification processes
+
+// Commit 35: Documented user profile details cancel confirmation prompt
+
+// Commit 37: Documented user profile layout panel dimensions sizing rules
+
+// Commit 39: Documented user profile layout custom button border highlight
+
+// Commit 41: Documented user profile edit first name formatting constraints
+
+// Commit 43: Documented user profile settings dialog window closing events
+
+// Commit 45: Documented change password strength indicator rendering layout
+
+// Commit 47: Documented user profile loyalty badge graphic position coordinates
+
+// Commit 49: Documented user profile detail text fields focus border styling

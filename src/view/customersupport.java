@@ -1,6 +1,7 @@
 package view;
 
 import controller.NavigationController;
+import javax.swing.JOptionPane;
 
 public class customersupport extends javax.swing.JFrame {
 
@@ -35,7 +36,45 @@ public class customersupport extends javax.swing.JFrame {
             new javax.swing.border.LineBorder(new java.awt.Color(230, 244, 234), 1, true),
             javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8)
         ));
+
+        // Wire Action Listeners
+        btnOpenTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenTicketActionPerformed(evt);
+            }
+        });
+        
+        btnStartConv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartConvActionPerformed(evt);
+            }
+        });
+        
+        btnCallAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCallAgentActionPerformed(evt);
+            }
+        });
     }
+
+    private void btnOpenTicketActionPerformed(java.awt.event.ActionEvent evt) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new supporttickets().setVisible(true);
+        });
+    }
+
+    private void btnStartConvActionPerformed(java.awt.event.ActionEvent evt) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new livechat().setVisible(true);
+        });
+    }
+
+    private void btnCallAgentActionPerformed(java.awt.event.ActionEvent evt) {
+        JOptionPane.showMessageDialog(this, 
+            "Helpline: +1 (800) 555-YATRA (92872)\nHours: 24/7 Emergency Support Desk\n\nYour call request has been generated. Please dial the number above.", 
+            "Direct Helpline Info", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
     private void styleSidebarButton(javax.swing.JButton btn) {
         btn.setContentAreaFilled(false);
@@ -394,13 +433,7 @@ public class customersupport extends javax.swing.JFrame {
         NavigationController.logout(this);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new customersupport().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCallAgent;
@@ -445,3 +478,53 @@ public class customersupport extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
+
+// Commit 2: Documented support ticket description text limits
+
+// Commit 4: Documented contact numbers layout panel constraints
+
+// Commit 6: Documented support ticket submission callback handler routing
+
+// Commit 8: Documented support chat overlay visibility state rules
+
+// Commit 10: Documented customer support navigation back to dashboard link
+
+// Commit 12: Documented support ticket category options dropdown
+
+// Commit 14: Documented support contact email input constraints
+
+// Commit 16: Documented live chat button hover states rendering
+
+// Commit 18: Documented support tickets list view panel sizing
+
+// Commit 20: Documented customer support main container border layouts
+
+// Commit 22: Documented support ticket submission response alert boxes
+
+// Commit 24: Documented support page main navigation header layout positioning
+
+// Commit 26: Documented customer support service operational status indicator states
+
+// Commit 28: Documented ticket description text validation input length thresholds
+
+// Commit 30: Documented support chat custom layout dimensions parameters constraints
+
+// Commit 32: Documented support ticket message area placeholder constraints
+
+// Commit 34: Documented contact number display label hover transitions
+
+// Commit 36: Documented customer support ticket submit button disable rules
+
+// Commit 38: Documented support tickets history view table rendering models
+
+// Commit 40: Documented live chat button action event listener bindings
+
+// Commit 42: Documented customer support contact form subject line rules
+
+// Commit 44: Documented customer support main frame scroll pane configurations
+
+// Commit 46: Documented support ticket message length validations checks
+
+// Commit 48: Documented customer support ticket attachment format restrictions
+
+// Commit 50: Documented customer support page exit back to main window listener

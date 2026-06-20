@@ -1,17 +1,30 @@
 package controller;
 
 import javax.swing.JFrame;
+import model.Booking;
+import model.SessionManager;
 import view.dashboard;
 import view.searchflight;
 import view.mybookings;
 import view.profie;
 import view.customersupport;
+import view.login;
+import view.checkin;
+import view.ticketwindow;
 
 /**
- * Controller class to handle all navigation logic.
- * Decouples the business logic/navigation from the view layer.
+ * Controller to handle application navigation flow.
  */
 public class NavigationController {
+
+    public static void goToLogin(JFrame currentFrame) {
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
+        java.awt.EventQueue.invokeLater(() -> {
+            new login().setVisible(true);
+        });
+    }
 
     public static void goToDashboard(JFrame currentFrame) {
         if (currentFrame != null) {
@@ -58,13 +71,26 @@ public class NavigationController {
         });
     }
 
-    public static void logout(JFrame currentFrame) {
+    public static void goToCheckIn(JFrame currentFrame) {
         if (currentFrame != null) {
             currentFrame.dispose();
         }
-        // In a real application, this would go back to the login screen.
-        // Since no auth logic is requested, we will just terminate or print to console.
-        System.out.println("User logged out successfully.");
-        System.exit(0);
+        java.awt.EventQueue.invokeLater(() -> {
+            new checkin().setVisible(true);
+        });
+    }
+
+    /**
+     * Opens the Ticket Receipt screen as a standalone popup window.
+     */
+    public static void openTicketWindow(Booking booking) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new ticketwindow(booking).setVisible(true);
+        });
+    }
+
+    public static void logout(JFrame currentFrame) {
+        SessionManager.clearSession();
+        goToLogin(currentFrame);
     }
 }
