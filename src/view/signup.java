@@ -585,3 +585,5 @@ public class signup extends javax.swing.JFrame {
 }
 
 // Commit 3: Documented signup password complexity limits validations
+
+// Commit 6: Documented signup email input database check mappings
