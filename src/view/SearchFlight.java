@@ -1,6 +1,6 @@
 package view;
 
-import controller.FlightController;
+import dao.FlightDAO;
 import controller.BookingController;
 import controller.NavigationController;
 import dao.LocationDAO;
@@ -17,14 +17,14 @@ import javax.swing.JOptionPane;
  */
 public class SearchFlight extends javax.swing.JFrame {
 
-    private final FlightController flightController;
+    private final FlightDAO flightDAO;
     private final BookingController bookingController;
     private final LocationDAO locationDAO;
     
     private List<Flight> searchedFlights;
 
     public SearchFlight() {
-        this.flightController = new FlightController();
+        this.flightDAO = new FlightDAO();
         this.bookingController = new BookingController();
         this.locationDAO = new LocationDAO();
 
@@ -72,7 +72,7 @@ public class SearchFlight extends javax.swing.JFrame {
     private void searchAndRefreshTable() {
         // Fetch flights from MySQL database (by default showing available ones).
         // Triggers the initial query load with empty query parameters to fetch all active schedules.
-        searchedFlights = flightController.searchFlights("", "", "");
+        searchedFlights = flightDAO.searchFlights("", "", "");
         
         // Map database flights (or fallback) to the UI components designed in the form
         updateFlightDataUI(searchedFlights);

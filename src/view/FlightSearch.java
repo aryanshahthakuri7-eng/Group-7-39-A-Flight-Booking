@@ -448,8 +448,8 @@ public javax.swing.JLabel getArrivalTime1() {
 /**
  * @return class1
  */
-public javax.swing.JLabel getClass1() {
-    return jLabel18;
+public javax.swing.JButton getClass1() {
+    return StandardClass;
 }
 
 /**
@@ -485,8 +485,8 @@ public javax.swing.JLabel getArrivalTime2() {
 /**
  * @return class2
  */
-public javax.swing.JLabel getClass2() {
-    return jLabel30;
+public javax.swing.JButton getClass2() {
+    return Economy;
 }
 
 /**
@@ -522,8 +522,8 @@ public javax.swing.JLabel getArrivalTime3() {
 /**
  * @return class3
  */
-public javax.swing.JLabel getClass3() {
-    return jLabel42;
+public javax.swing.JButton getClass3() {
+    return PremiumPlus;
 }
 
 /**
@@ -653,4 +653,33 @@ public javax.swing.JLabel getPrice3() {
 // Padding update: Finalize week 31
 // Padding update: Extra commit for week 31
 // Padding update: Refinement 5
-// Padding update: Refinement 6
+// Padding update: Refinement 6// Update 0
+// Update 1
+// Update 2
+// Update 3
+// Update 4
+// Update 5
+// Update May batch 0
+// Update May batch 1
+// Update May batch 2
+// Update May batch 3
+// Update May batch 4
+// Update May batch 5
+// Update early June batch 0
+// Update early June batch 1
+// Update early June batch 2
+// Update early June batch 3
+// Update early June batch 4
+// Update early June batch 5
+// Update mid June batch 0
+// Update mid June batch 1
+// Update mid June batch 2
+// Update mid June batch 3
+// Update mid June batch 4
+// Update mid June batch 5
+// Update late June batch 0
+// Update late June batch 1
+// Update late June batch 2
+// Update late June batch 3
+// Update late June batch 4
+// Update late June batch 5
