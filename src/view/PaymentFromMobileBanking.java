@@ -491,7 +491,7 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
     public String getSelectedProvider() { return selectedProvider; }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnlBackground = new view.GradientBackgroundPanel();
@@ -829,9 +829,9 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmPay;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnVerify;
@@ -877,7 +877,7 @@ public class PaymentFromMobileBanking extends javax.swing.JFrame {
     private javax.swing.JPanel pnlStatus;
     private javax.swing.JPanel pnlTopHeader;
     private view.PlaceholderTextField txtWalletId;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
 }
 
 // Commit 3: Documented wallet provider card click event listeners

@@ -390,7 +390,7 @@ public class PaymentFromCard extends javax.swing.JFrame {
     public JLabel getLblTaxPrice() { return lblTaxPrice; }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnlBackground = new view.GradientBackgroundPanel();
@@ -887,9 +887,9 @@ public class PaymentFromCard extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmPay;
     private javax.swing.JButton btnMobileCancel;
     private javax.swing.JButton btnMobileConfirmPay;
@@ -959,7 +959,7 @@ public class PaymentFromCard extends javax.swing.JFrame {
     private view.PlaceholderTextField txtExpiry;
     private view.PlaceholderTextField txtCvv;
     private view.PlaceholderTextField txtWalletId;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
 }
 
 // Commit 2: Documented card input validations and layout customInit
