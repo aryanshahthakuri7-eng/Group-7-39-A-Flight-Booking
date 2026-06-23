@@ -448,8 +448,8 @@ public javax.swing.JLabel getArrivalTime1() {
 /**
  * @return class1
  */
-public javax.swing.JLabel getClass1() {
-    return jLabel18;
+public javax.swing.JButton getClass1() {
+    return StandardClass;
 }
 
 /**
@@ -485,8 +485,8 @@ public javax.swing.JLabel getArrivalTime2() {
 /**
  * @return class2
  */
-public javax.swing.JLabel getClass2() {
-    return jLabel30;
+public javax.swing.JButton getClass2() {
+    return Economy;
 }
 
 /**
@@ -522,8 +522,8 @@ public javax.swing.JLabel getArrivalTime3() {
 /**
  * @return class3
  */
-public javax.swing.JLabel getClass3() {
-    return jLabel42;
+public javax.swing.JButton getClass3() {
+    return PremiumPlus;
 }
 
 /**
