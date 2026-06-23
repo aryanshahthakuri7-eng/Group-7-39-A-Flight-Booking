@@ -14,13 +14,16 @@ import java.util.List;
 public class UserDAO {
 
     public boolean insert(User user) {
-        String sql = "INSERT INTO users (full_name, email, password, phone) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (full_name, email, password, phone, role, security_question, security_answer) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, user.getFullName());
             pstmt.setString(2, user.getEmail());
             pstmt.setString(3, user.getPassword());
             pstmt.setString(4, user.getPhone());
+            pstmt.setString(5, user.getRole() != null ? user.getRole() : "User");
+            pstmt.setString(6, user.getSecurityQuestion());
+            pstmt.setString(7, user.getSecurityAnswer());
             
             int rows = pstmt.executeUpdate();
             if (rows > 0) {
@@ -38,14 +41,17 @@ public class UserDAO {
     }
 
     public boolean update(User user) {
-        String sql = "UPDATE users SET full_name = ?, email = ?, password = ?, phone = ? WHERE user_id = ?";
+        String sql = "UPDATE users SET full_name = ?, email = ?, password = ?, phone = ?, role = ?, security_question = ?, security_answer = ? WHERE user_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getFullName());
             pstmt.setString(2, user.getEmail());
             pstmt.setString(3, user.getPassword());
             pstmt.setString(4, user.getPhone());
-            pstmt.setInt(5, user.getUserId());
+            pstmt.setString(5, user.getRole() != null ? user.getRole() : "User");
+            pstmt.setString(6, user.getSecurityQuestion());
+            pstmt.setString(7, user.getSecurityAnswer());
+            pstmt.setInt(8, user.getUserId());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error updating user: " + e.getMessage());
@@ -78,6 +84,9 @@ public class UserDAO {
                     user.setEmail(rs.getString("email"));
                     user.setPassword(rs.getString("password"));
                     user.setPhone(rs.getString("phone"));
+                    user.setRole(rs.getString("role"));
+                    user.setSecurityQuestion(rs.getString("security_question"));
+                    user.setSecurityAnswer(rs.getString("security_answer"));
                     user.setCreatedAt(rs.getTimestamp("created_at"));
                     return user;
                 }
@@ -101,6 +110,9 @@ public class UserDAO {
                     user.setEmail(rs.getString("email"));
                     user.setPassword(rs.getString("password"));
                     user.setPhone(rs.getString("phone"));
+                    user.setRole(rs.getString("role"));
+                    user.setSecurityQuestion(rs.getString("security_question"));
+                    user.setSecurityAnswer(rs.getString("security_answer"));
                     user.setCreatedAt(rs.getTimestamp("created_at"));
                     return user;
                 }
@@ -125,6 +137,9 @@ public class UserDAO {
                     user.setEmail(rs.getString("email"));
                     user.setPassword(rs.getString("password"));
                     user.setPhone(rs.getString("phone"));
+                    user.setRole(rs.getString("role"));
+                    user.setSecurityQuestion(rs.getString("security_question"));
+                    user.setSecurityAnswer(rs.getString("security_answer"));
                     user.setCreatedAt(rs.getTimestamp("created_at"));
                     return user;
                 }
@@ -148,6 +163,9 @@ public class UserDAO {
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
                 user.setPhone(rs.getString("phone"));
+                user.setRole(rs.getString("role"));
+                user.setSecurityQuestion(rs.getString("security_question"));
+                user.setSecurityAnswer(rs.getString("security_answer"));
                 user.setCreatedAt(rs.getTimestamp("created_at"));
                 users.add(user);
             }

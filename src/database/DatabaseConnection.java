@@ -82,8 +82,18 @@ public class DatabaseConnection {
                     "email VARCHAR(100) UNIQUE NOT NULL," +
                     "password VARCHAR(255) NOT NULL," +
                     "phone VARCHAR(20)," +
+                    "role VARCHAR(20) DEFAULT 'User'," +
+                    "security_question VARCHAR(100)," +
+                    "security_answer VARCHAR(100)," +
                     "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                     ");");
+
+            // Safe ALTER TABLE to add columns if database already existed before this update
+            try {
+                stmt.executeUpdate("ALTER TABLE users ADD COLUMN role VARCHAR(20) DEFAULT 'User', ADD COLUMN security_question VARCHAR(100), ADD COLUMN security_answer VARCHAR(100);");
+            } catch (SQLException ignore) {
+                // Columns likely already exist
+            }
 
             // Create flights table
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS flights (" +
@@ -157,9 +167,9 @@ public class DatabaseConnection {
             try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM users;")) {
                 if (rs.next() && rs.getInt(1) == 0) {
                     // Seed users (using 'User Name' to match mockup)
-                    stmt.executeUpdate("INSERT INTO users (user_id, full_name, email, password, phone) VALUES " +
-                            "(1, 'User Name', 'user@yatraair.com', 'password123', '+977 9812345678')," +
-                            "(2, 'Aryan Shah', 'aryan.shah@gmail.com', 'password123', '+977 9876543210');");
+                    stmt.executeUpdate("INSERT INTO users (user_id, full_name, email, password, phone, role, security_question, security_answer) VALUES " +
+                            "(1, 'User Name', 'user@yatraair.com', 'password123', '+977 9812345678', 'User', 'What is your pet''s name?', 'Fluffy')," +
+                            "(2, 'Aryan Shah', 'aryan.shah@gmail.com', 'password123', '+977 9876543210', 'Admin', 'What was your childhood nickname?', 'Arya');");
 
                     // Seed locations
                     stmt.executeUpdate("INSERT INTO locations (location_id, city_name, airport_name, city_code) VALUES " +

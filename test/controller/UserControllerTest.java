@@ -27,11 +27,11 @@ public class UserControllerTest {
         }
 
         // 1. Success case
-        String result = instance.signUp("Sign Up User", email, "+9779800000100", "password123");
+        String result = instance.signUp("Sign Up User", email, "+9779800000100", "password123", "User", "Question", "Answer");
         assertEquals("success", result);
 
         // 2. Duplicate email check
-        assertEquals("Email is already registered.", instance.signUp("Name", email, "9812345678", "password123"));
+        assertEquals("Email is already registered.", instance.signUp("Name", email, "9812345678", "password123", "User", "Question", "Answer"));
 
         // Clean up
         existing = userDao.getByEmail(email);
@@ -40,13 +40,13 @@ public class UserControllerTest {
         }
 
         // 3. Validation failures
-        assertEquals("Full Name cannot be empty.", instance.signUp("", email, "9812345678", "password123"));
-        assertEquals("Email cannot be empty.", instance.signUp("Name", "", "9812345678", "password123"));
-        assertEquals("Phone Number cannot be empty.", instance.signUp("Name", email, "", "password123"));
-        assertEquals("Password cannot be empty.", instance.signUp("Name", email, "9812345678", ""));
-        assertEquals("Password must be at least 6 characters long.", instance.signUp("Name", email, "9812345678", "123"));
-        assertEquals("Invalid email address format.", instance.signUp("Name", "invalidemail", "9812345678", "password123"));
-        assertEquals("Invalid phone number format.", instance.signUp("Name", email, "phone123", "password123"));
+        assertEquals("Full Name cannot be empty.", instance.signUp("", email, "9812345678", "password123", "User", "Question", "Answer"));
+        assertEquals("Email cannot be empty.", instance.signUp("Name", "", "9812345678", "password123", "User", "Question", "Answer"));
+        assertEquals("Phone Number cannot be empty.", instance.signUp("Name", email, "", "password123", "User", "Question", "Answer"));
+        assertEquals("Password cannot be empty.", instance.signUp("Name", email, "9812345678", "", "User", "Question", "Answer"));
+        assertEquals("Password must be at least 6 characters long.", instance.signUp("Name", email, "9812345678", "123", "User", "Question", "Answer"));
+        assertEquals("Invalid email address format.", instance.signUp("Name", "invalidemail", "9812345678", "password123", "User", "Question", "Answer"));
+        assertEquals("Invalid phone number format.", instance.signUp("Name", email, "phone123", "password123", "User", "Question", "Answer"));
     }
 
     /**

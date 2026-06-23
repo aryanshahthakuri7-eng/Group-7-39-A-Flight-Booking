@@ -16,6 +16,9 @@ public class User {
     private String email;
     private String password;
     private String phone;
+    private String role = "User";
+    private String securityQuestion;
+    private String securityAnswer;
     private Timestamp createdAt;
 
     public User() {
@@ -28,6 +31,17 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.password = password;
+    }
+
+    public User(String fullname, String email, String phone, String password, String role, String securityQuestion, String securityAnswer) {
+        this.fullname = fullname;
+        this.fullName = fullname;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.role = role;
+        this.securityQuestion = securityQuestion;
+        this.securityAnswer = securityAnswer;
     }
 
     public User(int id, String fullname, String email, String phone, String password) {
@@ -101,6 +115,30 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getSecurityQuestion() {
+        return securityQuestion;
+    }
+
+    public void setSecurityQuestion(String securityQuestion) {
+        this.securityQuestion = securityQuestion;
+    }
+
+    public String getSecurityAnswer() {
+        return securityAnswer;
+    }
+
+    public void setSecurityAnswer(String securityAnswer) {
+        this.securityAnswer = securityAnswer;
     }
 
     public Timestamp getCreatedAt() {

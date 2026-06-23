@@ -14,7 +14,7 @@ public class UserController {
      * Attempts to register a new user.
      * Returns a message string: "success" or details about the failure.
      */
-    public String signUp(String fullname, String email, String phone, String password) {
+    public String signUp(String fullname, String email, String phone, String password, String role, String securityQuestion, String securityAnswer) {
         // Basic Validations
         if (fullname == null || fullname.trim().isEmpty()) {
             return "Full Name cannot be empty.";
@@ -38,13 +38,23 @@ public class UserController {
             return "Invalid phone number format.";
         }
 
+        if (role == null || role.trim().isEmpty()) {
+            return "Please select a Role.";
+        }
+        if (securityQuestion == null || securityQuestion.trim().isEmpty() || securityQuestion.equals("Security Question")) {
+            return "Please select a Security Question.";
+        }
+        if (securityAnswer == null || securityAnswer.trim().isEmpty() || securityAnswer.equals("Enter Security Answer")) {
+            return "Security Answer cannot be empty.";
+        }
+
         // Check duplicate email
         if (userDao.getByEmail(email.trim()) != null) {
             return "Email is already registered.";
         }
 
         // Create and save user
-        User user = new User(fullname.trim(), email.trim(), phone.trim(), password);
+        User user = new User(fullname.trim(), email.trim(), phone.trim(), password, role, securityQuestion, securityAnswer.trim());
         boolean saved = userDao.insert(user);
         
         return saved ? "success" : "Failed to save user in database. Please check connection.";

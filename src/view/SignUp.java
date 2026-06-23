@@ -96,6 +96,7 @@ public class SignUp extends javax.swing.JFrame {
         applyRoundedBorder(jPanelPhone, jTextFieldPhone);
         applyRoundedBorder(jPanelPassword, jPasswordFieldPassword);
         applyRoundedBorder(jPanelConfirmPassword, jPasswordFieldConfirmPassword);
+        applyRoundedBorder(jPanelSecAnswer, jTextFieldSecAnswer);
 
         // Sign Up button custom styling with hover/press paint states
         jPanelCard.remove(jButton1);
@@ -134,7 +135,7 @@ public class SignUp extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(this::jButton1ActionPerformed);
         jPanelCard.add(jButton1);
-        jButton1.setBounds(30, 360, 300, 40);
+        jButton1.setBounds(30, 520, 300, 40);
 
         // Set design specifications from Figma
         jLabelLogo.setFont(new java.awt.Font("SansSerif", java.awt.Font.BOLD, 28)); // 28px
@@ -291,6 +292,38 @@ public class SignUp extends javax.swing.JFrame {
         });
 
         // Navigation links cursor and click handlers
+        
+        jTextFieldSecAnswer.addFocusListener(new java.awt.event.FocusListener() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (jTextFieldSecAnswer.getText().equals("Enter Security Answer")) {
+                    jTextFieldSecAnswer.setText("");
+                    jTextFieldSecAnswer.setForeground(new java.awt.Color(51, 51, 51));
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (jTextFieldSecAnswer.getText().trim().isEmpty()) {
+                    jTextFieldSecAnswer.setText("Enter Security Answer");
+                    jTextFieldSecAnswer.setForeground(new java.awt.Color(153, 153, 153));
+                }
+            }
+        });
+
+        jCheckBoxShowPassword.addActionListener(e -> {
+            if (jCheckBoxShowPassword.isSelected()) {
+                jPasswordFieldPassword.setEchoChar((char) 0);
+                jPasswordFieldConfirmPassword.setEchoChar((char) 0);
+            } else {
+                if (!new String(jPasswordFieldPassword.getPassword()).equals("Password")) {
+                    jPasswordFieldPassword.setEchoChar('•');
+                }
+                if (!new String(jPasswordFieldConfirmPassword.getPassword()).equals("Confirm Password")) {
+                    jPasswordFieldConfirmPassword.setEchoChar('•');
+                }
+            }
+        });
+
         jLabelLoginLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelLoginLink.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -342,7 +375,7 @@ public class SignUp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Yatra Air Sewa - Sign Up");
-        setPreferredSize(new java.awt.Dimension(950, 675));
+        setPreferredSize(new java.awt.Dimension(950, 780));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -479,6 +512,52 @@ public class SignUp extends javax.swing.JFrame {
         jPanelCard.add(jPanelConfirmPassword);
         jPanelConfirmPassword.setBounds(30, 295, 300, 34);
 
+        
+        jLabelRole = new javax.swing.JLabel();
+        jComboBoxRole = new javax.swing.JComboBox<>();
+        jComboBoxSecQuestion = new javax.swing.JComboBox<>();
+        jPanelSecAnswer = new javax.swing.JPanel();
+        jLabelSecAnswerIcon = new javax.swing.JLabel();
+        jTextFieldSecAnswer = new javax.swing.JTextField();
+        jCheckBoxShowPassword = new javax.swing.JCheckBox();
+
+        jLabelRole.setFont(new java.awt.Font("SansSerif", 1, 13));
+        jLabelRole.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRole.setText("Register as:");
+        jPanelCard.add(jLabelRole);
+        jLabelRole.setBounds(30, 365, 90, 34);
+
+        jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
+        jPanelCard.add(jComboBoxRole);
+        jComboBoxRole.setBounds(120, 365, 210, 34);
+
+        jComboBoxSecQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Security Question", "What is your pet's name?", "What was your childhood nickname?", "In what city were you born?" }));
+        jPanelCard.add(jComboBoxSecQuestion);
+        jComboBoxSecQuestion.setBounds(30, 410, 300, 34);
+
+        jPanelSecAnswer.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSecAnswer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanelSecAnswer.setLayout(null);
+
+        jLabelSecAnswerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_outline.png"))); // Using user outline as placeholder for orange icon
+        jPanelSecAnswer.add(jLabelSecAnswerIcon);
+        jLabelSecAnswerIcon.setBounds(12, 5, 20, 24);
+
+        jTextFieldSecAnswer.setText("Enter Security Answer");
+        jTextFieldSecAnswer.setFont(new java.awt.Font("SansSerif", 0, 13));
+        jTextFieldSecAnswer.setBorder(null);
+        jTextFieldSecAnswer.setForeground(new java.awt.Color(153, 153, 153));
+        jPanelSecAnswer.add(jTextFieldSecAnswer);
+        jTextFieldSecAnswer.setBounds(35, 2, 255, 30);
+
+        jPanelCard.add(jPanelSecAnswer);
+        jPanelSecAnswer.setBounds(30, 455, 300, 34);
+
+        jCheckBoxShowPassword.setText("Show Password");
+        jCheckBoxShowPassword.setOpaque(false);
+        jPanelCard.add(jCheckBoxShowPassword);
+        jCheckBoxShowPassword.setBounds(30, 335, 150, 20);
+
         jButton1.setBackground(new java.awt.Color(247, 138, 36));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -486,22 +565,22 @@ public class SignUp extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(this::jButton1ActionPerformed);
         jPanelCard.add(jButton1);
-        jButton1.setBounds(30, 355, 300, 36);
+        jButton1.setBounds(30, 520, 300, 36);
 
         jLabelLoginLink.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabelLoginLink.setForeground(new java.awt.Color(51, 51, 51));
         jLabelLoginLink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelLoginLink.setText("Already have an account? Login");
         jPanelCard.add(jLabelLoginLink);
-        jLabelLoginLink.setBounds(30, 410, 300, 20);
+        jLabelLoginLink.setBounds(30, 575, 300, 20);
 
         getContentPane().add(jPanelCard);
-        jPanelCard.setBounds(295, 95, 360, 485);
+        jPanelCard.setBounds(295, 40, 360, 665);
 
         pnlBg.setBackground(new java.awt.Color(8, 34, 74));
         pnlBg.setLayout(null);
         getContentPane().add(pnlBg);
-        pnlBg.setBounds(0, 0, 950, 675);
+        pnlBg.setBounds(0, 0, 950, 780);
 
         pack();
         setLocationRelativeTo(null);
@@ -513,10 +592,13 @@ public class SignUp extends javax.swing.JFrame {
         String phone = jTextFieldPhone.getText().trim();
         String password = new String(jPasswordFieldPassword.getPassword()).trim();
         String confirmPassword = new String(jPasswordFieldConfirmPassword.getPassword()).trim();
+        String role = (String) jComboBoxRole.getSelectedItem();
+        String secQuestion = (String) jComboBoxSecQuestion.getSelectedItem();
+        String secAnswer = jTextFieldSecAnswer.getText().trim();
 
         // Ensure all required registration input fields have been filled out properly
         if (fullname.equals("Full Name") || email.equals("Email") || phone.equals("Phone Number") || password.equals("Password") || confirmPassword.equals("Confirm Password") || fullname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please fill in all core fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -527,7 +609,7 @@ public class SignUp extends javax.swing.JFrame {
         }
 
         UserController controller = new UserController();
-        String result = controller.signUp(fullname, email, phone, password);
+        String result = controller.signUp(fullname, email, phone, password, role, secQuestion, secAnswer);
 
         if ("success".equals(result)) {
             JOptionPane.showMessageDialog(this, "Registration Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -587,6 +669,13 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldFullName;
     private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JPanel pnlBg;
+        private javax.swing.JLabel jLabelRole;
+    private javax.swing.JComboBox<String> jComboBoxRole;
+    private javax.swing.JComboBox<String> jComboBoxSecQuestion;
+    private javax.swing.JPanel jPanelSecAnswer;
+    private javax.swing.JLabel jLabelSecAnswerIcon;
+    private javax.swing.JTextField jTextFieldSecAnswer;
+    private javax.swing.JCheckBox jCheckBoxShowPassword;
     // End of variables declaration//GEN-END:variables
 }
 
