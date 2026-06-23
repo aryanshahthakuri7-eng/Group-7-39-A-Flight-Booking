@@ -1,12 +1,8 @@
 package controller;
 
-import dao.PasswordRecoveryDAO;
 import dao.UserDAO;
-import model.PasswordRecovery;
 import model.User;
 import javax.swing.JOptionPane;
-import java.sql.Timestamp;
-import java.util.Random;
 
 /**
  * Controller class to handle all password recovery events and business logic.
@@ -15,12 +11,13 @@ import java.util.Random;
 public class PasswordRecoveryController {
 
     private final view.PasswordRecovery view;
-    private final PasswordRecoveryDAO recoveryDAO;
     private final UserDAO userDAO;
+
+    // Temporary storage for fetched user to verify answer
+    private User pendingRecoveryUser = null;
 
     public PasswordRecoveryController(view.PasswordRecovery view) {
         this.view = view;
-        this.recoveryDAO = new PasswordRecoveryDAO();
         this.userDAO = new UserDAO();
         initController();
     }
@@ -38,20 +35,19 @@ public class PasswordRecoveryController {
      * Binds action listeners to view components using clean getter accessors.
      */
     private void initController() {
-        view.getBtnSendOTP().addActionListener(e -> handleSendOTP());
-        view.getBtnVerifyOTP().addActionListener(e -> handleVerifyOTP());
+        view.getBtnFetchQuestion().addActionListener(e -> handleFetchQuestion());
         view.getBtnResetPassword().addActionListener(e -> handleResetPassword());
         view.getBtnBack().addActionListener(e -> handleBack());
     }
 
     /**
-     * Checks if email is registered, generates OTP, saves to DB, and simulates sending.
+     * Checks if email is registered and retrieves the security question.
      */
-    private void handleSendOTP() {
+    private void handleFetchQuestion() {
         String email = view.getTxtEmail().getText().trim();
         view.getLblError().setText("");
 
-        if (email.isEmpty()) {
+        if (email.isEmpty() || email.equals("user@example.com")) {
             showError("Please enter your email address first.");
             return;
         }
@@ -60,93 +56,53 @@ public class PasswordRecoveryController {
         User user = userDAO.getByEmail(email);
         if (user == null) {
             showError("This email address is not registered in our system.");
+            view.getLblSecurityQuestionValue().setText("Retrieve your question first.");
+            pendingRecoveryUser = null;
             return;
         }
 
-        // Clean up old recoveries for this email
-        recoveryDAO.delete(email);
-
-        // Generate 6-digit OTP code
-        String otp = String.format("%06d", new Random().nextInt(990000) + 10000);
-
-        // OTP expires in 5 minutes
-        Timestamp expiry = new Timestamp(System.currentTimeMillis() + (5 * 60 * 1000));
-
-        // Insert into database
-        PasswordRecovery recovery = new PasswordRecovery(email, otp, expiry, false);
-        if (recoveryDAO.insert(recovery)) {
-            JOptionPane.showMessageDialog(view,
-                "A verification OTP code has been generated.\n" +
-                "For development/testing purposes, your OTP is: " + otp,
-                "OTP Sent Successfully", JOptionPane.INFORMATION_MESSAGE);
-            view.getLblError().setForeground(new java.awt.Color(16, 185, 129)); // Green
-            view.getLblError().setText("OTP sent! Enter it below to verify.");
-        } else {
-            showError("Failed to generate OTP. Please try again later.");
+        pendingRecoveryUser = user;
+        String question = user.getSecurityQuestion();
+        
+        if (question == null || question.trim().isEmpty() || question.equals("Security Question")) {
+            showError("No security question set for this account. Contact Support.");
+            view.getLblSecurityQuestionValue().setText("Retrieve your question first.");
+            return;
         }
+
+        view.getLblSecurityQuestionValue().setText(question);
+        view.getLblError().setForeground(new java.awt.Color(16, 185, 129)); // Green
+        view.getLblError().setText("Question fetched. Please enter the answer.");
     }
 
     /**
-     * Verifies the entered OTP against the database and marks it verified.
-     */
-    private void handleVerifyOTP() {
-        String email = view.getTxtEmail().getText().trim();
-        String enteredOtp = view.getTxtOTP().getText().trim();
-        view.getLblError().setText("");
-
-        if (email.isEmpty() || enteredOtp.isEmpty()) {
-            showError("Please enter both email and OTP code.");
-            return;
-        }
-
-        // Validate that the verification OTP code matches the database record
-        PasswordRecovery recovery = recoveryDAO.getLatestByEmail(email);
-        if (recovery == null || !recovery.getOtp().equals(enteredOtp)) {
-            showError("Invalid verification code. Please check and try again.");
-            return;
-        }
-
-        // Validate that the code has not expired (5-minute expiration period)
-        if (recovery.getExpiryTime().getTime() < System.currentTimeMillis()) {
-            showError("The OTP code has expired. Please request a new one.");
-            return;
-        }
-
-        // Mark verified in database
-        recovery.setVerified(true);
-        if (recoveryDAO.update(recovery)) {
-            view.getLblError().setForeground(new java.awt.Color(16, 185, 129)); // Green
-            view.getLblError().setText("OTP verified! You can now reset your password.");
-            JOptionPane.showMessageDialog(view,
-                "OTP verified successfully!\nYou can now set your new password below.",
-                "OTP Verified", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            showError("Verification failed. Please try again.");
-        }
-    }
-
-    /**
-     * Resets the user's password in the database if the OTP state is verified.
+     * Verifies the answer and resets the user's password in the database.
      */
     private void handleResetPassword() {
         String email = view.getTxtEmail().getText().trim();
+        String answer = view.getTxtSecurityAnswer().getText().trim();
         String newPassword = new String(view.getTxtNewPassword().getPassword());
         String confirmPassword = new String(view.getTxtConfirmPassword().getPassword());
+        
         view.getLblError().setText("");
 
-        if (email.isEmpty()) {
-            showError("Please enter your email address.");
+        if (pendingRecoveryUser == null || !pendingRecoveryUser.getEmail().equals(email)) {
+            showError("Please fetch your security question first.");
             return;
         }
 
-        // Verify OTP is marked verified in the database
-        PasswordRecovery recovery = recoveryDAO.getLatestByEmail(email);
-        if (recovery == null || !recovery.isVerified()) {
-            showError("Please enter and verify the OTP code first.");
+        if (answer.isEmpty() || answer.equals("Enter Security Answer")) {
+            showError("Please enter your security answer.");
             return;
         }
 
-        if (newPassword.isEmpty() || confirmPassword.isEmpty()) {
+        // Case insensitive match for security answer
+        if (!pendingRecoveryUser.getSecurityAnswer().equalsIgnoreCase(answer)) {
+            showError("Incorrect security answer.");
+            return;
+        }
+
+        if (newPassword.isEmpty() || confirmPassword.isEmpty() || newPassword.equals("New Password")) {
             showError("Please fill in both password fields.");
             return;
         }
@@ -162,25 +118,17 @@ public class PasswordRecoveryController {
         }
 
         // Update user password
-        User user = userDAO.getByEmail(email);
-        if (user != null) {
-            user.setPassword(newPassword);
-            if (userDAO.update(user)) {
-                // Delete verification request after successful reset
-                recoveryDAO.delete(email);
-                
-                JOptionPane.showMessageDialog(view,
-                    "Your password has been reset successfully!\n" +
-                    "Please sign in with your new password.",
-                    "Password Reset Successful", JOptionPane.INFORMATION_MESSAGE);
-                
-                // Go back to Login screen
-                handleBack();
-            } else {
-                showError("Failed to update password. Database error occurred.");
-            }
+        pendingRecoveryUser.setPassword(newPassword);
+        if (userDAO.update(pendingRecoveryUser)) {
+            JOptionPane.showMessageDialog(view,
+                "Your password has been reset successfully!\n" +
+                "Please sign in with your new password.",
+                "Password Reset Successful", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Go back to Login screen
+            handleBack();
         } else {
-            showError("User account not found.");
+            showError("Failed to update password. Database error occurred.");
         }
     }
 

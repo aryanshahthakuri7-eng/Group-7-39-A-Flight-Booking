@@ -522,16 +522,20 @@ public class SignUp extends javax.swing.JFrame {
         jCheckBoxShowPassword = new javax.swing.JCheckBox();
 
         jLabelRole.setFont(new java.awt.Font("SansSerif", 1, 13));
-        jLabelRole.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRole.setForeground(new java.awt.Color(31, 41, 55));
         jLabelRole.setText("Register as:");
         jPanelCard.add(jLabelRole);
         jLabelRole.setBounds(30, 365, 90, 34);
 
         jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
+        jComboBoxRole.setFont(new java.awt.Font("SansSerif", 1, 13));
+        jComboBoxRole.setForeground(new java.awt.Color(31, 41, 55));
         jPanelCard.add(jComboBoxRole);
         jComboBoxRole.setBounds(120, 365, 210, 34);
 
         jComboBoxSecQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Security Question", "What is your pet's name?", "What was your childhood nickname?", "In what city were you born?" }));
+        jComboBoxSecQuestion.setFont(new java.awt.Font("SansSerif", 1, 13));
+        jComboBoxSecQuestion.setForeground(new java.awt.Color(31, 41, 55));
         jPanelCard.add(jComboBoxSecQuestion);
         jComboBoxSecQuestion.setBounds(30, 410, 300, 34);
 
@@ -555,6 +559,8 @@ public class SignUp extends javax.swing.JFrame {
 
         jCheckBoxShowPassword.setText("Show Password");
         jCheckBoxShowPassword.setOpaque(false);
+        jCheckBoxShowPassword.setFont(new java.awt.Font("SansSerif", 1, 13));
+        jCheckBoxShowPassword.setForeground(new java.awt.Color(31, 41, 55));
         jPanelCard.add(jCheckBoxShowPassword);
         jCheckBoxShowPassword.setBounds(30, 335, 150, 20);
 
