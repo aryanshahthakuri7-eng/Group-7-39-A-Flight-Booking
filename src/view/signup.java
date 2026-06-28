@@ -589,3 +589,5 @@ public class signup extends javax.swing.JFrame {
 // Commit 6: Documented signup email input database check mappings
 
 // Commit 9: Documented signup username length validation constraints
+
+// Commit 12: Documented signup view password reveal checkbox toggle
